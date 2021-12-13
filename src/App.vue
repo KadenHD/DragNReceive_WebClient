@@ -1,28 +1,52 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+
+  <v-app>
+      <v-main>
+      
+          <Nav />
+
+          <router-view />
+
+          <Footer />
+
+          <Success />
+          <Error />
+        
+      </v-main>
+  </v-app>
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+  import Nav from '@/components/Nav.vue';
+  import Success from '@/components/Success.vue';
+  import Error from '@/components/Error.vue';
+  import Footer from '@/components/Footer.vue';
+  import axios from 'axios';
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  export default {
+    name: "App",
+    components: {
+      Nav,
+      Success,
+      Error,
+      Footer
+    },
+    async created() {
+      await axios.get('user')
+        .then(response => {
+          this.$store.commit('user', response.data.user);
+        });
+    }
+  };
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.q-field__append.row {
+  --bs-gutter-x: 5.5rem;
+}
+.form-card {
+  width: 400px;
+  margin:0 auto
 }
 </style>
