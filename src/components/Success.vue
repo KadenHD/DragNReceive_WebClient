@@ -1,7 +1,13 @@
 <template>
-    <div v-if="success" class="alert alert-success" role="alert">
+
+    <v-alert v-if="success"
+        dismissible
+        elevation="24"
+        type="success"
+    >
         {{success}}
-    </div>
+    </v-alert>
+
 </template>
 
 <script>
@@ -11,19 +17,6 @@ export default {
     name: 'Success',
     computed: {
         ...mapGetters({success: ['success']})
-    },
-    watch: {
-        success (value) {
-            if (value !== null) {
-                if (this.success) {
-                    clearTimeout(this.success);
-                    this.success = undefined;
-                }
-                this.success = setTimeout(() => { 
-                    this.$store.dispatch('success', null);
-                }, 3000);
-            }
-        }
     }
 }
 </script>

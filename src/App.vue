@@ -1,32 +1,42 @@
 <template>
 
   <v-app>
-      <v-main>
-      
-          <Nav />
+    <v-navigation-drawer v-if="user" app>
+      <Drawer />
+    </v-navigation-drawer>
 
-          <router-view />
+    <v-app-bar app>
+      <Nav />
+    </v-app-bar>
 
-          <Footer />
+    <v-main>
+      <v-container fluid>
+        <Error />
+        <Success />
+        <router-view></router-view>
+      </v-container>
+    </v-main>
 
-          <Success />
-          <Error />
-        
-      </v-main>
+    <v-footer app>
+      <Footer />
+    </v-footer>
   </v-app>
-
 </template>
 
 <script>
+  import Drawer from '@/components/Drawer.vue';
   import Nav from '@/components/Nav.vue';
   import Success from '@/components/Success.vue';
   import Error from '@/components/Error.vue';
   import Footer from '@/components/Footer.vue';
   import axios from 'axios';
 
+  import { mapGetters } from 'vuex';
+
   export default {
     name: "App",
     components: {
+      Drawer,
       Nav,
       Success,
       Error,
@@ -37,16 +47,9 @@
         .then(response => {
           this.$store.commit('user', response.data.user);
         });
+    },
+    computed: {
+        ...mapGetters(['user'])
     }
   };
 </script>
-
-<style>
-.q-field__append.row {
-  --bs-gutter-x: 5.5rem;
-}
-.form-card {
-  width: 400px;
-  margin:0 auto
-}
-</style>
