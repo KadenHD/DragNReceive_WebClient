@@ -64,7 +64,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ***Les logiciels :***
 
 > Visual Studio Code,
-> Vue 3,
+> Vue 2,
 > NPM
 
 ***Les langues :***
