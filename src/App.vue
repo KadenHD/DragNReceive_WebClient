@@ -1,6 +1,6 @@
 <template>
-
   <v-app>
+  
     <v-navigation-drawer v-if="user" app>
       <Drawer />
     </v-navigation-drawer>
@@ -20,18 +20,19 @@
     <v-footer app>
       <Footer />
     </v-footer>
+    
   </v-app>
 </template>
 
 <script>
+  import axios from 'axios';
+  import { mapGetters } from 'vuex';
+
   import Drawer from '@/components/Drawer.vue';
   import Nav from '@/components/Nav.vue';
   import Success from '@/components/Success.vue';
   import Error from '@/components/Error.vue';
   import Footer from '@/components/Footer.vue';
-  import axios from 'axios';
-
-  import { mapGetters } from 'vuex';
 
   export default {
     name: "App",
