@@ -28,7 +28,6 @@
         />
 
         <btn label="Réinitialiser" type="submit" color="primary"/>
-        
     </form>
         
     </div>
