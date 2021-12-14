@@ -55,7 +55,7 @@ export default {
     methods: {
         async validate () {
             this.$refs.form.validate()
-            this.$store.dispatch('error', 'mange tes morts');
+            this.$store.dispatch('error', 'test');
             await axios.post('login', {
                 email: this.email,
                 password: this.password
