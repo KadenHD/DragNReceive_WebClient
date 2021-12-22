@@ -76,10 +76,12 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 # To-do
 
-- Utiliser Vuetify
+- Utiliser Vuetify pour faire l'intégralité des pages acutelles
 - Faire une purge des méthodes pour tout passser dans VueX (attendre que l'api soit réparé)
+
+- Modifier le router pour qu'il refuse aux connecté le login/register et refuse au non-connécté le dashboard etc (redirection)
 - Mettre en place des templates "Skeleton Loader" pour le pré-chargement des contents
-- Modifier le router pour qu'il refuse aux connecté le login/register et refuse au non-connécté le dashboard
+
 
 # Sources
 
