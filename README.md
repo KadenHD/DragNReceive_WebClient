@@ -82,7 +82,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - Faire des permissions et redirection dans le router en fonction du role et de loggedin etc...
 - Mettre en place des templates "Skeleton Loader" avant le chargement des contents
 
-
 # Sources
 
 - Routing with Vue-Router : [Link](https://www.vuemastery.com/blog/vue-router-a-tutorial-for-vue-3/)
