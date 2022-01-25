@@ -14,23 +14,23 @@ Vue.use(VueRouter);
 const routes = [
     {
         path: '/',
-        name: 'Home', 
+        name: 'Home',
         component: Home,
         meta: {
             title: 'Home',
         }
     },
     {
-        path: '/login', 
-        name: 'Login', 
+        path: '/login',
+        name: 'Login',
         component: Login,
         meta: {
             title: 'Login',
         }
     },
     {
-        path: '/register', 
-        name: 'Register', 
+        path: '/register',
+        name: 'Register',
         component: Register,
         meta: {
             title: 'Register',
@@ -54,7 +54,7 @@ const routes = [
     },
     {
         path: '/:pathMatch(.*)',
-        name: 'NotFound', 
+        name: 'NotFound',
         component: NotFound,
         meta: {
             title: '404 NotFound',

@@ -1,13 +1,9 @@
 <template>
-    <div>
-        
-        Le footer le plus stylé du monde
-        
-    </div>
+  <div>Le footer le plus stylé du monde</div>
 </template>
 
 <script>
 export default {
-    name: 'Footer'
-}
+  name: "Footer",
+};
 </script>
