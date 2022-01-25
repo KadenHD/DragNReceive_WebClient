@@ -77,9 +77,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 # To-do
 
 - Utiliser Vuetify pour faire l'intégralité des pages acutelles
-- Faire une purge des méthodes pour tout passser dans VueX
-
-- Faire des permissions et redirection dans le router en fonction du role et de loggedin etc...
+- Faire permissions et redirections router en fonction du role etc...
 - Mettre en place des templates "Skeleton Loader" avant le chargement des contents
 
 # Sources
