@@ -23,7 +23,6 @@
 import axios from "axios";
 
 export default {
-  name: "Forgot",
   data() {
     return {
       email: "",
