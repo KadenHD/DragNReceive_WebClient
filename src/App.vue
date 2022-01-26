@@ -1,21 +1,23 @@
 <template>
-  <v-app>
-    <v-app-bar app>
-      <Nav />
-    </v-app-bar>
+  <div class="App">
+    <v-app>
+      <v-app-bar app>
+        <Nav />
+      </v-app-bar>
 
-    <v-main>
-      <v-container fluid>
-        <Error />
-        <Success />
-        <router-view></router-view>
-      </v-container>
-    </v-main>
+      <v-main>
+        <v-container fluid>
+          <Error />
+          <Success />
+          <router-view></router-view>
+        </v-container>
+      </v-main>
 
-    <v-footer v-if="!user" app>
-      <Footer />
-    </v-footer>
-  </v-app>
+      <v-footer v-if="!user" app>
+        <Footer />
+      </v-footer>
+    </v-app>
+  </div>
 </template>
 
 <script>
