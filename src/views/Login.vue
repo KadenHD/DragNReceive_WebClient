@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="Login">
     <v-form
       @submit.prevent="handleSubmit"
       ref="form"
