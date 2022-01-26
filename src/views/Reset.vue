@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="Reset">
     <form @submit.prevent="handleSubmit">
       <div>Réinitialiser le mot de passe</div>
 
