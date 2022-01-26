@@ -1,3 +1,3 @@
 <template>
-  <div class="Footer">Le footer le plus stylé du monde</div>
+  <div class="Footer">Nous contacter :</div>
 </template>
