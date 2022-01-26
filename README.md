@@ -84,4 +84,3 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 - Routing with Vue-Router : [Link](https://www.vuemastery.com/blog/vue-router-a-tutorial-for-vue-3/)
 - Video tutorial for JWT Authentication, Axios, Vue and Vuex logics : [Link](https://youtu.be/uqpM7WVTKI4?list=PLzBCdvbn0AZWnKk55ezv82IwNm7lJcu_N)
-
