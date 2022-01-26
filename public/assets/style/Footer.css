@@ -1,0 +1,7 @@
+.Footer a {
+    text-decoration: none;
+}
+
+.Footer a {
+    color: var(--darker-primary-blue) !important;
+}

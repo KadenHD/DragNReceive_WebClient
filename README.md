@@ -79,6 +79,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - Utiliser Vuetify pour faire l'intégralité des pages acutelles
 - Faire permissions et redirections router en fonction du role etc...
 - Mettre en place des templates "Skeleton Loader" avant le chargement des contents
+- Faire des fausses pages à propos de nous etc... et mettre les redirection dans le footer
 
 # Sources
 

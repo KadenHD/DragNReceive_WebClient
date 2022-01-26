@@ -57,7 +57,7 @@ const routes = [
         }
     },
     {
-        path: '/:pathMatch(.*)',
+        path: '/:pathMatch(.*)*',
         name: 'NotFound',
         component: NotFound,
         meta: {
