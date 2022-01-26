@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="Register">
     <form @submit.prevent="handleSubmit">
       <div>Création d'un utilisateur</div>
 
