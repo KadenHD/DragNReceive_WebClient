@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="Forgot">
     <form @submit.prevent="handleSubmit">
       <div>Mot de passe oublié</div>
 
