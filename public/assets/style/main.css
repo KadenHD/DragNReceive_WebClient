@@ -1,0 +1,10 @@
+@import url('./NotFound.css');
+
+:root {
+    --darker-primary-green: #91a16a;
+    --normal-primary-green: #afb854;
+    --lighter-primary-green: #afb891;
+    --darker-primary-blue: #014d5a;
+    --normal-primary-blue: #24646f;
+    --lighter-primary-blue: #4a7f88;
+}
