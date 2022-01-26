@@ -12,7 +12,5 @@
 </template>
 
 <script>
-export default {
-  name: "Nav",
-};
+export default {};
 </script>
