@@ -8,7 +8,6 @@
 import { mapGetters } from "vuex";
 
 export default {
-  name: "Success",
   computed: {
     ...mapGetters({ success: ["success"] }),
   },
