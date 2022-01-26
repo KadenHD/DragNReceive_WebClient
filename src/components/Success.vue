@@ -1,7 +1,9 @@
 <template>
-  <v-alert v-if="success" dismissible elevation="24" type="success">
-    {{ success }}
-  </v-alert>
+  <div class="Success">
+    <v-alert v-if="success" dismissible elevation="24" type="success">
+      {{ success }}
+    </v-alert>
+  </div>
 </template>
 
 <script>
