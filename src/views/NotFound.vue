@@ -7,7 +7,7 @@
       src="assets/img/page_not_found.svg"
       lazy-src="assets/img/page_not_found.svg"
       class="mx-auto"
-      max-width="1250"
+      max-width="800"
     ></v-img>
     <p
       class="
