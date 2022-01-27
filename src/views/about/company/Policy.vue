@@ -1,10 +1,10 @@
 <template>
-  <div>politique</div>
+  <div class="Policy">politique</div>
 </template>
 
 <script>
 export default {};
 </script>
 
-<style>
+<style scoped>
 </style>
