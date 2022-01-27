@@ -46,9 +46,9 @@ export default {
         title: "L'Entreprise",
         action: "mdi-domain",
         items: [
-          { title: "À propos de nous", path: "" },
-          { title: "Nos services", path: "" },
-          { title: "Politique de confidentialité", path: "" },
+          { title: "À propos de nous", path: "About-us" },
+          { title: "Nos services", path: "Services" },
+          { title: "Politique de confidentialité", path: "Policy" },
         ],
       },
       {

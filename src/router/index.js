@@ -2,12 +2,10 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 
 import Home from '@/views/Home.vue';
-import Login from '@/views/Login.vue';
-import Register from '@/views/Register.vue';
-import Forgot from '@/views/Forgot.vue';
-import Reset from '@/views/Reset.vue';
 import NotFound from '@/views/NotFound.vue';
 
+import authRouter from "./auth.js";
+import aboutRouter from "./about.js";
 
 Vue.use(VueRouter);
 
@@ -24,45 +22,19 @@ const routes = [
             title: 'Home',
         }
     },
+    ...authRouter,
+    ...aboutRouter,
     {
-        path: '/login',
-        name: 'Login',
-        component: Login,
-        meta: {
-            title: 'Login',
-        }
-    },
-    {
-        path: '/register',
-        name: 'Register',
-        component: Register,
-        meta: {
-            title: 'Register',
-        }
-    },
-    {
-        path: '/forgot',
-        name: 'Forgot',
-        component: Forgot,
-        meta: {
-            title: 'Forgot',
-        }
-    },
-    {
-        path: '/reset/:token',
-        name: 'Reset',
-        component: Reset,
-        meta: {
-            title: 'Reset',
-        }
-    },
-    {
-        path: '/:pathMatch(.*)*',
+        path: '/404',
         name: 'NotFound',
         component: NotFound,
         meta: {
             title: '404',
         }
+    },
+    {
+        path: '/:pathMatch(.*)*',
+        redirect: '/404'
     },
 ];
 
