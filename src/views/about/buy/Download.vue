@@ -69,7 +69,7 @@ export default {
   font-weight: bold;
 }
 .Download .slideText {
-  color: #24646f;
+  color: #4a7f88;
   font-size: 16px;
 }
 .Download .v-carousel__controls {
