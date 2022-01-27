@@ -97,3 +97,13 @@ export default {
   }),
 };
 </script>
+
+<style scoped>
+.Footer a {
+  text-decoration: none;
+}
+
+.Footer a {
+  color: #014d5a !important;
+}
+</style>

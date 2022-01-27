@@ -1,36 +1,23 @@
 <template>
   <div class="Reset">
     <form @submit.prevent="handleSubmit">
-      <div>Réinitialiser le mot de passe</div>
-
-      <q-input
-        required
-        filled
-        type="password"
+      <v-text-field
         v-model="password"
+        :rules="passwordRules"
         label="Mot de passe"
-        :rules="[
-          (val) =>
-            (val !== null && val !== '') || 'Saisissez votre mot de passe !',
-        ]"
-      />
-
-      <q-input
         required
-        filled
-        type="password"
-        v-model="passwordconfirm"
-        label="Confirmer mot de passe"
-        :rules="[
-          (val) =>
-            val === password ||
-            'Les deux mots de passe doivent être similaire !',
-          (val) =>
-            (val !== null && val !== '') || 'Confirmez votre mot de passe !',
-        ]"
-      />
+      ></v-text-field>
 
-      <btn label="Réinitialiser" type="submit" color="primary" />
+      <v-text-field
+        v-model="passwordconfirm"
+        :rules="passwordconfirmRules"
+        label="Confirmez le mot de passe"
+        required
+      ></v-text-field>
+
+      <v-btn :disabled="!valid" color="success" class="mr-4" @click="validate">
+        Réinitialiser
+      </v-btn>
     </form>
   </div>
 </template>
@@ -42,7 +29,14 @@ export default {
   data() {
     return {
       password: "",
+      passwordRules: [(v) => !!v || "Le mot de passe est requis"],
       passwordconfirm: "",
+      passwordconfirmRules: [
+        (v) => !!v || "Le mot de passe est requis",
+        (v) =>
+          v === this.password ||
+          "Les deux mots de passe doivent être similaire !",
+      ],
     };
   },
   methods: {

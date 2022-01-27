@@ -1,7 +1,3 @@
-@import url('./Footer.css');
-@import url('./Nav.css');
-@import url('./NotFound.css');
-
 :root {
     --darker-primary-green: #91a16a;
     --normal-primary-green: #afb854;

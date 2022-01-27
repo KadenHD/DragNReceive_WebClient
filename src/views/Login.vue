@@ -21,7 +21,7 @@
       ></v-text-field>
 
       <v-btn :disabled="!valid" color="success" class="mr-4" @click="validate">
-        Validate
+        Se connecter
       </v-btn>
     </v-form>
   </div>
@@ -35,11 +35,11 @@ export default {
     return {
       email: "",
       emailRules: [
-        (v) => !!v || "E-mail is required",
-        (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
+        (v) => !!v || "L'e-mail est requis",
+        (v) => /.+@.+\..+/.test(v) || "Le format de l'e-mail doit être valide",
       ],
       password: "",
-      passwordRules: [(v) => !!v || "Password is required"],
+      passwordRules: [(v) => !!v || "Le mot de passe est requis"],
     };
   },
   methods: {

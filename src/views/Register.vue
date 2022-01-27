@@ -1,63 +1,51 @@
 <template>
   <div class="Register">
-    <form @submit.prevent="handleSubmit">
-      <div>Création d'un utilisateur</div>
-
-      <q-select
-        required
-        filled
+    <v-form
+      @submit.prevent="handleSubmit"
+      ref="form"
+      v-model="valid"
+      lazy-validation
+    >
+      <v-select
         v-model="roleId"
+        :rules="roleRules"
+        :items="options"
         label="Rôle"
-        :options="options"
+        required
       />
 
-      <q-input
-        required
-        filled
-        type="text"
-        v-model="firstname"
+      <v-text-field
+        v-model="lastName"
+        :rules="lastNameRules"
         label="Nom"
-        :rules="[
-          (val) => (val !== null && val !== '') || 'Saisissez votre nom !',
-        ]"
-      />
-
-      <q-input
         required
-        filled
-        type="text"
-        v-model="lastname"
+      ></v-text-field>
+
+      <v-text-field
+        v-model="firstName"
+        :rules="firstNameRules"
         label="Prénom"
-        :rules="[
-          (val) => (val !== null && val !== '') || 'Saisissez votre prénom !',
-        ]"
-      />
-
-      <q-input
         required
-        filled
-        type="email"
-        v-model="email"
-        label="Email"
-        :rules="[
-          (val) => (val !== null && val !== '') || 'Saisissez votre email !',
-        ]"
-      />
+      ></v-text-field>
 
-      <q-input
+      <v-text-field
+        v-model="emailName"
+        :rules="emailRules"
+        label="E-mail"
         required
-        filled
-        type="password"
-        v-model="password"
+      ></v-text-field>
+
+      <v-text-field
+        v-model="passwordName"
+        :rules="passwordRules"
         label="Mot de passe"
-        :rules="[
-          (val) =>
-            (val !== null && val !== '') || 'Saisissez votre mot de passe !',
-        ]"
-      />
+        required
+      ></v-text-field>
 
-      <btn label="Créer" type="submit" color="primary" />
-    </form>
+      <v-btn :disabled="!valid" color="success" class="mr-4" @click="validate">
+        Créer
+      </v-btn>
+    </v-form>
   </div>
 </template>
 
@@ -68,21 +56,29 @@ export default {
   data() {
     return {
       roleId: "",
+      roleRules: [(v) => !!v || "Le rôle est requis"],
       firstname: "",
+      firstNameRules: [(v) => !!v || "Le prénom est requis"],
       lastname: "",
+      lastNameRules: [(v) => !!v || "Le nom est requis"],
       email: "",
+      emailRules: [
+        (v) => !!v || "L'e-mail est requis",
+        (v) => /.+@.+\..+/.test(v) || "Le format de l'e-mail doit être valide",
+      ],
       password: "",
+      passwordRules: [(v) => !!v || "Le mot de passe est requis"],
       options: [
         {
-          label: "SuperAdmin",
+          text: "SuperAdmin",
           value: "1",
         },
         {
-          label: "Admin",
+          text: "Admin",
           value: "2",
         },
         {
-          label: "Partenaire",
+          text: "Partenaire",
           value: "3",
         },
       ],
