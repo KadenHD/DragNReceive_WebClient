@@ -55,16 +55,16 @@ export default {
         title: "Besoin d'aide",
         action: "mdi-handshake-outline",
         items: [
-          { title: "Nous contacter", path: "" },
-          { title: "Comment nous rejoindre", path: "" },
+          { title: "Nous contacter", path: "Contact" },
+          { title: "Comment nous rejoindre", path: "Join" },
         ],
       },
       {
         title: "Acheter dans nos boutiques",
         action: "mdi-cart-arrow-down",
         items: [
-          { title: "Nos partenaires", path: "" },
-          { title: "Télécharger l'application mobile", path: "" },
+          { title: "Nos partenaires", path: "Partner" },
+          { title: "Télécharger l'application mobile", path: "Download" },
         ],
       },
       {
