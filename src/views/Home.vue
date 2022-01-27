@@ -4,3 +4,6 @@
     <div v-if="!user">Vous n'êtes pas connecté !</div>
   </div>
 </template>
+
+<style scoped>
+</style>
