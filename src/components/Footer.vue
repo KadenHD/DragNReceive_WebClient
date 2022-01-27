@@ -27,7 +27,7 @@
               </v-list-item-icon>
               <v-list-item-content v-if="child.title">
                 <router-link :to="{ name: child.path }">
-                  <v-list-item-title v-text="child.title"></v-list-item-title>
+                  {{ child.title }}
                 </router-link>
               </v-list-item-content>
             </v-list-item>
@@ -99,22 +99,22 @@ export default {
 </script>
 
 <style >
-.Footer a {
+.Footer .v-list-item a {
   text-decoration: none;
   color: #014d5a;
 }
 
-.Footer a:hover {
+.Footer .v-list-item a:hover {
   color: #4a7f88;
 }
 
-.router-link-exact-active,
-.router-link-active {
+.Footer .router-link-exact-active,
+.Footer .router-link-active {
   color: #91a16a !important;
 }
 
-.router-link-exact-active:hover,
-.router-link-active:hover {
+.Footer .router-link-exact-active:hover,
+.Footer .router-link-active:hover {
   color: #afb891 !important;
 }
 </style>
