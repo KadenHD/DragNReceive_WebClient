@@ -1,10 +1,10 @@
 <template>
-  <div>Rejoindre</div>
+  <div class="Join">Rejoindre</div>
 </template>
 
 <script>
 export default {};
 </script>
 
-<style>
+<style scoped>
 </style>
