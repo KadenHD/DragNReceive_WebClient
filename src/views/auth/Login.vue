@@ -6,23 +6,33 @@
       v-model="valid"
       lazy-validation
     >
-      <v-text-field
-        v-model="email"
-        :rules="emailRules"
-        label="E-mail"
-        required
-      ></v-text-field>
+      <v-card>
+        <v-card-text>
+          <v-text-field
+            v-model="email"
+            :rules="emailRules"
+            label="E-mail"
+            required
+          ></v-text-field>
 
-      <v-text-field
-        v-model="password"
-        :rules="passwordRules"
-        label="Password"
-        required
-      ></v-text-field>
-
-      <v-btn :disabled="!valid" color="success" class="mr-4" @click="validate">
-        Se connecter
-      </v-btn>
+          <v-text-field
+            v-model="password"
+            :rules="passwordRules"
+            label="Password"
+            required
+          ></v-text-field>
+        </v-card-text>
+        <v-card-actions>
+          <v-btn
+            :disabled="!valid"
+            color="success"
+            class="mr-4"
+            @click="validate"
+          >
+            Se connecter
+          </v-btn>
+        </v-card-actions>
+      </v-card>
     </v-form>
   </div>
 </template>
@@ -65,5 +75,5 @@ export default {
 };
 </script>
 
-<style scoped>
+<style >
 </style>

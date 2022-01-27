@@ -20,7 +20,7 @@
   </div>
 </template>
 
-<style scoped>
+<style >
 .NotFound {
   position: relative;
   text-align: center;

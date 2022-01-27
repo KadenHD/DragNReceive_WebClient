@@ -1,23 +1,33 @@
 <template>
   <div class="Reset">
     <form @submit.prevent="handleSubmit">
-      <v-text-field
-        v-model="password"
-        :rules="passwordRules"
-        label="Mot de passe"
-        required
-      ></v-text-field>
+      <v-card>
+        <v-card-text>
+          <v-text-field
+            v-model="password"
+            :rules="passwordRules"
+            label="Mot de passe"
+            required
+          ></v-text-field>
 
-      <v-text-field
-        v-model="passwordconfirm"
-        :rules="passwordconfirmRules"
-        label="Confirmez le mot de passe"
-        required
-      ></v-text-field>
-
-      <v-btn :disabled="!valid" color="success" class="mr-4" @click="validate">
-        Réinitialiser
-      </v-btn>
+          <v-text-field
+            v-model="passwordconfirm"
+            :rules="passwordconfirmRules"
+            label="Confirmez le mot de passe"
+            required
+          ></v-text-field>
+        </v-card-text>
+        <v-card-actions>
+          <v-btn
+            :disabled="!valid"
+            color="success"
+            class="mr-4"
+            @click="validate"
+          >
+            Réinitialiser
+          </v-btn>
+        </v-card-actions>
+      </v-card>
     </form>
   </div>
 </template>
@@ -60,5 +70,5 @@ export default {
 };
 </script>
 
-<style scoped>
+<style >
 </style>

@@ -40,7 +40,7 @@ export default {
 </script>
 
 
-<style scoped>
+<style >
 .Nav .links {
   display: flex;
   flex-direction: row;

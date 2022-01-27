@@ -6,45 +6,55 @@
       v-model="valid"
       lazy-validation
     >
-      <v-select
-        v-model="roleId"
-        :rules="roleRules"
-        :items="options"
-        label="Rôle"
-        required
-      />
+      <v-card
+        ><v-card-text>
+          <v-select
+            v-model="roleId"
+            :rules="roleRules"
+            :items="options"
+            label="Rôle"
+            required
+          />
 
-      <v-text-field
-        v-model="lastName"
-        :rules="lastNameRules"
-        label="Nom"
-        required
-      ></v-text-field>
+          <v-text-field
+            v-model="lastName"
+            :rules="lastNameRules"
+            label="Nom"
+            required
+          ></v-text-field>
 
-      <v-text-field
-        v-model="firstName"
-        :rules="firstNameRules"
-        label="Prénom"
-        required
-      ></v-text-field>
+          <v-text-field
+            v-model="firstName"
+            :rules="firstNameRules"
+            label="Prénom"
+            required
+          ></v-text-field>
 
-      <v-text-field
-        v-model="emailName"
-        :rules="emailRules"
-        label="E-mail"
-        required
-      ></v-text-field>
+          <v-text-field
+            v-model="emailName"
+            :rules="emailRules"
+            label="E-mail"
+            required
+          ></v-text-field>
 
-      <v-text-field
-        v-model="passwordName"
-        :rules="passwordRules"
-        label="Mot de passe"
-        required
-      ></v-text-field>
-
-      <v-btn :disabled="!valid" color="success" class="mr-4" @click="validate">
-        Créer
-      </v-btn>
+          <v-text-field
+            v-model="passwordName"
+            :rules="passwordRules"
+            label="Mot de passe"
+            required
+          ></v-text-field>
+        </v-card-text>
+        <v-card-actions>
+          <v-btn
+            :disabled="!valid"
+            color="success"
+            class="mr-4"
+            @click="validate"
+          >
+            Créer
+          </v-btn>
+        </v-card-actions>
+      </v-card>
     </v-form>
   </div>
 </template>
@@ -106,5 +116,5 @@ export default {
 };
 </script>
 
-<style scoped>
+<style >
 </style>

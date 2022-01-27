@@ -98,7 +98,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style >
 .Footer a {
   text-decoration: none;
   color: #014d5a;

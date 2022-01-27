@@ -6,16 +6,26 @@
       v-model="valid"
       lazy-validation
     >
-      <v-text-field
-        v-model="emailName"
-        :rules="emailRules"
-        label="E-mail"
-        required
-      ></v-text-field>
-
-      <v-btn :disabled="!valid" color="success" class="mr-4" @click="validate">
-        Envoyer
-      </v-btn>
+      <v-card>
+        <v-card-text>
+          <v-text-field
+            v-model="emailName"
+            :rules="emailRules"
+            label="E-mail"
+            required
+          ></v-text-field>
+        </v-card-text>
+        <v-card-actions>
+          <v-btn
+            :disabled="!valid"
+            color="success"
+            class="mr-4"
+            @click="validate"
+          >
+            Envoyer
+          </v-btn></v-card-actions
+        >
+      </v-card>
     </v-form>
   </div>
 </template>
@@ -50,5 +60,5 @@ export default {
 };
 </script>
 
-<style scoped>
+<style >
 </style>
