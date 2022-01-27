@@ -1,10 +1,10 @@
 <template>
-  <div>about us</div>
+  <div class="Us">about us</div>
 </template>
 
 <script>
 export default {};
 </script>
 
-<style>
+<style scoped>
 </style>
