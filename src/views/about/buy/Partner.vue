@@ -4,7 +4,8 @@
     <v-card-text
       >Nous avons effectivement, moultes partenaires, nous essayons donc de
       recruter uniquement "la crême" des vendeurs, de préférences des vendeurs
-      de produits artisanaux</v-card-text
+      de produits artisanaux. Nous recrutons nos partenaire avec
+      choix.</v-card-text
     >
     <v-img
       src="../../../../public/assets/img/working.svg"
