@@ -1,14 +1,17 @@
 <template>
   <div class="Partner">
-    <v-card>
-      <v-card-title>Nos partenaires</v-card-title>
-      <v-card-text
-        >Nous avons effectivement, moultes partenaires, nous essayons donc de
-        recruter uniquement "la crême" des vendeurs, de préférences des vendeurs
-        de produits artisanaux</v-card-text
-      >
-      <v-img src="" lazy-src="" class="mx-auto" max-width="100"></v-img>
-    </v-card>
+    <v-card-title>Nos partenaires</v-card-title>
+    <v-card-text
+      >Nous avons effectivement, moultes partenaires, nous essayons donc de
+      recruter uniquement "la crême" des vendeurs, de préférences des vendeurs
+      de produits artisanaux</v-card-text
+    >
+    <v-img
+      src="../../../../public/assets/img/working.svg"
+      lazy-src="../../../../public/assets/img/working.svg"
+      class="mx-auto"
+      max-width="500"
+    ></v-img>
   </div>
 </template>
 
