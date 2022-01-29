@@ -7,6 +7,7 @@
       lazy-validation
     >
       <v-card>
+        <v-card-title>Connectez-vous</v-card-title>
         <v-card-text>
           <v-text-field
             v-model="email"
