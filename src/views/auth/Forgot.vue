@@ -7,6 +7,7 @@
       lazy-validation
     >
       <v-card>
+        <v-card-title>Mot de passe oublié ?</v-card-title>
         <v-card-text>
           <v-text-field
             v-model="emailName"
