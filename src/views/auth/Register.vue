@@ -6,8 +6,9 @@
       v-model="valid"
       lazy-validation
     >
-      <v-card
-        ><v-card-text>
+      <v-card>
+        <v-card-title>Inscrivez-vous</v-card-title>
+        <v-card-text>
           <v-select
             v-model="roleId"
             :rules="roleRules"
