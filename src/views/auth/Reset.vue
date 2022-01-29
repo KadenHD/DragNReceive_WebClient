@@ -2,6 +2,7 @@
   <div class="Reset">
     <form @submit.prevent="handleSubmit">
       <v-card>
+        <v-card-title>Réinitialisez votre mot de passe</v-card-title>
         <v-card-text>
           <v-text-field
             v-model="password"
