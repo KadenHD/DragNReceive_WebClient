@@ -76,9 +76,10 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 # To-do
 
+- Faire fausse page Home
+
 - Faire permissions et redirections router en fonction du role etc...
-- Mettre en place des templates "Skeleton Loader" avant le chargement des contents
-- Faire des fausses pages à propos de nous etc...
+- Mettre en place des templates "Skeleton Loader" avant le chargement des entities
 
 # Sources
 
