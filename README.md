@@ -82,6 +82,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - Faire permissions et redirections router en fonction du role etc...
 - Mettre en place des templates "Skeleton Loader" avant le chargement des entities
 
+- Voir les data tables de vuetify pour les tables de gestion
+
 # Sources
 
 - Routing with Vue-Router : [Link](https://www.vuemastery.com/blog/vue-router-a-tutorial-for-vue-3/)
