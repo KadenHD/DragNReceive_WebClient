@@ -10,8 +10,8 @@
         les produits en boutique tel un drive.
       </p>
       <v-img
-        src="../../../../public/assets/img/add_to_cart.svg"
-        lazy-src="../../../../public/assets/img/add_to_cart.svg"
+        src="../../../../public/assets/img/unDraw/add_to_cart.svg"
+        lazy-src="../../../../public/assets/img/unDraw/add_to_cart.svg"
         class="mx-auto"
         max-width="400"
       ></v-img>

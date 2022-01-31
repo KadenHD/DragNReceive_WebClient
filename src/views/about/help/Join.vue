@@ -14,8 +14,8 @@
         <router-link :to="{ name: 'Contact' }"> nous contacter </router-link>.
       </p>
       <v-img
-        src="../../../../public/assets/img/career.svg"
-        lazy-src="../../../../public/assets/img/career.svg"
+        src="../../../../public/assets/img/unDraw/career.svg"
+        lazy-src="../../../../public/assets/img/unDraw/career.svg"
         class="mx-auto"
         max-width="500"
       ></v-img>

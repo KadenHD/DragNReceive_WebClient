@@ -4,8 +4,8 @@
       <v-row>
         <v-toolbar-title @click="$router.push({ name: 'Home' })">
           <v-img
-            src="../../public/assets/img/nameAndLogo/logo.svg"
-            lazy-src="../../public/assets/img/nameAndLogo/logo.svg"
+            src="../../public/assets/img/Jimdo/DragNReceive/nameAndLogo/logo.svg"
+            lazy-src="../../public/assets/img/Jimdo/DragNReceive/nameAndLogo/logo.svg"
             class="mx-auto"
             max-width="100"
           ></v-img>

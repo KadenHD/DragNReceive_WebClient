@@ -4,8 +4,8 @@
     <v-divider class="mr-2 mb-6 ml-2" inset></v-divider>
     <v-container>
       <v-img
-        src="../../../../public/assets/img/logoDashName/logo.svg"
-        lazy-src="../../../../public/assets/img/logoDashName/logo.svg"
+        src="../../../../public/assets/img/Jimdo/DragNReceive/dashName/logo.svg"
+        lazy-src="../../../../public/assets/img/Jimdo/DragNReceive/dashName/logo.svg"
         class="mx-auto"
         max-width="350"
       ></v-img>
@@ -25,8 +25,8 @@
       </p>
       <v-divider class="mr-2 mb-6 ml-2" inset></v-divider>
       <v-img
-        src="../../../../public/assets/img/hexaLogo/logo.svg"
-        lazy-src="../../../../public/assets/img/hexaLogo/logo.svg"
+        src="../../../../public/assets/img/Jimdo/DragNReceive/hexaInitial/logo.svg"
+        lazy-src="../../../../public/assets/img/Jimdo/DragNReceive/hexaInitial/logo.svg"
         class="mx-auto"
         max-width="100"
       ></v-img>

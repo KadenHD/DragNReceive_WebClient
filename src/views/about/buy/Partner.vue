@@ -9,8 +9,8 @@
         de produits artisanaux. Nous recrutons nos partenaire avec choix.
       </p>
       <v-img
-        src="../../../../public/assets/img/working.svg"
-        lazy-src="../../../../public/assets/img/working.svg"
+        src="../../../../public/assets/img/unDraw/working.svg"
+        lazy-src="../../../../public/assets/img/unDraw/working.svg"
         class="mx-auto"
         max-width="500"
       ></v-img>

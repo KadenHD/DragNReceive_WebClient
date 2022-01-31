@@ -11,8 +11,8 @@
         compte.
       </p>
       <v-img
-        src="../../../../public/assets/img/secure.svg"
-        lazy-src="../../../../public/assets/img/secure.svg"
+        src="../../../../public/assets/img/unDraw/secure.svg"
+        lazy-src="../../../../public/assets/img/unDraw/secure.svg"
         class="mx-auto"
         max-width="500"
       ></v-img>

@@ -37,17 +37,17 @@ export default {
       {
         title: "Télécharger",
         text: "Effectivement nous avons réalisé la conception d'une application mobile sous android du nom de DragN'Receive, pour la réalisation de toute commande, veuillez installer cette dernière.",
-        img: "../../assets/img/mobile_app.svg",
+        img: "../../assets/img/unDraw/mobile_app.svg",
       },
       {
         title: "Commander",
         text: "Grâce à notre application, vous allez pouvoir commander divers produits à travers différentes boutiques, pour la pluspart, composé de produits artisanaux.",
-        img: "../../assets/img/online_groceries.svg",
+        img: "../../assets/img/unDraw/online_groceries.svg",
       },
       {
         title: "Récupérer",
         text: "Soyez rassuré ! Une fois la commande réalisé, vous n'avez plus qu'à aller la récupérer en magasin.",
-        img: "../../assets/img/successful_purchase.svg",
+        img: "../../assets/img/unDraw/successful_purchase.svg",
       },
     ],
   }),
