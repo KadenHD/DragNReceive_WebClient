@@ -25,7 +25,6 @@
   position: relative;
   text-align: center;
 }
-
 .NotFound p {
   position: absolute;
   top: 30%;
@@ -34,7 +33,6 @@
   z-index: 1;
   color: #24646f;
 }
-
 .NotFound .v-btn {
   position: absolute;
   top: 50%;
@@ -44,7 +42,6 @@
   background-color: #afb854 !important;
   color: whitesmoke !important;
 }
-
 .NotFound .v-img {
   z-index: 0;
 }
