@@ -7,16 +7,36 @@
         Vous pouvez nous contacter via ces coordonnées suivantes, nous restons
         également actif sur nos réseaux sociaux en messages privés.
       </p>
-      <CompanyDetails />
+      <v-row class="mt-6" align="center" justify="center">
+        <v-card elevation="6" height="200" width="300">
+          <v-container>
+            <p class="label">Téléphone</p>
+            <v-row align="center" justify="center">
+              <v-text-field
+                filled
+                disabled
+                label="xx.xx.xx.xx.xx"
+                prepend-inner-icon="mdi-phone"
+              ></v-text-field>
+            </v-row>
+            <p class="label">Email</p>
+            <v-row align="center" justify="center">
+              <v-text-field
+                filled
+                disabled
+                label="customer-service@dragnreceive.com"
+                prepend-inner-icon="mdi-email"
+              ></v-text-field>
+            </v-row>
+          </v-container>
+        </v-card>
+      </v-row>
     </v-container>
   </div>
 </template>
 
-<script>
-import CompanyDetails from "@/components/CompanyDetails.vue";
-export default {
-  components: {
-    CompanyDetails,
-  },
-};
-</script>
+<style>
+.Contact .label {
+  color: #afb854;
+}
+</style>
