@@ -46,23 +46,11 @@ export default {
   flex-direction: row;
   align-items: center;
 }
-
 .Nav .links a {
   text-decoration: none;
   color: #014d5a;
 }
-
 .Nav .links a:hover {
   color: #4a7f88;
-}
-
-.router-link-exact-active,
-.router-link-active {
-  color: #91a16a !important;
-}
-
-.router-link-exact-active:hover,
-.router-link-active:hover {
-  color: #afb891 !important;
 }
 </style>
