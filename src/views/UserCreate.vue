@@ -99,7 +99,7 @@ export default {
     async handleSubmit() {
       await axios
         .post("users", {
-          roleId: this.roleId.value,
+          roleId: this.roleId, //à voir
           firstname: this.firstname,
           lastname: this.lastname,
           email: this.email,
@@ -107,7 +107,6 @@ export default {
         })
         .then((response) => {
           this.$store.dispatch("success", response.data.success);
-          this.$router.push({ name: "Login" });
         })
         .catch((error) => {
           this.$store.dispatch("error", error.response.data.error);
