@@ -1,6 +1,6 @@
 <template>
   <div class="Download">
-    <p class="title text-center">
+    <p class="TextTitle title text-center">
       Télécharger l'application mobile DragN'Receive
     </p>
     <v-divider class="mr-2 ml-2" inset></v-divider>
@@ -11,7 +11,7 @@
             <v-container>
               <v-row class="slideContent">
                 <p class="slideTitle text-center">{{ slide.title }}</p>
-                <p class="slideText text-center">{{ slide.text }}</p>
+                <p class="MainText text-center">{{ slide.text }}</p>
               </v-row>
               <v-row>
                 <v-img
@@ -55,10 +55,6 @@ export default {
 </script>
 
 <style>
-.Download .title {
-  color: #014d5a;
-  font-weight: bold;
-}
 .Download .slideContent {
   display: flex;
   flex-direction: column;
@@ -67,10 +63,6 @@ export default {
   color: #afb854;
   font-size: 16px;
   font-weight: bold;
-}
-.Download .slideText {
-  color: #4a7f88;
-  font-size: 16px;
 }
 .Download .v-carousel__controls {
   background: whitesmoke !important;
