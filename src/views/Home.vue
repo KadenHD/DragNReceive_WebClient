@@ -16,16 +16,16 @@
       ></v-img>
       <v-divider class="mr-2 mb-6 ml-2" inset></v-divider>
       <v-img
-        src="../../public/assets/img/Jimdo/DragNReceive/hexaInitial/logo.svg"
+        src="../../public/assets/img/Jimdo/DragNReceive/dashName/logo.svg"
         lazy-src="../../public/assets/img/Jimdo/DragNReceive/hexaInitial/logo.svg"
         class="mx-auto"
-        max-width="100"
+        max-width="300"
       ></v-img>
       <v-img
-        src="../../public/assets/img/Jimdo/DragNReceive/hexaInitial/logo.svg"
-        lazy-src="../../public/assets/img/Jimdo/DragNReceive/hexaInitial/logo.svg"
+        src="../../public/assets/img/Jimdo/Deviliser/logo.svg"
+        lazy-src="../../public/assets/img/Jimdo/Deviliser/logo.svg"
         class="mx-auto"
-        max-width="100"
+        max-width="150"
       ></v-img>
     </v-container>
   </div>
