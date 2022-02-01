@@ -47,3 +47,31 @@ export default {
   },
 };
 </script>
+
+<style>
+.router-link-exact-active,
+.router-link-active {
+  text-decoration: none;
+  color: #afb854 !important;
+}
+.router-link-exact-active:hover,
+.router-link-active:hover {
+  color: #afb891 !important;
+}
+
+.TextTitle {
+  color: #014d5a;
+  font-weight: bold;
+}
+.MainText {
+  color: #4a7f88;
+  font-size: 16px;
+}
+.TextLinks {
+  text-decoration: none;
+  color: #afb854 !important;
+}
+.TextLinks:hover {
+  color: #afb891 !important;
+}
+</style>
