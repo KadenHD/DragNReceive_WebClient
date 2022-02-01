@@ -1,43 +1,37 @@
 <template>
   <div class="Home">
-    <p class="title text-center">Bienvenue chez DragN'Receive !</p>
+    <p class="TextTitle title text-center">Bienvenue chez DragN'Receive !</p>
     <v-divider class="mr-2 mb-6 ml-2" inset></v-divider>
     <v-container>
-      <p class="text text-center">
-        Nous avons effectivement, moultes partenaires, nous essayons donc de
-        recruter uniquement "la crême" des vendeurs, de préférences des vendeurs
-        de produits artisanaux. Nous recrutons nos partenaire avec choix.
+      <p class="MainText text-center">
+        Bienvenue sur la plateforme de gestion des partenaires et de stocks de
+        <router-link class="TextLinks" :to="{ name: 'About-us' }">
+          DragN'Receive </router-link
+        >, la boutique des Click & Collect à grande échelle de l'aglomération de
+        Compiègne !
       </p>
       <v-img
-        src="../../public/assets/img/unDraw/working.svg"
-        lazy-src="../../public/assets/img/unDraw/working.svg"
+        src="../../public/assets/img/unDraw/map.svg"
+        lazy-src="../../public/assets/img/unDraw/map.svg"
         class="mx-auto"
         max-width="500"
       ></v-img>
       <v-divider class="mr-2 mb-6 ml-2" inset></v-divider>
-      <v-img
-        src="../../public/assets/img/Jimdo/DragNReceive/dashName/logo.svg"
-        lazy-src="../../public/assets/img/Jimdo/DragNReceive/hexaInitial/logo.svg"
-        class="mx-auto"
-        max-width="300"
-      ></v-img>
-      <v-img
-        src="../../public/assets/img/Jimdo/Deviliser/logo.svg"
-        lazy-src="../../public/assets/img/Jimdo/Deviliser/logo.svg"
-        class="mx-auto"
-        max-width="150"
-      ></v-img>
+      <v-row align="center" justify="center">
+        <v-img
+          src="../../public/assets/img/Jimdo/DragNReceive/squareName/logo.svg"
+          lazy-src="../../public/assets/img/Jimdo/DragNReceive/squareName/logo.svg"
+          class="mx-auto"
+          max-width="250"
+        ></v-img>
+        <v-divider class="mr-6 ml-6" inset vertical></v-divider>
+        <v-img
+          src="../../public/assets/img/Jimdo/Deviliser/logo.svg"
+          lazy-src="../../public/assets/img/Jimdo/Deviliser/logo.svg"
+          class="mx-auto"
+          max-width="175"
+        ></v-img>
+      </v-row>
     </v-container>
   </div>
 </template>
-
-<style >
-.Home .title {
-  color: #014d5a;
-  font-weight: bold;
-}
-.Home .text {
-  color: #4a7f88;
-  font-size: 16px;
-}
-</style>
