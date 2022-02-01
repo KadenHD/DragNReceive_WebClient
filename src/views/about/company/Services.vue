@@ -1,9 +1,9 @@
 <template>
   <div class="Services">
-    <p class="title text-center">Nos services</p>
+    <p class="TextTitle title text-center">Nos services</p>
     <v-divider class="mr-2 mb-6 ml-2" inset></v-divider>
     <v-container>
-      <p class="text text-center">
+      <p class="MainText text text-center">
         L'entreprise DragN'Receive vous propose plusieurs partenaire, vous
         permettant d'acheter des produits locaux, français, 100% made in France.
         Chacun de nos partenaire est donc à votre dispotion pour vous remettre
@@ -18,18 +18,3 @@
     </v-container>
   </div>
 </template>
-
-<script>
-export default {};
-</script>
-
-<style >
-.Services .title {
-  color: #014d5a;
-  font-weight: bold;
-}
-.Services .text {
-  color: #4a7f88;
-  font-size: 16px;
-}
-</style>
