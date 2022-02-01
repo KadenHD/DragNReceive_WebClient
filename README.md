@@ -76,8 +76,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 # To-do
 
-- Faire fausse page Home
-
 - Retirer l'inscription de l'auth et en faire une création par un admin
 - Faire permissions et redirections router en fonction du role etc...
 - Mettre en place des templates "Skeleton Loader" avant le chargement des entities
