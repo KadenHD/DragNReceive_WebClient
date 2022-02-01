@@ -1,5 +1,4 @@
 import Login from '@/views/auth/Login.vue';
-import Register from '@/views/auth/Register.vue';
 import Forgot from '@/views/auth/Forgot.vue';
 import Reset from '@/views/auth/Reset.vue';
 
@@ -10,14 +9,6 @@ export default [
         component: Login,
         meta: {
             title: 'Login',
-        }
-    },
-    {
-        path: '/register',
-        name: 'Register',
-        component: Register,
-        meta: {
-            title: 'Register',
         }
     },
     {
