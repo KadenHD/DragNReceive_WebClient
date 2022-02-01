@@ -103,18 +103,7 @@ export default {
   text-decoration: none;
   color: #014d5a;
 }
-
 .Footer .v-list-item a:hover {
   color: #4a7f88;
-}
-
-.Footer .router-link-exact-active,
-.Footer .router-link-active {
-  color: #91a16a !important;
-}
-
-.Footer .router-link-exact-active:hover,
-.Footer .router-link-active:hover {
-  color: #afb891 !important;
 }
 </style>
