@@ -1,6 +1,6 @@
 <template>
   <div class="Us">
-    <p class="title text-center">À propos de nous</p>
+    <p class="TextTitle title text-center">À propos de nous</p>
     <v-divider class="mr-2 mb-6 ml-2" inset></v-divider>
     <v-container>
       <v-img
@@ -10,7 +10,7 @@
         max-width="350"
       ></v-img>
       <v-divider class="mr-2 mt-6 mb-6 ml-2" inset></v-divider>
-      <p class="text text-center">
+      <p class="MainText text-center">
         L’entreprise DragN’Receive est une SARL composée de 15 à 30 salariés,
         cette entreprise possède plusieurs contacts et partenaires dans les
         domaines de la restauration, de la distribution ainsi que des petits
@@ -33,18 +33,3 @@
     </v-container>
   </div>
 </template>
-
-<script>
-export default {};
-</script>
-
-<style >
-.Us .title {
-  color: #014d5a;
-  font-weight: bold;
-}
-.Us .text {
-  color: #4a7f88;
-  font-size: 16px;
-}
-</style>
