@@ -18,9 +18,6 @@
             <router-link class="mr-1 ml-1" :to="{ name: 'Login' }"
               >Connexion</router-link
             >
-            <router-link class="mr-1 ml-1" :to="{ name: 'Register' }"
-              >Inscription</router-link
-            >
           </div>
           <div class="isUser" v-if="user">
             <a class="mr-1 ml-1" href="javascript:void(0)" @click="logoutClick"
