@@ -76,8 +76,9 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 # To-do
 
-- Retirer l'inscription de l'auth et en faire une création par un admin
-- Faire permissions et redirections router en fonction du role etc...
+- faire un login fonctionnel qui stock le token et qui stock le current-user dans vuex
+- Faire permissions / redirections router en fonction du role, si connecté etc...
+
 - Mettre en place des templates "Skeleton Loader" avant le chargement des entities
 
 - Voir les data tables de vuetify pour les tables de gestion
