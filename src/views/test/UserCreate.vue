@@ -1,6 +1,6 @@
 <template>
   <div class="Register">
-    <v-form ref="form" :v-model="valid">
+    <v-form :v-model="valid">
       <v-card>
         <v-card-title>Inscrivez-vous</v-card-title>
         <v-card-text>
@@ -99,6 +99,7 @@ export default {
           value: "3",
         },
       ],
+
       shopDisabled: true,
       valid: false,
     };
