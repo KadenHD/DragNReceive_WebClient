@@ -76,15 +76,14 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 # To-do
 
+- voir comment faire un bon formulaire valid avec vue et vuetify
 - Finir le create user
 
-- voir comment faire un bon formulaire valid avec vue et vuetify
-
 - faire un login fonctionnel qui stock le token et qui stock le current-user dans vuex
+    
 - Faire permissions / redirections router en fonction du role, si connecté etc...
 
 - Mettre en place des templates "Skeleton Loader" avant le chargement des entities
-
 - Voir les data tables de vuetify pour les tables de gestion
 
 # Sources
