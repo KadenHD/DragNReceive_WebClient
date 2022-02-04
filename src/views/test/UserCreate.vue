@@ -1,11 +1,6 @@
 <template>
   <div class="Register">
-    <v-form
-      @submit.prevent="handleSubmit"
-      ref="form"
-      v-model="valid"
-      lazy-validation
-    >
+    <v-form ref="form" :v-model="valid">
       <v-card>
         <v-card-title>Inscrivez-vous</v-card-title>
         <v-card-text>
@@ -14,37 +9,38 @@
             :rules="roleRules"
             :items="roleItems"
             label="Rôle"
-            required
           />
 
-          <v-select v-model="shopId" :items="shopItems" label="Boutique" />
+          <v-select
+            v-model="shopId"
+            :rules="shopRules"
+            :items="shopItems"
+            :disabled="shopDisabled"
+            label="Boutique"
+          />
 
           <v-text-field
             v-model="lastName"
             :rules="lastNameRules"
             label="Nom"
-            required
           ></v-text-field>
 
           <v-text-field
             v-model="firstName"
             :rules="firstNameRules"
             label="Prénom"
-            required
           ></v-text-field>
 
           <v-text-field
             v-model="emailName"
             :rules="emailRules"
             label="E-mail"
-            required
           ></v-text-field>
 
           <v-text-field
             v-model="passwordName"
             :rules="passwordRules"
             label="Mot de passe"
-            required
           ></v-text-field>
         </v-card-text>
         <v-card-actions>
@@ -67,24 +63,28 @@ import axios from "axios";
 import { mapGetters } from "vuex";
 
 export default {
-  //Penser à faire la method validate
-  // Method qui fait disparaître shopId si roleId != 3 et le rend non required et l'inverse
+  // Faire apparaître que le roleId partenaire si le currentUser == 2 sinon tout
+  // changer le disable de shopId si roleId != 3 ou == 3
+  // rendre le boutton du formulaire valid si tout et non-null et que (si roleid == 3 et shopId existe) ou (si roleid !=3 et shopId existe pas)
   data() {
     return {
       roleId: "",
-      roleRules: [(v) => !!v || "Le rôle est requis"],
       shopId: "",
       firstname: "",
-      firstNameRules: [(v) => !!v || "Le prénom est requis"],
       lastname: "",
-      lastNameRules: [(v) => !!v || "Le nom est requis"],
       email: "",
+      password: "",
+
+      roleRules: [(v) => !!v || "Le rôle est requis"],
+      shopRules: [(v) => !!v || "La boutique est requise"],
+      firstNameRules: [(v) => !!v || "Le prénom est requis"],
+      lastNameRules: [(v) => !!v || "Le nom est requis"],
       emailRules: [
         (v) => !!v || "L'e-mail est requis",
         (v) => /.+@.+\..+/.test(v) || "Le format de l'e-mail doit être valide",
       ],
-      password: "",
       passwordRules: [(v) => !!v || "Le mot de passe est requis"],
+
       roleItems: [
         {
           text: "SuperAdmin",
@@ -99,28 +99,30 @@ export default {
           value: "3",
         },
       ],
+      shopDisabled: true,
+      valid: false,
     };
   },
   computed: {
     ...mapGetters(["shops"]),
     shopItems: function () {
       return this.shops.filter(function (i) {
-        i.text = i.name;
-        i.value = i.id;
-        return i.deleted == false;
+        i.text = i.name; // select options display text
+        i.value = i.id; // select options display value
+        return i.deleted == false; // only not deleted shops
       });
     },
   },
   methods: {
-    async handleSubmit() {
-      await axios
+    validate() {
+      axios
         .post("users", {
           lastname: this.lastname,
           firstname: this.firstname,
           email: this.email,
           password: this.password,
-          roleId: this.roleId, //à voir
-          shopId: this.shopId, //à voir
+          roleId: this.roleId,
+          shopId: this.shopId,
         })
         .then((response) => {
           this.$store.dispatch("success", response.data.success);
