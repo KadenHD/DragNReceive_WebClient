@@ -45,14 +45,7 @@
           ></v-text-field>
         </v-card-text>
         <v-card-actions>
-          <v-btn
-            :disabled="!valid"
-            color="success"
-            class="mr-4"
-            @click="validate"
-          >
-            Créer
-          </v-btn>
+          <v-btn color="success" class="mr-4" @click="validate"> Créer </v-btn>
         </v-card-actions>
       </v-card>
     </v-form>
