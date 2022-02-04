@@ -7,7 +7,7 @@ const state = {
     user: null,
     success: null,
     error: null,
-    shops: [
+    shops: [ //Test remove by null
         {
             id: '1',
             email: 'email@1',
