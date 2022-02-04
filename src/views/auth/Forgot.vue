@@ -1,11 +1,6 @@
 <template>
   <div class="Forgot">
-    <v-form
-      @submit.prevent="handleSubmit"
-      ref="form"
-      v-model="valid"
-      lazy-validation
-    >
+    <v-form :v-model="valid">
       <v-card>
         <v-card-title>Mot de passe oublié ?</v-card-title>
         <v-card-text>
@@ -38,15 +33,18 @@ export default {
   data() {
     return {
       email: "",
+
       emailRules: [
         (v) => !!v || "L'e-mail est requis",
         (v) => /.+@.+\..+/.test(v) || "Le format de l'e-mail doit être valide",
       ],
+
+      valid: false,
     };
   },
   methods: {
-    async handleSubmit() {
-      await axios
+    validate() {
+      axios
         .post("forgot", {
           email: this.email,
         })
