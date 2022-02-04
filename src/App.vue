@@ -37,8 +37,8 @@ export default {
     Error,
     Footer,
   },
-  async created() {
-    await axios.get("user").then((response) => {
+  created() {
+    axios.get("user").then((response) => {
       this.$store.commit("user", response.data.user);
     });
   },
