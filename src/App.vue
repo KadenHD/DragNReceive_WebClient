@@ -38,12 +38,12 @@ export default {
     Footer,
   },
   created() {
-    axios.get("user").then((response) => {
-      this.$store.commit("user", response.data.user);
+    axios.get("currentUser").then((response) => {
+      this.$store.commit("currentUser", response.data.currentUser);
     });
   },
   computed: {
-    ...mapGetters(["user"]),
+    ...mapGetters(["currentUser"]),
   },
 };
 </script>
