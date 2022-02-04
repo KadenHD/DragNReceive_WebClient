@@ -12,10 +12,10 @@
           />
 
           <v-select
+            v-if="roleId == 3"
             v-model="shopId"
             :rules="shopRules"
             :items="shopItems"
-            :disabled="shopDisabled"
             label="Boutique"
           />
 
@@ -64,7 +64,6 @@ import { mapGetters } from "vuex";
 
 export default {
   // Faire apparaître que le roleId partenaire si le currentUser == 2 sinon tout
-  // changer le disable de shopId si roleId != 3 ou == 3
   // rendre le boutton du formulaire valid si tout et non-null et que (si roleid == 3 et shopId existe) ou (si roleid !=3 et shopId existe pas)
   data() {
     return {
@@ -99,8 +98,6 @@ export default {
           value: "3",
         },
       ],
-
-      shopDisabled: true,
       valid: false,
     };
   },
