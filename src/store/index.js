@@ -4,7 +4,7 @@ import Vuex from 'vuex';
 Vue.use(Vuex)
 
 const state = {
-    user: null,
+    currentUser: null,
     success: null,
     error: null,
     shops: [ //Test remove by null
@@ -46,8 +46,8 @@ const store = new Vuex.Store({
         }
     },
     actions: {
-        user(context, user) {
-            context.commit('user', user);
+        currentUser(context, currentUser) {
+            context.commit('currentUser', currentUser);
         },
         success(context, success) {
             context.commit('success', success);
@@ -62,8 +62,8 @@ const store = new Vuex.Store({
         },
     },
     mutations: {
-        user(state, user) {
-            state.user = user;
+        currentUser(state, currentUser) {
+            state.currentUser = currentUser;
         },
         success(state, success) {
             state.success = success;
