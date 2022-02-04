@@ -1,11 +1,6 @@
 <template>
   <div class="Login">
-    <v-form
-      @submit.prevent="handleSubmit"
-      ref="form"
-      v-model="valid"
-      lazy-validation
-    >
+    <v-form :v-model="valid">
       <v-card>
         <v-card-title>Connectez-vous</v-card-title>
         <v-card-text>
@@ -49,19 +44,20 @@ export default {
   data() {
     return {
       email: "",
+      password: "",
+
       emailRules: [
         (v) => !!v || "L'e-mail est requis",
         (v) => /.+@.+\..+/.test(v) || "Le format de l'e-mail doit être valide",
       ],
-      password: "",
       passwordRules: [(v) => !!v || "Le mot de passe est requis"],
+
+      valid: false,
     };
   },
   methods: {
-    async validate() {
-      this.$refs.form.validate();
-      this.$store.dispatch("error", "test");
-      await axios
+    validate() {
+      axios
         .post("login", {
           email: this.email,
           password: this.password,
