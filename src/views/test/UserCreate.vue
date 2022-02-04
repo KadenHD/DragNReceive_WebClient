@@ -5,6 +5,7 @@
         <v-card-title>Inscrivez-vous</v-card-title>
         <v-card-text>
           <v-select
+            @input="updateShop"
             v-model="roleId"
             :rules="roleRules"
             :items="roleItems"
@@ -86,7 +87,7 @@ export default {
 
       roleItems: [
         {
-          text: "SuperAdmin",
+          text: "Super-Admin",
           value: "1",
         },
         {
@@ -112,6 +113,9 @@ export default {
     },
   },
   methods: {
+    updateShop: function () {
+      this.shopId = null;
+    },
     validate() {
       axios
         .post("users", {
@@ -124,7 +128,7 @@ export default {
         })
         .then((response) => {
           this.$store.dispatch("success", response.data.success);
-          // Redirect to users page
+          //this.$router.push({ name: "" }); // all Users page
         })
         .catch((error) => {
           this.$store.dispatch("error", error.response.data.error);
