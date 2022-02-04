@@ -1,6 +1,6 @@
 <template>
   <div class="Reset">
-    <form @submit.prevent="handleSubmit">
+    <form :v-model="valid">
       <v-card>
         <v-card-title>Réinitialisez votre mot de passe</v-card-title>
         <v-card-text>
@@ -40,20 +40,22 @@ export default {
   data() {
     return {
       password: "",
-      passwordRules: [(v) => !!v || "Le mot de passe est requis"],
       passwordconfirm: "",
+
+      passwordRules: [(v) => !!v || "Le mot de passe est requis"],
       passwordconfirmRules: [
         (v) => !!v || "Le mot de passe est requis",
         (v) =>
           v === this.password ||
           "Les deux mots de passe doivent être similaire !",
       ],
+
+      valid: false,
     };
   },
   methods: {
-    async handleSubmit() {
-      //const response =
-      await axios
+    validate() {
+      axios
         .post("reset", {
           password: this.password,
           passwordconfirm: this.passwordconfirm,
