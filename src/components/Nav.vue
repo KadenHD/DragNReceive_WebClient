@@ -14,12 +14,12 @@
         <v-divider class="mr-2 ml-2" inset vertical></v-divider>
 
         <div class="links">
-          <div class="noUser" v-if="!user">
+          <div class="noUser" v-if="!currentUser">
             <router-link class="mr-1 ml-1" :to="{ name: 'Login' }"
               >Connexion</router-link
             >
           </div>
-          <div class="isUser" v-if="user">
+          <div class="isUser" v-if="currentUser">
             <a class="mr-1 ml-1" href="javascript:void(0)" @click="logoutClick"
               >Déconnexion</a
             >
