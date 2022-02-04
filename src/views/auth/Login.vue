@@ -64,7 +64,7 @@ export default {
         })
         .then((response) => {
           localStorage.setItem("token", response.data.token);
-          this.$store.dispatch("user", response.data.user);
+          this.$store.dispatch("currentUser", response.data.currentUser);
           this.$store.dispatch("success", "logged in");
           this.$router.push({ name: "Home" });
         })

@@ -32,8 +32,8 @@ const state = {
 const store = new Vuex.Store({
     state,
     getters: {
-        user: (state) => {
-            return state.user;
+        currentUser: (state) => {
+            return state.currentUser;
         },
         success: (state) => {
             return state.success;

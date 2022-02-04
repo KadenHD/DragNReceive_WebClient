@@ -13,7 +13,7 @@
         </v-container>
       </v-main>
 
-      <v-footer v-if="!user" app>
+      <v-footer v-if="!currentUser" app>
         <Footer />
       </v-footer>
     </v-app>
