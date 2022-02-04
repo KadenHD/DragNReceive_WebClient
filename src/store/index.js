@@ -6,7 +6,27 @@ Vue.use(Vuex)
 const state = {
     user: null,
     success: null,
-    error: null
+    error: null,
+    shops: [
+        {
+            id: '1',
+            email: 'email@1',
+            name: 'name1',
+            deleted: false
+        },
+        {
+            id: '2',
+            email: 'email@2',
+            name: 'name2',
+            deleted: true
+        },
+        {
+            id: '3',
+            email: 'email@3',
+            name: 'name3',
+            deleted: false
+        },
+    ]
 };
 
 const store = new Vuex.Store({
@@ -20,6 +40,9 @@ const store = new Vuex.Store({
         },
         error: (state) => {
             return state.error;
+        },
+        shops: (state) => {
+            return state.shops;
         }
     },
     actions: {
@@ -33,7 +56,10 @@ const store = new Vuex.Store({
         error(context, error) {
             context.commit('error', error);
             context.commit('success', null);
-        }
+        },
+        shops(context, shops) {
+            context.commit('shops', shops);
+        },
     },
     mutations: {
         user(state, user) {
@@ -44,7 +70,10 @@ const store = new Vuex.Store({
         },
         error(state, error) {
             state.error = error;
-        }
+        },
+        shops(state, shops) {
+            state.shops = shops;
+        },
     }
 });
 
