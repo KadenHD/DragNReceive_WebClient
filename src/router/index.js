@@ -4,6 +4,7 @@ import VueRouter from "vue-router";
 import Home from '@/views/Home.vue';
 import NotFound from '@/views/NotFound.vue';
 
+import testRouter from './test';
 import authRouter from "./auth.js";
 import aboutRouter from "./about.js";
 
@@ -22,6 +23,7 @@ const routes = [
             title: 'Home',
         }
     },
+    ...testRouter,
     ...authRouter,
     ...aboutRouter,
     {
