@@ -1,6 +1,6 @@
 <template>
-  <div class="Error">
-    <v-alert v-if="error" dismissible elevation="24" type="error">
+  <div v-if="error" class="Error">
+    <v-alert elevation="24" type="error">
       {{ error }}
     </v-alert>
   </div>
