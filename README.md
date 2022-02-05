@@ -76,10 +76,9 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 # To-do
 
-- voir comment faire un bon formulaire valid avec vue et vuetify
-- Finir le create user
-
 - faire un login fonctionnel qui stock le token et qui stock le current-user dans vuex
+
+- faire les permissions de format d'input (se référer à l'api et aux models)
     
 - Faire permissions / redirections router en fonction du role, si connecté etc...
 
