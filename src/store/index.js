@@ -8,26 +8,7 @@ const state = {
     currentUser: null,
     success: null,
     error: null,
-    shops: [ //Test remove by null
-        {
-            id: '1',
-            email: 'email@1',
-            name: 'name1',
-            deleted: false
-        },
-        {
-            id: '2',
-            email: 'email@2',
-            name: 'name2',
-            deleted: true
-        },
-        {
-            id: '3',
-            email: 'email@3',
-            name: 'name3',
-            deleted: false
-        },
-    ]
+    shops: null,
 };
 
 const store = new Vuex.Store({
@@ -68,9 +49,15 @@ const store = new Vuex.Store({
         },
         success(state, success) {
             state.success = success;
+            setTimeout(() => {
+                state.success = null
+            }, 4000)
         },
         error(state, error) {
             state.error = error;
+            setTimeout(() => {
+                state.error = null
+            }, 4000)
         },
         shops(state, shops) {
             state.shops = shops;
