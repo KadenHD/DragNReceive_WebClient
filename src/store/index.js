@@ -32,7 +32,7 @@ const state = {
 
 const store = new Vuex.Store({
     state,
-    getters: {
+    getters: { // return to mapGetters
         currentUser: (state) => {
             return state.currentUser;
         },
@@ -46,7 +46,7 @@ const store = new Vuex.Store({
             return state.shops;
         }
     },
-    actions: {
+    actions: { // from dispatch
         currentUser(context, currentUser) {
             context.commit('currentUser', currentUser);
         },
@@ -62,7 +62,7 @@ const store = new Vuex.Store({
             context.commit('shops', shops);
         },
     },
-    mutations: {
+    mutations: { // from commit
         currentUser(state, currentUser) {
             state.currentUser = currentUser;
         },
