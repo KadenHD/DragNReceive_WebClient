@@ -1,6 +1,6 @@
 <template>
   <div class="Forgot">
-    <v-form :v-model="valid">
+    <v-form ref="form">
       <v-card>
         <v-card-title>Mot de passe oublié ?</v-card-title>
         <v-card-text>
@@ -8,16 +8,10 @@
             v-model="emailName"
             :rules="emailRules"
             label="E-mail"
-            required
           ></v-text-field>
         </v-card-text>
         <v-card-actions>
-          <v-btn
-            :disabled="!valid"
-            color="success"
-            class="mr-4"
-            @click="validate"
-          >
+          <v-btn color="success" class="mr-4" @click="submitForgotForm">
             Envoyer
           </v-btn></v-card-actions
         >
@@ -32,28 +26,28 @@ import axios from "axios";
 export default {
   data() {
     return {
-      email: "",
+      email: null,
 
       emailRules: [
         (v) => !!v || "L'e-mail est requis",
         (v) => /.+@.+\..+/.test(v) || "Le format de l'e-mail doit être valide",
       ],
-
-      valid: false,
     };
   },
   methods: {
-    validate() {
-      axios
-        .post("forgot", {
-          email: this.email,
-        })
-        .then((response) => {
-          this.$store.dispatch("success", response.data.success);
-        })
-        .catch((error) => {
-          this.$store.dispatch("error", error.response.data.error);
-        });
+    submitForgotForm() {
+      if (this.$refs.form.validate()) {
+        axios
+          .post("forgot", {
+            email: this.email,
+          })
+          .then((response) => {
+            this.$store.dispatch("success", response.data.success);
+          })
+          .catch((error) => {
+            this.$store.dispatch("error", error.response.data.error);
+          });
+      }
     },
   },
 };
