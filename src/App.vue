@@ -38,6 +38,7 @@ export default {
     Footer,
   },
   created() {
+    // if token in local storage store user, else remove the token because not valid or dont exist
     axios.get("currentUser").then((response) => {
       this.$store.commit("currentUser", response.data.currentUser);
     });
