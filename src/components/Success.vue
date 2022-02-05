@@ -1,6 +1,6 @@
 <template>
-  <div class="Success">
-    <v-alert v-if="success" dismissible elevation="24" type="success">
+  <div v-if="success" class="Success">
+    <v-alert elevation="24" type="success">
       {{ success }}
     </v-alert>
   </div>
