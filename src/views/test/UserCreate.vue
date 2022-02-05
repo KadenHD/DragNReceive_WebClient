@@ -1,6 +1,6 @@
 <template>
   <div class="Register">
-    <v-form>
+    <v-form ref="form">
       <v-card>
         <v-card-title>Inscrivez-vous</v-card-title>
         <v-card-text>
@@ -45,7 +45,9 @@
           ></v-text-field>
         </v-card-text>
         <v-card-actions>
-          <v-btn color="success" class="mr-4" @click="validate"> Créer </v-btn>
+          <v-btn color="success" class="mr-4" @click="submitUserCreateForm">
+            Créer
+          </v-btn>
         </v-card-actions>
       </v-card>
     </v-form>
@@ -61,12 +63,12 @@ export default {
   // rendre le boutton du formulaire valid si tout et non-null et que (si roleid == 3 et shopId existe) ou (si roleid !=3 et shopId existe pas)
   data() {
     return {
-      roleId: "",
-      shopId: "",
-      firstname: "",
-      lastname: "",
-      email: "",
-      password: "",
+      roleId: null,
+      shopId: null,
+      firstname: null,
+      lastname: null,
+      email: null,
+      password: null,
 
       roleRules: [(v) => !!v || "Le rôle est requis"],
       shopRules: [(v) => !!v || "La boutique est requise"],
@@ -105,26 +107,28 @@ export default {
     },
   },
   methods: {
-    updateShop: function () {
+    updateShop() {
       this.shopId = null;
     },
-    validate() {
-      axios
-        .post("users", {
-          lastname: this.lastname,
-          firstname: this.firstname,
-          email: this.email,
-          password: this.password,
-          roleId: this.roleId,
-          shopId: this.shopId,
-        })
-        .then((response) => {
-          this.$store.dispatch("success", response.data.success);
-          //this.$router.push({ name: "" }); // all Users page
-        })
-        .catch((error) => {
-          this.$store.dispatch("error", error.response.data.error);
-        });
+    submitUserCreateForm() {
+      if (this.$refs.form.validate()) {
+        axios
+          .post("users", {
+            lastname: this.lastname,
+            firstname: this.firstname,
+            email: this.email,
+            password: this.password,
+            roleId: this.roleId,
+            shopId: this.shopId,
+          })
+          .then((response) => {
+            this.$store.dispatch("success", response.data.success);
+            //this.$router.push({ name: "" }); // all Users page
+          })
+          .catch((error) => {
+            this.$store.dispatch("error", error.response.data.error);
+          });
+      }
     },
   },
 };
