@@ -21,25 +21,25 @@
           />
 
           <v-text-field
-            v-model="lastName"
+            v-model="lastname"
             :rules="lastNameRules"
             label="Nom"
           ></v-text-field>
 
           <v-text-field
-            v-model="firstName"
+            v-model="firstname"
             :rules="firstNameRules"
             label="Prénom"
           ></v-text-field>
 
           <v-text-field
-            v-model="emailName"
+            v-model="email"
             :rules="emailRules"
             label="E-mail"
           ></v-text-field>
 
           <v-text-field
-            v-model="passwordName"
+            v-model="password"
             :rules="passwordRules"
             label="Mot de passe"
           ></v-text-field>
