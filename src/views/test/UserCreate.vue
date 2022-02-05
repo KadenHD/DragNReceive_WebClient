@@ -60,7 +60,6 @@ import { mapGetters } from "vuex";
 
 export default {
   // Faire apparaître que le roleId partenaire si le currentUser == 2 sinon tout
-  // rendre le boutton du formulaire valid si tout et non-null et que (si roleid == 3 et shopId existe) ou (si roleid !=3 et shopId existe pas)
   data() {
     return {
       roleId: null,
