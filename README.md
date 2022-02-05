@@ -76,10 +76,9 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 # To-do
 
-- cacher le mot de passe avec vuetify (javascript compris)
+- stocker les shops pour le usercreate dans vuex
 
 - Utiliser vuex pour les actions et mutations d'axios
-- faire un login fonctionnel qui stock le token et qui stock le current-user dans vuex
 
 - faire les permissions de format d'input (se référer à l'api et aux models)
     
