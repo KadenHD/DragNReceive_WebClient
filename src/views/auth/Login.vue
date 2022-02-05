@@ -13,6 +13,7 @@
           <v-text-field
             v-model="password"
             :rules="passwordRules"
+            type="password"
             label="Mot de passe"
           ></v-text-field>
         </v-card-text>
@@ -50,7 +51,7 @@ export default {
     submitLoginForm() {
       if (this.$refs.form.validate()) {
         axios
-          .post("login", {
+          .post("loginUser", {
             email: this.email,
             password: this.password,
           })
