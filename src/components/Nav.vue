@@ -32,7 +32,13 @@
 
 <script>
 export default {
-  setup() {},
+  methods: {
+    logoutClick() {
+      // delete token from local storage
+      // and delete vuex currentUser
+      // redirect to home page
+    },
+  },
 };
 </script>
 
