@@ -74,6 +74,9 @@ const store = new Vuex.Store({
         shops(state, shops) {
             state.shops = shops;
         },
+    },
+    modules: {
+
     }
 });
 
