@@ -21,7 +21,7 @@
             Se connecter
           </v-btn>
           <div class="mr-1">Mot de passe oublié ?</div>
-          <router-link class="TextLinks" :to="{ name: 'Reset' }">
+          <router-link class="TextLinks" :to="{ name: 'Forgot' }">
             Réinitialisez votre mot de passe </router-link
           >.
         </v-card-actions>
