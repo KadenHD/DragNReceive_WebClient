@@ -5,7 +5,7 @@
         <v-card-title>Mot de passe oublié ?</v-card-title>
         <v-card-text>
           <v-text-field
-            v-model="emailName"
+            v-model="email"
             :rules="emailRules"
             label="E-mail"
           ></v-text-field>
