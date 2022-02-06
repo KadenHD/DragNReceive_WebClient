@@ -1,3 +1,5 @@
+import router from '@/router';
+
 const state = {
     currentUser: null,
 };
@@ -14,7 +16,7 @@ export default {
             context.commit('currentUser', null);
             localStorage.removeItem("token");
             context.dispatch("success", "Vous êtes bien déconnecté !");
-            this.$router.push({ name: "Home" });
+            router.push({ name: "Home" });
         },
         currentUser(context, currentUser) {
             context.commit('currentUser', currentUser);
