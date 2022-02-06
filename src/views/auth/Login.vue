@@ -13,8 +13,10 @@
           <v-text-field
             v-model="password"
             :rules="passwordRules"
-            type="password"
             label="Mot de passe"
+            :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+            :type="showPassword ? 'text' : 'password'"
+            @click:append="showPassword = !showPassword"
           ></v-text-field>
         </v-card-text>
         <v-card-actions>
@@ -33,18 +35,16 @@
 
 <script>
 import axios from "axios";
+import { emailRules, passwordRules } from "@/plugins/inputRules.js";
 
 export default {
   data() {
     return {
       email: null,
       password: null,
-
-      emailRules: [
-        (v) => !!v || "L'e-mail est requis",
-        (v) => /.+@.+\..+/.test(v) || "Le format de l'e-mail doit être valide",
-      ],
-      passwordRules: [(v) => !!v || "Le mot de passe est requis"],
+      showPassword: false,
+      emailRules,
+      passwordRules,
     };
   },
   methods: {
