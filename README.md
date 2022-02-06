@@ -76,8 +76,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 # To-do
 
-- mettre les delay des alertes dans le dispatch
-
 - stocker les shops pour le usercreate dans vuex
 
 - Utiliser vuex pour les actions et mutations d'axios
