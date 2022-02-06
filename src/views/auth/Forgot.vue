@@ -22,16 +22,13 @@
 
 <script>
 import axios from "axios";
+import { emailRules } from "@/plugins/inputRules.js";
 
 export default {
   data() {
     return {
       email: null,
-
-      emailRules: [
-        (v) => !!v || "L'e-mail est requis",
-        (v) => /.+@.+\..+/.test(v) || "Le format de l'e-mail doit être valide",
-      ],
+      emailRules,
     };
   },
   methods: {
