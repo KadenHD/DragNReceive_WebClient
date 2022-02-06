@@ -7,15 +7,21 @@
           <v-text-field
             v-model="password"
             :rules="passwordRules"
-            type="password"
             label="Mot de passe"
+            :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+            :type="showPassword ? 'text' : 'password'"
+            @click:append="showPassword = !showPassword"
+            counter
           ></v-text-field>
 
           <v-text-field
-            v-model="passwordconfirm"
-            :rules="passwordconfirmRules"
-            type="password"
+            v-model="passwordConfirm"
+            :rules="passwordConfirmRules"
             label="Confirmez le mot de passe"
+            :append-icon="showPasswordConfirm ? 'mdi-eye' : 'mdi-eye-off'"
+            :type="showPasswordConfirm ? 'text' : 'password'"
+            @click:append="showPasswordConfirm = !showPasswordConfirm"
+            counter
           ></v-text-field>
         </v-card-text>
         <v-card-actions>
@@ -30,20 +36,17 @@
 
 <script>
 import axios from "axios";
+import { passwordRules, passwordConfirmRules } from "@/plugins/inputRules.js";
 
 export default {
   data() {
     return {
       password: null,
-      passwordconfirm: null,
-
-      passwordRules: [(v) => !!v || "Le mot de passe est requis"],
-      passwordconfirmRules: [
-        (v) => !!v || "Le mot de passe est requis",
-        (v) =>
-          v === this.password ||
-          "Les deux mots de passe doivent être similaire !",
-      ],
+      passwordConfirm: null,
+      showPassword: false,
+      showPasswordConfirm: false,
+      passwordRules,
+      passwordConfirmRules,
     };
   },
   methods: {
