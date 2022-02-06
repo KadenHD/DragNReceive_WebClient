@@ -78,6 +78,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 - Utiliser vuex pour les actions et mutations d'axios
 
+- faire une dialog box qui pop pour savoir le format du mot de passe (pas dans le login aucune règle, point d'interrogation click et pop-up / dialog box ?)
 - faire les permissions de format d'input (se référer à l'api et aux models)
 - faire pour les inputs password un mdi-eye pour cacher ou non le mot de passe (script requis)
 
