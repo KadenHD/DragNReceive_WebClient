@@ -76,12 +76,11 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 # To-do
 
-- stocker les shops pour le usercreate dans vuex
-
 - Utiliser vuex pour les actions et mutations d'axios
 
 - faire les permissions de format d'input (se référer à l'api et aux models)
-    
+- faire pour les inputs password un mdi-eye pour cacher ou non le mot de passe (script requis)
+
 - Faire permissions / redirections router en fonction du role, si connecté etc...
 
 - Mettre en place des templates "Skeleton Loader" avant le chargement des entities
@@ -93,4 +92,5 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - unDraw, open-source illustrations : [Link](https://undraw.co/illustrations)
 - Vuetify doc : [Link](https://https://vuetifyjs.com/en/)
 - Routing with Vue-Router : [Link](https://www.vuemastery.com/blog/vue-router-a-tutorial-for-vue-3/)
-- Video tutorial for JWT Authentication, Axios, Vue and Vuex logics : [Link](https://youtu.be/uqpM7WVTKI4?list=PLzBCdvbn0AZWnKk55ezv82IwNm7lJcu_N)
+- Video tutorial for a simple form and validation with vuetify : [Link](https://youtu.be/ryndQPFt4w0)
+- Video tutorial for JWT Authentication, Axios, Vue and Vuex logics : [Link](https://youtu.be/uqpM7WVTKI4)
