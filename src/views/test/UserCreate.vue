@@ -13,7 +13,7 @@
           />
 
           <v-select
-            v-if="roleId == 3"
+            v-if="roleId == '3'"
             v-model="shopId"
             :rules="shopRules"
             :items="shopItems"
