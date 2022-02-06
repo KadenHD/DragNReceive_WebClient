@@ -1,5 +1,6 @@
 <template>
-  <div class="Register">
+  <div class="Register" v-if="currentUser">
+    <!-- v-if the currentUser to handle errors cause he come to late for role items -->
     <v-form ref="form">
       <v-card>
         <v-card-title>Inscrivez-vous</v-card-title>
@@ -8,7 +9,7 @@
             @input="updateShop"
             v-model="roleId"
             :rules="roleRules"
-            :items="roleItems"
+            :items="currentUser.roleId == '1' ? roleItems : roleItemsFiltered"
             label="Rôle"
           />
 
@@ -24,25 +25,31 @@
             v-model="lastname"
             :rules="lastNameRules"
             label="Nom"
+            counter
           ></v-text-field>
 
           <v-text-field
             v-model="firstname"
             :rules="firstNameRules"
             label="Prénom"
+            counter
           ></v-text-field>
 
           <v-text-field
             v-model="email"
             :rules="emailRules"
             label="E-mail"
+            counter
           ></v-text-field>
 
           <v-text-field
             v-model="password"
             :rules="passwordRules"
-            type="password"
             label="Mot de passe"
+            :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+            :type="showPassword ? 'text' : 'password'"
+            @click:append="showPassword = !showPassword"
+            counter
           ></v-text-field>
         </v-card-text>
         <v-card-actions>
@@ -58,14 +65,20 @@
 <script>
 import axios from "axios";
 import { mapGetters } from "vuex";
+import {
+  roleRules,
+  shopRules,
+  firstNameRules,
+  lastNameRules,
+  emailRules,
+  passwordRules,
+} from "@/plugins/inputRules.js";
 
 export default {
-  // Faire apparaître que le roleId partenaire si le currentUser == 2 sinon tout
   created() {
     axios
       .get("shops")
       .then((response) => {
-        console.log(response.data);
         this.$store.dispatch("shops", response.data);
       })
       .catch((error) => {
@@ -80,17 +93,13 @@ export default {
       lastname: null,
       email: null,
       password: null,
-
-      roleRules: [(v) => !!v || "Le rôle est requis"],
-      shopRules: [(v) => !!v || "La boutique est requise"],
-      firstNameRules: [(v) => !!v || "Le prénom est requis"],
-      lastNameRules: [(v) => !!v || "Le nom est requis"],
-      emailRules: [
-        (v) => !!v || "L'e-mail est requis",
-        (v) => /.+@.+\..+/.test(v) || "Le format de l'e-mail doit être valide",
-      ],
-      passwordRules: [(v) => !!v || "Le mot de passe est requis"],
-
+      showPassword: false,
+      roleRules,
+      shopRules,
+      firstNameRules,
+      lastNameRules,
+      emailRules,
+      passwordRules,
       roleItems: [
         {
           text: "Super-Admin",
@@ -105,10 +114,16 @@ export default {
           value: "3",
         },
       ],
+      roleItemsFiltered: [
+        {
+          text: "Partenaire",
+          value: "3",
+        },
+      ],
     };
   },
   computed: {
-    ...mapGetters(["shops"]),
+    ...mapGetters(["shops", "currentUser"]),
     shopItems: function () {
       return this.shops.filter(function (i) {
         i.text = i.name; // select options display text
