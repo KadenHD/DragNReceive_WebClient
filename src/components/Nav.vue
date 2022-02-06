@@ -39,9 +39,7 @@ export default {
   },
   methods: {
     logoutClick() {
-      // delete token from local storage
-      // and delete vuex currentUser
-      // redirect to home page
+      this.$store.dispatch("logout");
     },
   },
 };
