@@ -10,6 +10,12 @@ export default {
         },
     },
     actions: {
+        logout(context) {
+            context.commit('currentUser', null);
+            localStorage.removeItem("token");
+            context.dispatch("success", "Vous êtes bien déconnecté !");
+            this.$router.push({ name: "Home" });
+        },
         currentUser(context, currentUser) {
             context.commit('currentUser', currentUser);
         },
