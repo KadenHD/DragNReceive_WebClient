@@ -61,6 +61,17 @@ import { mapGetters } from "vuex";
 
 export default {
   // Faire apparaître que le roleId partenaire si le currentUser == 2 sinon tout
+  created() {
+    axios
+      .get("shops")
+      .then((response) => {
+        console.log(response.data);
+        this.$store.dispatch("shops", response.data);
+      })
+      .catch((error) => {
+        this.$store.dispatch("error", error.response.data.error);
+      });
+  },
   data() {
     return {
       roleId: null,
