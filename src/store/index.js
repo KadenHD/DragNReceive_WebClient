@@ -24,14 +24,12 @@ const store = new Vuex.Store({
     actions: { // from dispatch
         success(context, success) {
             context.commit('success', success);
-            context.commit('error', null);
             setTimeout(() => {
                 context.commit('success', null);
             }, 4000)
         },
         error(context, error) {
             context.commit('error', error);
-            context.commit('success', null);
             setTimeout(() => {
                 context.commit('error', null);
             }, 4000)
