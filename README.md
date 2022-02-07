@@ -14,11 +14,30 @@
     </li>
     <ul>
         <li>
-            <a href="#Project-setup">Project setup</a>
+            <a href="#Prerequisites">Prerequisites</a>
+            <ul>
+              <li>
+                <a href="#Install-Laragon">Install Laragon</a>
+              </li>
+              <li>
+                <a href="#Install-Node-and-NPM">Install Node and NPM</a>
+              </li>
+          </ul>
+        </li>
+        <li>
+            <a href="#Implementation-of-the-project">Implementation of the project</a>
         </li>
     </ul>
     <li>
       <a href="#Technologies">Technologies</a>
+      <ul>
+        <li>
+          <a href="#Softwares">Softwares</a>
+        </li>
+        <li>
+          <a href="#Languages">Languages</a>
+        </li>
+      </ul>
     </li>
     <li>
       <a href="#To-do">To-do</a>
@@ -30,9 +49,21 @@
     
 # Introduction
     
-
-
+The DragN'Receive company wishes to create a click & collect system across the entire Compiègne conurbation, having as partners markets and businesses mainly focused on the sale of foodstuffs and consumer products. They are therefore considering the creation of a mobile application allowing customers to orders products.
+    
 # Installation
+
+## Prerequisites
+
+### Install Laragon
+
+> You can install Laragon, following the [Installation Tutorial](https://laragon.org/) on the official website.
+
+### Install Node and NPM
+
+> You can also easily install them, downloading [Node LTS version](https://nodejs.org/en/) on the official website.
+
+## Implementation of the project
 
 ## Project setup
 ```
