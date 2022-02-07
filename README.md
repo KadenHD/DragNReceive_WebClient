@@ -4,7 +4,7 @@
     <h3 align="center">Projet Personnel Encadré DragNReceive - Web Client </h3>
         
 <details open="open">
-  <summary>Sommaire</summary>
+  <summary>Summary</summary>
   <ol>
     <li>
       <a href="#Introduction">Introduction</a>
