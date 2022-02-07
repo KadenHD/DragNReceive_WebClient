@@ -57,7 +57,7 @@ The DragN'Receive company wishes to create a click & collect system across the e
 
 ### Install the Dragn'Receive API
 
-> You can install the open-source API, linked to this project by download my repository [DragNReceive_WebClient](https://github.com/KadenHD/DragNReceive_WebClient) on GitHub.
+> You can install the open-source API, linked to this project by download my repository [DragNReceive_API](https://github.com/KadenHD/DragNReceive_API) on GitHub.
 
 ### Install Node and NPM
 
