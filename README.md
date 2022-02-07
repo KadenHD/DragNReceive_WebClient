@@ -65,7 +65,6 @@ The DragN'Receive company wishes to create a click & collect system across the e
 
 ## Implementation of the project
 
-## Project setup
 ```
 npm install
 ```
