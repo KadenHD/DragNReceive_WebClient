@@ -55,9 +55,9 @@ The DragN'Receive company wishes to create a click & collect system across the e
 
 ## Prerequisites
 
-### Install Laragon
+### Install the Dragn'Receive API
 
-> You can install Laragon, following the [Installation Tutorial](https://laragon.org/) on the official website.
+> You can install the open-source API, linked to this project by download my repository [DragNReceive_WebClient](https://github.com/KadenHD/DragNReceive_WebClient) on GitHub.
 
 ### Install Node and NPM
 
