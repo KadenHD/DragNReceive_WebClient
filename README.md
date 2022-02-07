@@ -93,15 +93,12 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ## Softwares
 
 > Visual Studio Code,
-> Vue 2,
+> Vue,
 > NPM
 
 ## Languages
 
-> JavaScript,
-> HTML,
-> CSS,
-> JSON
+> JavaScript
 
 # To-do
 
