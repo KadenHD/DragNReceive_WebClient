@@ -17,7 +17,7 @@
             <a href="#Prerequisites">Prerequisites</a>
             <ul>
               <li>
-                <a href="#Install-the-Dragn-Receive-API">Install the Dragn'Receive API</a>
+                <a href="#Install-the-DragNReceive-API">Install the DragNReceive API</a>
               </li>
               <li>
                 <a href="#Install-Node-and-NPM">Install Node and NPM</a>
@@ -55,7 +55,7 @@ The DragN'Receive company wishes to create a click & collect system across the e
 
 ## Prerequisites
 
-### Install the Dragn'Receive API
+### Install the DragNReceive API
 
 > You can install and run the open-source API, linked to this project by download my repository [DragNReceive_API](https://github.com/KadenHD/DragNReceive_API) on GitHub.
 
