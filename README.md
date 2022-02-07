@@ -17,7 +17,7 @@
             <a href="#Prerequisites">Prerequisites</a>
             <ul>
               <li>
-                <a href="#Install-the-Dragn'Receive-API">Install the Dragn'Receive API</a>
+                <a href="#Install-the-Dragn-Receive-API">Install the Dragn'Receive API</a>
               </li>
               <li>
                 <a href="#Install-Node-and-NPM">Install Node and NPM</a>
