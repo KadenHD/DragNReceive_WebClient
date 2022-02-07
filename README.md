@@ -90,15 +90,13 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
     
 # Technologies
 
-***Le projet a été créé en utilisant :***
-
-***Les logiciels :***
+## Softwares
 
 > Visual Studio Code,
 > Vue 2,
 > NPM
 
-***Les langues :***
+## Languages
 
 > JavaScript,
 > HTML,
