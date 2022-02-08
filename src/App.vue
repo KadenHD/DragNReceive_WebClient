@@ -38,7 +38,7 @@ export default {
     Footer,
   },
   created() {
-    // if token in local storage store user, else remove the token because not valid or dont exist
+    // if token in local storage store user, catch remove the token because not valid
     axios.get("currentUser").then((response) => {
       this.$store.dispatch("currentUser", response.data.currentUser);
     });
