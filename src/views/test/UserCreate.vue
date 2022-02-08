@@ -69,7 +69,6 @@
 </template>
 
 <script>
-import axios from "axios";
 import { mapGetters } from "vuex";
 import {
   roleRules,
@@ -82,15 +81,7 @@ import {
 
 export default {
   created() {
-    axios
-      .get("shops")
-      .then((response) => {
-        this.$store.dispatch("shops", response.data);
-      })
-      .catch((error) => {
-        this.$store.dispatch("error", error.response.data.error);
-        this.$router.push({ name: "Home" });
-      });
+    this.$store.dispatch("setShops");
   },
   data() {
     return {
@@ -145,22 +136,15 @@ export default {
     },
     submitUserCreateForm() {
       if (this.$refs.form.validate()) {
-        axios
-          .post("users", {
-            lastname: this.lastname,
-            firstname: this.firstname,
-            email: this.email,
-            password: this.password,
-            roleId: this.roleId,
-            shopId: this.shopId,
-          })
-          .then((response) => {
-            this.$store.dispatch("success", response.data.success);
-            //this.$router.push({ name: "" }); // all Users page
-          })
-          .catch((error) => {
-            this.$store.dispatch("error", error.response.data.error);
-          });
+        const data = {
+          lastname: this.lastname,
+          firstname: this.firstname,
+          email: this.email,
+          password: this.password,
+          roleId: this.roleId,
+          shopId: this.shopId,
+        };
+        this.$store.dispatch("createUser", data);
       }
     },
   },
