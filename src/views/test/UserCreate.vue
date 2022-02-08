@@ -11,6 +11,7 @@
             :rules="roleRules"
             :items="currentUser.roleId == '1' ? roleItems : roleItemsFiltered"
             label="Rôle"
+            prepend-inner-icon="mdi-shield-crown"
           />
 
           <v-select
@@ -19,12 +20,14 @@
             :rules="shopRules"
             :items="shopItems"
             label="Boutique"
+            prepend-inner-icon="mdi-store"
           />
 
           <v-text-field
             v-model="lastname"
             :rules="lastNameRules"
             label="Nom"
+            prepend-inner-icon="mdi-human-capacity-decrease"
             counter
           ></v-text-field>
 
@@ -32,6 +35,7 @@
             v-model="firstname"
             :rules="firstNameRules"
             label="Prénom"
+            prepend-inner-icon="mdi-human-male"
             counter
           ></v-text-field>
 
@@ -39,6 +43,7 @@
             v-model="email"
             :rules="emailRules"
             label="E-mail"
+            prepend-inner-icon="mdi-email"
             counter
           ></v-text-field>
 
@@ -46,6 +51,7 @@
             v-model="password"
             :rules="passwordRules"
             label="Mot de passe"
+            prepend-inner-icon="mdi-lock"
             :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
             :type="showPassword ? 'text' : 'password'"
             @click:append="showPassword = !showPassword"
@@ -83,6 +89,7 @@ export default {
       })
       .catch((error) => {
         this.$store.dispatch("error", error.response.data.error);
+        this.$router.push({ name: "Home" });
       });
   },
   data() {

@@ -8,6 +8,7 @@
             v-model="email"
             :rules="emailRules"
             label="E-mail"
+            prepend-inner-icon="mdi-email"
           ></v-text-field>
         </v-card-text>
         <v-card-actions>
@@ -33,6 +34,7 @@ export default {
   methods: {
     submitForgotForm() {
       if (this.$refs.form.validate()) {
+        return;
       }
     },
   },

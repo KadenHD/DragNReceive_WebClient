@@ -8,12 +8,14 @@
             v-model="email"
             :rules="emailRules"
             label="E-mail"
+            prepend-inner-icon="mdi-email"
           ></v-text-field>
 
           <v-text-field
             v-model="password"
             :rules="passwordRules"
             label="Mot de passe"
+            prepend-inner-icon="mdi-lock"
             :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
             :type="showPassword ? 'text' : 'password'"
             @click:append="showPassword = !showPassword"

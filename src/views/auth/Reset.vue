@@ -8,6 +8,7 @@
             v-model="password"
             :rules="passwordRules"
             label="Mot de passe"
+            prepend-inner-icon="mdi-lock"
             :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
             :type="showPassword ? 'text' : 'password'"
             @click:append="showPassword = !showPassword"
@@ -18,6 +19,7 @@
             v-model="passwordConfirm"
             :rules="passwordConfirmRules"
             label="Confirmez le mot de passe"
+            prepend-inner-icon="mdi-lock-check"
             :append-icon="showPasswordConfirm ? 'mdi-eye' : 'mdi-eye-off'"
             :type="showPasswordConfirm ? 'text' : 'password'"
             @click:append="showPasswordConfirm = !showPasswordConfirm"
@@ -51,6 +53,7 @@ export default {
   methods: {
     submitResetForm() {
       if (this.$refs.form.validate()) {
+        return;
       }
     },
   },
