@@ -1,16 +1,30 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
+import UserCreate from '@/views/test/UserCreate.vue';
+
 import Home from '@/views/Home.vue';
 import NotFound from '@/views/NotFound.vue';
 
-import testRouter from './test';
 import authRouter from "./auth.js";
 import aboutRouter from "./about.js";
 
 Vue.use(VueRouter);
 
 const routes = [
+    {
+        path: '/users',
+        name: 'UserCreate',
+        component: UserCreate,
+        meta: {
+            title: 'UserCreate',
+        }
+    },
+
+    //////////////////////////////////////
+
+    ...authRouter,
+    ...aboutRouter,
     {
         path: '/',
         redirect: '/home'
@@ -23,9 +37,6 @@ const routes = [
             title: 'Home',
         }
     },
-    ...testRouter,
-    ...authRouter,
-    ...aboutRouter,
     {
         path: '/404',
         name: 'NotFound',
