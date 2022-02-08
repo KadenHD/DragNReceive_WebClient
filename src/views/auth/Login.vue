@@ -36,7 +36,6 @@
 </template>
 
 <script>
-import axios from "axios";
 import { emailRules, passwordRules } from "@/plugins/inputRules.js";
 
 export default {
@@ -52,20 +51,11 @@ export default {
   methods: {
     submitLoginForm() {
       if (this.$refs.form.validate()) {
-        axios
-          .post("loginUser", {
-            email: this.email,
-            password: this.password,
-          })
-          .then((response) => {
-            localStorage.setItem("token", response.data.token);
-            this.$store.dispatch("currentUser", response.data.user);
-            this.$store.dispatch("success", "Vous êtes connecté !");
-            this.$router.push({ name: "Home" });
-          })
-          .catch((error) => {
-            this.$store.dispatch("error", error.response.data.error);
-          });
+        const data = {
+          email: this.email,
+          password: this.password,
+        };
+        this.$store.dispatch("login", data);
       }
     },
   },
