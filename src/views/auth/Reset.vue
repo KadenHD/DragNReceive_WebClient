@@ -35,7 +35,6 @@
 </template>
 
 <script>
-import axios from "axios";
 import { passwordRules, passwordConfirmRules } from "@/plugins/inputRules.js";
 
 export default {
@@ -52,18 +51,6 @@ export default {
   methods: {
     submitResetForm() {
       if (this.$refs.form.validate()) {
-        axios
-          .post("reset", {
-            password: this.password,
-            token: this.$route.params.token,
-          })
-          .then((response) => {
-            this.$store.dispatch("success", response.data.success);
-            this.$router.push({ name: "Login" });
-          })
-          .catch((error) => {
-            this.$store.dispatch("error", error.response.data.error);
-          });
       }
     },
   },
