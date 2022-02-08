@@ -10,6 +10,17 @@ export default {
     },
     actions: {
         currentUser(context, currentUser) { context.commit('currentUser', currentUser); },
+        setCurrentUser(context) {
+            if (localStorage.getItem('token')) {
+                axios.get("currentUser")
+                    .then((response) => {
+                        context.dispatch("currentUser", response.data.currentUser);
+                    })
+                    .catch(() => {
+                        localStorage.removeItem('token');
+                    });
+            }
+        },
         login(context, data) {
             axios
                 .post("loginUser", data)
