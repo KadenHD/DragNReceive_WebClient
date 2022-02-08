@@ -21,7 +21,6 @@
 </template>
 
 <script>
-import axios from "axios";
 import { emailRules } from "@/plugins/inputRules.js";
 
 export default {
@@ -34,16 +33,6 @@ export default {
   methods: {
     submitForgotForm() {
       if (this.$refs.form.validate()) {
-        axios
-          .post("forgot", {
-            email: this.email,
-          })
-          .then((response) => {
-            this.$store.dispatch("success", response.data.success);
-          })
-          .catch((error) => {
-            this.$store.dispatch("error", error.response.data.error);
-          });
       }
     },
   },
