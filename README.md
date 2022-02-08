@@ -101,8 +101,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 # To-do
 
-- Utiliser vuex pour les actions et mutations d'axios
-- Faire permissions router en fonction de ... (utiliser les childrens et beforeEnter)
+- Faire permissions router en fonction de ... (utiliser les childrens et beforeEnter) (voir la vidéo de 1h s'il faut mounted pour les vérif et setDispatch)
 
 - Mettre en place des templates "Skeleton Loader" avant le chargement des entities
 - Voir les data tables de vuetify pour les tables de gestion
@@ -113,5 +112,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - unDraw, open-source illustrations : [Link](https://undraw.co/illustrations)
 - Vuetify doc : [Link](https://https://vuetifyjs.com/en/)
 - Routing with Vue-Router : [Link](https://www.vuemastery.com/blog/vue-router-a-tutorial-for-vue-3/)
+- Video tutorial to begin Vuex with Authentication : [Link](https://youtu.be/1YGWP-mj6nQ)
 - Video tutorial for a simple form and validation with vuetify : [Link](https://youtu.be/ryndQPFt4w0)
 - Video tutorial for JWT Authentication, Axios, Vue and Vuex logics : [Link](https://youtu.be/uqpM7WVTKI4)
