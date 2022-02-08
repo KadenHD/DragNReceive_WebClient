@@ -21,7 +21,6 @@
 </template>
 
 <script>
-import axios from "axios";
 import { mapGetters } from "vuex";
 
 import Nav from "@/components/Nav.vue";
@@ -38,10 +37,7 @@ export default {
     Footer,
   },
   created() {
-    // if token in local storage store user, catch remove the token because not valid
-    axios.get("currentUser").then((response) => {
-      this.$store.dispatch("currentUser", response.data.currentUser);
-    });
+    this.$store.dispatch("setCurrentUser");
   },
   computed: {
     ...mapGetters(["currentUser"]),
