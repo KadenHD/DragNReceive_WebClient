@@ -102,10 +102,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 # To-do
 
 - Utiliser vuex pour les actions et mutations d'axios
-
-- faire une dialog box qui pop pour savoir le format du mot de passe (point d'interrogation click et pop-up / dialog box ?)
-- faire les permissions de format d'input (se référer à l'api et aux models)
-
 - Faire permissions router en fonction de ... (utiliser les childrens et beforeEnter)
 
 - Mettre en place des templates "Skeleton Loader" avant le chargement des entities
