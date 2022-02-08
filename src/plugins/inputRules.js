@@ -14,18 +14,18 @@ export const passwordRules = [
 
 export const passwordConfirmRules = [
     v => !!v || "Le mot de passe est requis",
-    v => v == this.password || "Les deux mots de passe doivent être similaire",
+    v => v && v == this.password || "Les deux mots de passe doivent être similaire",
 ]
 
 export const lastNameRules = [
     v => !!v || "Le nom est requis",
-    v => v.charAt(0) == v.charAt(0).toUpperCase() || "Le nom doit commencer par une majuscule",
+    v => v && v.charAt(0) == v.charAt(0).toUpperCase() || "Le nom doit commencer par une majuscule",
     v => v && v.length <= 50 || "Le nom doit faire maximum 50 caractères",
 ]
 
 export const firstNameRules = [
     v => !!v || "Le prénom est requis",
-    v => v.charAt(0) == v.charAt(0).toUpperCase() || "Le prénom doit commencer par une majuscule",
+    v => v && v.charAt(0) == v.charAt(0).toUpperCase() || "Le prénom doit commencer par une majuscule",
     v => v && v.length <= 50 || "Le prénom doit faire maximum 50 caractères",
 ]
 
@@ -81,17 +81,17 @@ export const priceRules = [
 
 export const quantitiesRules = [
     v => !!v || "La quantité est requise",
-    v => v.length <= 11 || "La quantité doit faire 11 chiffres maximum",
+    v => v && v.length <= 11 || "La quantité doit faire 11 chiffres maximum",
 ]
 
 export const descriptionRules = [
     v => !!v || "La description est requise",
-    v => v.length <= 255 || "La description doit faire maximum 255 caractères",
+    v => v && v.length <= 255 || "La description doit faire maximum 255 caractères",
 ]
 
 export const stockRules = [
     v => !!v || "Le stock est requis",
-    v => v.length <= 11 || "Le stock doit faire 11 chiffres maximum",
+    v => v && v.length <= 11 || "Le stock doit faire 11 chiffres maximum",
 ]
 
 export const imageRules = [
