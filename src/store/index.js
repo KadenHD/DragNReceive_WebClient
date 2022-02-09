@@ -3,6 +3,7 @@ import Vuex from 'vuex';
 
 import auth from './auth.js';
 import shop from './shop.js';
+import user from './user.js';
 
 Vue.use(Vuex)
 
@@ -36,6 +37,7 @@ const store = new Vuex.Store({
     modules: {
         auth,
         shop,
+        user,
     },
 });
 
