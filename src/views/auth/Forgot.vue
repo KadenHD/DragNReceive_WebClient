@@ -14,8 +14,12 @@
         <v-card-actions>
           <v-btn color="success" class="mr-4" @click="submitForgotForm">
             Envoyer
-          </v-btn></v-card-actions
-        >
+          </v-btn>
+          <div class="mr-1">Retourner à la</div>
+          <router-link class="TextLinks" :to="{ name: 'Login' }">
+            connexion </router-link
+          >.
+        </v-card-actions>
       </v-card>
     </v-form>
   </div>
