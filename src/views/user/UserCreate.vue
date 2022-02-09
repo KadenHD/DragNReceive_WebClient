@@ -1,6 +1,5 @@
 <template>
-  <div class="Register" v-if="currentUser">
-    <!-- v-if the currentUser to handle errors cause he come to late for role items -->
+  <div class="Register">
     <v-form ref="form">
       <v-card>
         <v-card-title>Inscrivez-vous</v-card-title>
