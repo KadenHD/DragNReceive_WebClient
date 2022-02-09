@@ -97,7 +97,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## Languages
 
-> JavaScript
+> It's a "Full JavaScript" project, using Vue templates.
 
 # To-do
 
