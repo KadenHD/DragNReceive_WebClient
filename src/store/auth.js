@@ -40,17 +40,6 @@ export default {
             context.dispatch("success", "Vous êtes bien déconnecté !");
             router.push({ name: "Home" });
         },
-        createUser(context, data) {
-            axios
-                .post("users", data)
-                .then((response) => {
-                    context.dispatch("success", response.data.success);
-                    //router.push({ name: "" }); // all Users page
-                })
-                .catch((error) => {
-                    context.dispatch("error", error.response.data.error);
-                });
-        }
     },
     mutations: {
         currentUser(state, currentUser) { state.currentUser = currentUser; },
