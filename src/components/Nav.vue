@@ -13,7 +13,6 @@
             ></v-img
           ></router-link>
         </v-toolbar-title>
-
         <div class="links">
           <div class="noUser" v-if="!currentUser">
             <router-link class="mr-1 ml-1" :to="{ name: 'Login' }"
@@ -45,7 +44,6 @@ export default {
   },
 };
 </script>
-
 
 <style >
 .Nav .links {
