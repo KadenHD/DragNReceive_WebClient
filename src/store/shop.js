@@ -1,5 +1,4 @@
 import axios from 'axios';
-import router from '@/router';
 
 export default {
     state: {
@@ -18,7 +17,6 @@ export default {
                 })
                 .catch((error) => {
                     context.dispatch("error", error.response.data.error);
-                    router.push({ name: "Home" });
                 });
         }
     },
