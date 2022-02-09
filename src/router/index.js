@@ -36,6 +36,7 @@ const routes = [
         meta: {
             title: 'Home',
         }
+        //gestion de toutes les redirections si loggedin et par roles etc
     },
     {
         path: '/404',
@@ -51,14 +52,22 @@ const routes = [
     },
 ];
 
+aboutRouter.beforeEach((to, from, next) => {
+    if (store.state.currentUser || localStorage.getItem('token')) next({ name: 'Home' });
+    else next();
+});
+
+authRouter.beforeEach((to, from, next) => {
+    if (store.state.currentUser || localStorage.getItem('token')) next({ name: 'Home' });
+    else next();
+});
+
 const router = new VueRouter({
     mode: 'history',
     base: process.env.BASE_URL,
     routes
 });
 
-router.afterEach((to) => {
-    document.title = to.meta.title;
-});
+router.afterEach((to) => document.title = to.meta.title); // dynamically change the title after changing route
 
 export default router;
