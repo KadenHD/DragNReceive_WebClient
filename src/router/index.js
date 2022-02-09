@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
-import UserCreate from '@/views/test/UserCreate.vue';
+import UserCreate from '@/views/user/UserCreate.vue';
 
 import Home from '@/views/Home.vue';
 import NotFound from '@/views/NotFound.vue';
