@@ -55,7 +55,6 @@ export default {
 .router-link-active:hover {
   color: #afb891 !important;
 }
-
 .TextTitle {
   color: #014d5a;
   font-weight: bold;
