@@ -1,7 +1,7 @@
 import Login from '@/views/auth/Login.vue';
 import Forgot from '@/views/auth/Forgot.vue';
 import Reset from '@/views/auth/Reset.vue';
-import { isNotLogged } from '../plugins/beforeEnterRoutes';
+import { isNotLogged } from '@/functions/beforeEnter.js';
 
 export default [
     {
