@@ -8,7 +8,7 @@ import NotFound from '@/views/NotFound.vue';
 
 import authRouter from "./auth.js";
 import aboutRouter from "./about.js";
-import { isLogged } from "../plugins/beforeEnterRoutes.js";
+import { isLogged } from "@/functions/beforeEnter.js";
 
 Vue.use(VueRouter);
 
