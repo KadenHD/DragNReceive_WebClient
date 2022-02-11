@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { emailRules, passwordRules } from "@/plugins/inputRules.js";
+import { emailRules, passwordRules } from "@/functions/inputRules.js";
 
 export default {
   data() {
