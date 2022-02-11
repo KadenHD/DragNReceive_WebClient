@@ -8,6 +8,8 @@ import Join from '@/views/about/help/Join.vue';
 import Partner from '@/views/about/buy/Partner.vue';
 import Download from '@/views/about/buy/Download.vue';
 
+import { isNotLogged } from '../plugins/beforeEnterRoutes';
+
 export default [
     {
         path: '/about/company/us',
@@ -15,7 +17,8 @@ export default [
         component: Us,
         meta: {
             title: 'À propos de nous',
-        }
+        },
+        beforeEnter: isNotLogged
     },
     {
         path: '/about/company/services',
@@ -23,7 +26,8 @@ export default [
         component: Services,
         meta: {
             title: 'Nos services',
-        }
+        },
+        beforeEnter: isNotLogged
     },
     {
         path: '/about/company/policy',
@@ -31,7 +35,8 @@ export default [
         component: Policy,
         meta: {
             title: 'Politique de confidentialité',
-        }
+        },
+        beforeEnter: isNotLogged
     },
     {
         path: '/about/help/contact',
@@ -39,7 +44,8 @@ export default [
         component: Contact,
         meta: {
             title: 'Nous contacter',
-        }
+        },
+        beforeEnter: isNotLogged
     },
     {
         path: '/about/help/join',
@@ -47,7 +53,8 @@ export default [
         component: Join,
         meta: {
             title: 'Nous rejoindre',
-        }
+        },
+        beforeEnter: isNotLogged
     },
     {
         path: '/about/buy/partner',
@@ -55,7 +62,8 @@ export default [
         component: Partner,
         meta: {
             title: 'Nos partenaires',
-        }
+        },
+        beforeEnter: isNotLogged
     },
     {
         path: '/about/buy/download',
@@ -63,6 +71,7 @@ export default [
         component: Download,
         meta: {
             title: 'Télécharger',
-        }
+        },
+        beforeEnter: isNotLogged
     },
 ]
