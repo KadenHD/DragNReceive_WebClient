@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { emailRules } from "@/plugins/inputRules.js";
+import { emailRules } from "@/functions/inputRules.js";
 
 export default {
   data() {
