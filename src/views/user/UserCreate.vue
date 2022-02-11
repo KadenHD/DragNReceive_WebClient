@@ -76,7 +76,7 @@ import {
   lastNameRules,
   emailRules,
   passwordRules,
-} from "@/plugins/inputRules.js";
+} from "@/functions/inputRules.js";
 
 export default {
   created() {
