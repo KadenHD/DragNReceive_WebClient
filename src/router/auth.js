@@ -1,6 +1,7 @@
 import Login from '@/views/auth/Login.vue';
 import Forgot from '@/views/auth/Forgot.vue';
 import Reset from '@/views/auth/Reset.vue';
+import { isNotLogged } from '../plugins/beforeEnterRoutes';
 
 export default [
     {
@@ -9,7 +10,8 @@ export default [
         component: Login,
         meta: {
             title: 'Login',
-        }
+        },
+        beforeEnter: isNotLogged
     },
     {
         path: '/forgot',
@@ -17,7 +19,8 @@ export default [
         component: Forgot,
         meta: {
             title: 'Forgot',
-        }
+        },
+        beforeEnter: isNotLogged
     },
     {
         path: '/reset/:token',
@@ -25,6 +28,7 @@ export default [
         component: Reset,
         meta: {
             title: 'Reset',
-        }
+        },
+        beforeEnter: isNotLogged
     },
 ]
