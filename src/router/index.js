@@ -8,6 +8,7 @@ import NotFound from '@/views/NotFound.vue';
 
 import authRouter from "./auth.js";
 import aboutRouter from "./about.js";
+import { isLogged } from "../plugins/beforeEnterRoutes.js";
 
 Vue.use(VueRouter);
 
@@ -18,7 +19,8 @@ const routes = [
         component: UserCreate,
         meta: {
             title: 'UserCreate',
-        }
+        },
+        beforeEnter: isLogged
     },
 
     //////////////////////////////////////
@@ -35,7 +37,7 @@ const routes = [
         component: Home,
         meta: {
             title: 'Home',
-        }
+        },
         //gestion de toutes les redirections si loggedin et par roles etc
     },
     {
@@ -51,16 +53,6 @@ const routes = [
         redirect: '/404'
     },
 ];
-
-aboutRouter.beforeEach((to, from, next) => {
-    if (store.state.currentUser || localStorage.getItem('token')) next({ name: 'Home' });
-    else next();
-});
-
-authRouter.beforeEach((to, from, next) => {
-    if (store.state.currentUser || localStorage.getItem('token')) next({ name: 'Home' });
-    else next();
-});
 
 const router = new VueRouter({
     mode: 'history',
