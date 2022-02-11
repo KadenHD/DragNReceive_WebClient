@@ -101,9 +101,9 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 # To-do
 
-- Voir quelle redirection marche le mieux entre beforeEnter chaques routes et nameRouter.beforeEach (voir si il est valide surtout)
+- Faire permissions router en fonction des roles
 
-- Faire permissions router en fonction de ... (utiliser les childrens et beforeEnter) (voir la vidéo de 1h s'il faut mounted pour les vérif et setDispatch)
+- faire les dashboards et routes dédiés (childrens routers)
 
 - Mettre en place des templates "Skeleton Loader" avant le chargement des entities
 - Voir les data tables de vuetify pour les tables de gestion
