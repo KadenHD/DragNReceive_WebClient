@@ -1,30 +1,22 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
-import UserCreate from '@/views/user/UserCreate.vue';
-
 import Home from '@/views/Home.vue';
 import NotFound from '@/views/NotFound.vue';
 
 import authRouter from "./auth.js";
 import aboutRouter from "./about.js";
-import { isLogged } from "@/functions/beforeEnter.js";
+import partnerRouter from './partner.js';
+import adminRouter from './admin.js';
+import sadminRouter from './sadmin.js';
+
 
 Vue.use(VueRouter);
 
 const routes = [
-    {
-        path: '/users',
-        name: 'UserCreate',
-        component: UserCreate,
-        meta: {
-            title: 'UserCreate',
-        },
-        beforeEnter: isLogged
-    },
-
-    //////////////////////////////////////
-
+    ...partnerRouter,
+    ...adminRouter,
+    ...sadminRouter,
     ...authRouter,
     ...aboutRouter,
     {
