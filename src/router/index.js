@@ -10,6 +10,7 @@ import partnerRouter from './partner.js';
 import adminRouter from './admin.js';
 import sadminRouter from './sadmin.js';
 
+import { homeRedirections } from '@/functions/beforeEnter.js';
 
 Vue.use(VueRouter);
 
@@ -21,7 +22,7 @@ const routes = [
     ...aboutRouter,
     {
         path: '/',
-        redirect: '/home'
+        redirect: { name: 'Home' }
     },
     {
         path: '/home',
@@ -30,7 +31,7 @@ const routes = [
         meta: {
             title: 'Home',
         },
-        //gestion de toutes les redirections si loggedin et par roles etc
+        beforeEnter: homeRedirections
     },
     {
         path: '/404',
@@ -42,7 +43,7 @@ const routes = [
     },
     {
         path: '/:pathMatch(.*)*',
-        redirect: '/404'
+        redirect: { name: 'NotFound' }
     },
 ];
 
