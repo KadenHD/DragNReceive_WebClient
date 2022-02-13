@@ -13,7 +13,6 @@
 
           <v-text-field
             v-model="password"
-            :rules="passwordRules"
             label="Mot de passe"
             prepend-inner-icon="mdi-lock"
             :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
@@ -36,7 +35,7 @@
 </template>
 
 <script>
-import { emailRules, passwordRules } from "@/functions/inputRules.js";
+import { emailRules } from "@/functions/inputRules.js";
 
 export default {
   data() {
@@ -45,7 +44,6 @@ export default {
       password: null,
       showPassword: false,
       emailRules,
-      passwordRules,
     };
   },
   methods: {
