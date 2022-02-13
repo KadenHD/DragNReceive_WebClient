@@ -1,5 +1,7 @@
 import Dashboard from '@/views/Dashboard.vue';
 
+import { isAdmin } from '@/functions/beforeEnter.js';
+
 export default [
     {
         path: '/admin',
@@ -8,6 +10,6 @@ export default [
         meta: {
             title: 'Admin Dashboard',
         },
-        // beforeEnter: 
+        beforeEnter: isAdmin
     }
 ]
