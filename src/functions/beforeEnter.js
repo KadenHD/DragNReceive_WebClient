@@ -1,10 +1,5 @@
 import store from '@/store';
 
-export const isLogged = (to, from, next) => {
-    if (!store.getters.currentUser || !localStorage.getItem('token')) next({ name: 'Home' });
-    else next();
-}
-
 export const isNotLogged = (to, from, next) => {
     if (store.getters.currentUser || localStorage.getItem('token')) next({ name: 'Home' });
     else next();
