@@ -1,5 +1,7 @@
 import Dashboard from '@/views/Dashboard.vue';
 
+import { isPartner } from '@/functions/beforeEnter.js';
+
 export default [
     {
         path: '/partner',
@@ -8,6 +10,6 @@ export default [
         meta: {
             title: 'Partner Dashboard',
         },
-        // beforeEnter: 
+        beforeEnter: isPartner
     }
 ]
