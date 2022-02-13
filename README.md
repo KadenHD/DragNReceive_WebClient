@@ -108,6 +108,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - Mettre en place des templates "Skeleton Loader" avant le chargement des entities
 - Voir les data tables de vuetify pour les tables de gestion
 
+- remettre au login le passRules
+
 # Sources
 
 - Material Design Icons (MDI), open-source icons : [Link](https://materialdesignicons.com/)
