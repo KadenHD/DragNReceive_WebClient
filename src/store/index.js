@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import createPersistedState from "vuex-persistedstate";
 
 import auth from './auth.js';
 import shop from './shop.js';
@@ -39,6 +40,7 @@ const store = new Vuex.Store({
         shop,
         user,
     },
+    plugins: [createPersistedState()]
 });
 
 export default store;
