@@ -6,8 +6,23 @@ export const isNotLogged = (to, from, next) => {
 }
 
 export const homeRedirections = (to, from, next) => {
-    if (store.getters.currentUser.roleId == '1') next({ name: '' }); // sadmin dashboard (/sadmin)
-    else if (store.getters.currentUser.roleId == '2') next({ name: '' }); // admin dashboard (/admin)
-    else if (store.getters.currentUser.roleId == '3') next({ name: '' }); // partner dashboard (/partner)
-    else next(); // not logged can access
+    if (store.getters.currentUser && store.getters.currentUser.roleId == '1') next({ name: 'Sadmin' });
+    else if (store.getters.currentUser && store.getters.currentUser.roleId == '2') next({ name: 'Admin' });
+    else if (store.getters.currentUser && store.getters.currentUser.roleId == '3') next({ name: 'Partner' });
+    else next();
+}
+
+export const isSadmin = (to, from, next) => {
+    if (store.getters.currentUser && store.getters.currentUser.roleId == '1') next();
+    else next({ name: 'Home' });
+}
+
+export const isAdmin = (to, from, next) => {
+    if (store.getters.currentUser && store.getters.currentUser.roleId == '2') next();
+    else next({ name: 'Home' });
+}
+
+export const isPartner = (to, from, next) => {
+    if (store.getters.currentUser && store.getters.currentUser.roleId == '3') next();
+    else next({ name: 'Home' });
 }
