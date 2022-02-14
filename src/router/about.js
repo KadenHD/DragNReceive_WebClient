@@ -13,7 +13,7 @@ import { isNotLogged } from '@/functions/beforeEnter.js';
 export default [
     {
         path: '/about/company/us',
-        name: 'About-us',
+        name: 'AboutUs',
         component: Us,
         meta: {
             title: 'À propos de nous',
@@ -22,7 +22,7 @@ export default [
     },
     {
         path: '/about/company/services',
-        name: 'Services',
+        name: 'AboutServices',
         component: Services,
         meta: {
             title: 'Nos services',
@@ -31,7 +31,7 @@ export default [
     },
     {
         path: '/about/company/policy',
-        name: 'Policy',
+        name: 'AboutPolicy',
         component: Policy,
         meta: {
             title: 'Politique de confidentialité',
@@ -40,7 +40,7 @@ export default [
     },
     {
         path: '/about/help/contact',
-        name: 'Contact',
+        name: 'AboutContact',
         component: Contact,
         meta: {
             title: 'Nous contacter',
@@ -49,7 +49,7 @@ export default [
     },
     {
         path: '/about/help/join',
-        name: 'Join',
+        name: 'AboutJoin',
         component: Join,
         meta: {
             title: 'Nous rejoindre',
@@ -58,7 +58,7 @@ export default [
     },
     {
         path: '/about/buy/partner',
-        name: 'Partner',
+        name: 'AboutPartner',
         component: Partner,
         meta: {
             title: 'Nos partenaires',
@@ -67,7 +67,7 @@ export default [
     },
     {
         path: '/about/buy/download',
-        name: 'Download',
+        name: 'AboutDownload',
         component: Download,
         meta: {
             title: 'Télécharger',
