@@ -26,7 +26,7 @@
                 >
               </v-list-item-icon>
               <v-list-item-content v-if="child.title">
-                <router-link :to="{ name: child.path }">
+                <router-link :to="{ name: 'About' + child.path }">
                   {{ child.title }}
                 </router-link>
               </v-list-item-content>
@@ -46,7 +46,7 @@ export default {
         title: "L'Entreprise",
         action: "mdi-domain",
         items: [
-          { title: "À propos de nous", path: "About-us" },
+          { title: "À propos de nous", path: "Us" },
           { title: "Nos services", path: "Services" },
           { title: "Politique de confidentialité", path: "Policy" },
         ],
