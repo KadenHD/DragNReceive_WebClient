@@ -28,7 +28,13 @@ export default {
                     localStorage.setItem("token", response.data.token);
                     context.dispatch("currentUser", response.data.user);
                     context.dispatch("success", "Vous êtes connecté !");
-                    router.push({ name: "Home" });
+                    if (response.data.user.roleId == "1") {
+                        router.push({ name: "Sadmin" });
+                    } else if (response.data.user.roleId == "2") {
+                        router.push({ name: "Admin" });
+                    } else if (response.data.user.roleId == "3") {
+                        router.push({ name: "Partner" });
+                    }
                 })
                 .catch((error) => {
                     context.dispatch("error", error.response.data.error);
