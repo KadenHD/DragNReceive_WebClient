@@ -11,7 +11,7 @@
         motivation. Nous vous recontacterons par la suite et vous donnerons les
         directives à suivre. Pour obtenir nos coordonnées nous vous laissons
         vous rendre dans l'onglet
-        <router-link class="TextLinks" :to="{ name: 'Contact' }">
+        <router-link class="TextLinks" :to="{ name: 'AboutContact' }">
           nous contacter </router-link
         >.
       </p>
