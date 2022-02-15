@@ -114,6 +114,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - unDraw, open-source illustrations : [Link](https://undraw.co/illustrations)
 - Vuetify doc : [Link](https://https://vuetifyjs.com/en/)
 - Routing with Vue-Router : [Link](https://www.vuemastery.com/blog/vue-router-a-tutorial-for-vue-3/)
+- Video tutorial to restrict routes access : [Link](https://youtu.be/30XtkPC8nHI)
 - Video tutorial to begin Vuex with Authentication : [Link](https://youtu.be/1YGWP-mj6nQ)
 - Video tutorial for a simple form and validation with vuetify : [Link](https://youtu.be/ryndQPFt4w0)
 - Video tutorial for JWT Authentication, Axios, Vue and Vuex logics : [Link](https://youtu.be/uqpM7WVTKI4)
