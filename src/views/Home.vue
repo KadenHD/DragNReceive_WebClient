@@ -5,7 +5,7 @@
     <v-container>
       <p class="MainText text-center">
         Bienvenue sur la plateforme de gestion des partenaires et de stocks de
-        <router-link class="TextLinks" :to="{ name: 'About-us' }">
+        <router-link class="TextLinks" :to="{ name: 'AboutUs' }">
           DragN'Receive </router-link
         >, la boutique des Click & Collect à grande échelle de l'aglomération de
         Compiègne !
