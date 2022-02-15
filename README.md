@@ -101,8 +101,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 # To-do
 
-- Faire permissions router en fonction des roles
-
 - faire les dashboards et routes dédiés (childrens routers)
 
 - Mettre en place des templates "Skeleton Loader" avant le chargement des entities
