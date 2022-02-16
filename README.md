@@ -101,7 +101,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 # To-do
 
-- faire les dashboards et routes dédiés (childrens routers)
+- Régler la page de gestion pour qu'il y ait le get post update et delete le tout sur la même page
 
 - Mettre en place des templates "Skeleton Loader" avant le chargement des entities
 - Voir les data tables de vuetify pour les tables de gestion
