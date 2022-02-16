@@ -1,7 +1,9 @@
 import Login from '@/views/auth/Login.vue';
 import Forgot from '@/views/auth/Forgot.vue';
 import Reset from '@/views/auth/Reset.vue';
-import { isNotLogged } from '@/functions/beforeEnter.js';
+import Dashboard from '@/views/Dashboard.vue';
+
+import { isNotLogged, isSadmin, isAdmin, isPartner } from '@/functions/beforeEnter.js';
 
 export default [
     {
@@ -30,5 +32,32 @@ export default [
             title: 'Reset',
         },
         beforeEnter: isNotLogged
+    },
+    {
+        path: '/sadmin',
+        name: 'Sadmin',
+        component: Dashboard,
+        meta: {
+            title: 'Super-admin Dashboard',
+        },
+        beforeEnter: isSadmin
+    },
+    {
+        path: '/admin',
+        name: 'Admin',
+        component: Dashboard,
+        meta: {
+            title: 'Admin Dashboard',
+        },
+        beforeEnter: isAdmin,
+    },
+    {
+        path: '/partner',
+        name: 'Partner',
+        component: Dashboard,
+        meta: {
+            title: 'Partner Dashboard',
+        },
+        beforeEnter: isPartner
     },
 ]
