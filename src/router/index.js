@@ -4,20 +4,36 @@ import VueRouter from "vue-router";
 import Home from '@/views/Home.vue';
 import NotFound from '@/views/NotFound.vue';
 
+import Users from '@/views/user/Users.vue';
+import UserCreate from '@/views/user/UserCreate.vue';
+
 import authRouter from "./auth.js";
 import aboutRouter from "./about.js";
-import partnerRouter from './partner.js';
-import adminRouter from './admin.js';
-import sadminRouter from './sadmin.js';
 
-import { homeRedirections } from '@/functions/beforeEnter.js';
+import { homeRedirections, isAdmin } from '@/functions/beforeEnter.js';
 
 Vue.use(VueRouter);
 
 const routes = [
-    ...partnerRouter,
-    ...adminRouter,
-    ...sadminRouter,
+    // test
+    {
+        path: '/users',
+        name: 'Users',
+        component: Users,
+        meta: {
+            title: 'Users'
+        },
+        beforeEnter: isAdmin,
+    },
+    {
+        path: '/user/create',
+        name: 'UserCreate',
+        component: UserCreate,
+        meta: {
+            title: 'User Create'
+        },
+        beforeEnter: isAdmin,
+    },
     ...authRouter,
     ...aboutRouter,
     {
