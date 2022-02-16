@@ -14,6 +14,11 @@
           ></router-link>
         </v-toolbar-title>
         <div class="links">
+          <div class="isAdmin" v-if="currentUser && currentUser.roleId == '2'">
+            <router-link class="mr-1 ml-1" :to="{ name: 'Users' }"
+              >Gestion des utilisateurs</router-link
+            >
+          </div>
           <div class="noUser" v-if="!currentUser">
             <router-link class="mr-1 ml-1" :to="{ name: 'Login' }"
               >Connexion</router-link
