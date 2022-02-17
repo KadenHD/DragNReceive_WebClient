@@ -102,7 +102,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 # To-do
 
 ## Fonctionnel
-- 
+- page de gestion des shops
 
 ## A la fin
 - les redirect de la navbar sortent une fois en format tel
