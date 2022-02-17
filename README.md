@@ -101,6 +101,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 # To-do
 
+- Faire la page ou le dialog de user
+
 - Mettre en place des templates "Skeleton Loader" avant le chargement des entities
 - Voir les data tables de vuetify pour les tables de gestion
 
