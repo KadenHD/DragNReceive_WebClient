@@ -169,7 +169,7 @@
           </v-dialog>
         </v-toolbar>
       </template>
-      <template v-slot:item.actions="{ item }">
+      <template v-slot:[`item.actions`]="{ item }">
         <v-icon class="mr-2" @click="viewItem(item)"> mdi-eye </v-icon>
         <v-icon class="mr-2" @click="editItem(item)"> mdi-pencil </v-icon>
         <v-icon
@@ -192,35 +192,37 @@ import {
   lastNameRules,
   emailRules,
 } from "@/functions/inputRules.js";
-import { roleName, reformatedDates } from "@/functions/index.js";
+import { roledName, reformatedDates } from "@/functions/index.js";
 
 export default {
-  data: () => ({
-    firstNameRules,
-    lastNameRules,
-    emailRules,
-    dialogView: false,
-    dialogEdit: false,
-    dialogDelete: false,
-    currentIndex: -1,
-    currentItem: {},
-    headers: [
-      { text: "Nom", value: "lastname" },
-      { text: "Prénom", value: "firstname" },
-      { text: "E-mail", value: "email" },
-      { text: "Rôle", value: "roleName" },
-      { text: "Boutique", value: "shop.name" },
-      { text: "Date de création", value: "createdAtReformated" },
-      { text: "Dernière modification", value: "updatedAtReformated" },
-      { text: "Actions", value: "actions", sortable: false },
-    ],
-  }),
+  data() {
+    return {
+      firstNameRules,
+      lastNameRules,
+      emailRules,
+      dialogView: false,
+      dialogEdit: false,
+      dialogDelete: false,
+      currentIndex: -1,
+      currentItem: {},
+      headers: [
+        { text: "Nom", value: "lastname" },
+        { text: "Prénom", value: "firstname" },
+        { text: "E-mail", value: "email" },
+        { text: "Rôle", value: "roleName" },
+        { text: "Boutique", value: "shop.name" },
+        { text: "Date de création", value: "createdAtReformated" },
+        { text: "Dernière modification", value: "updatedAtReformated" },
+        { text: "Actions", value: "actions", sortable: false },
+      ],
+    };
+  },
 
   computed: {
     ...mapGetters(["users", "currentUser"]),
     userItems: function () {
       return this.users.filter(function (i) {
-        i.roleName = roleName(i.roleId);
+        i.roleName = roledName(i.roleId);
         i.createdAtReformated = reformatedDates(i.createdAt);
         i.updatedAtReformated = reformatedDates(i.updatedAt);
         if (i.id != store.getters.currentUser.id) {
@@ -284,13 +286,20 @@ export default {
 
     saveEdit() {
       if (this.$refs.form.validate()) {
-        this.$store.dispatch("editUser", this.currentItem);
+        const data = {
+          id: this.currentItem.id,
+          lastname: this.currentItem.lastname,
+          firstname: this.currentItem.firstname,
+          email: this.currentItem.email,
+          route: "Users",
+        };
+        this.$store.dispatch("editUser", data);
         this.closeEdit();
       }
     },
 
     deleteItemConfirm() {
-      this.$store.dispatch("deleteUser", this.currentItem);
+      this.$store.dispatch("deleteUser", this.currentItem.id);
       this.closeDelete();
     },
   },
