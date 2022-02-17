@@ -101,6 +101,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 # To-do
 
+- tester si en redirigeant avec un refresh, y'a toujours le message d'erreur buggé quand je vais direct dans le gestionnaire de users
 - Faire la page ou le dialog de user
 
 - Mettre en place des templates "Skeleton Loader" avant le chargement des entities
