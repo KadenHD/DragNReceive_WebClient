@@ -102,9 +102,10 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 # To-do
 
 ## Fonctionnel
-- Faire la page ou le dialog de user
+- 
 
 ## A la fin
+- les redirect de la navbar sortent une fois en format tel
 - remettre au login le passRules
 - Mettre en place des templates "Skeleton Loader" avant le chargement des entities
 
