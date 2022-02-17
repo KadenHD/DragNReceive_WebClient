@@ -13,7 +13,7 @@ export const reformatedDates = (key) => {
     return (`${day}/${month}/${year} - ${hour}:${minute}:${second}`)
 }
 
-export const roleName = (key) => {
+export const roledName = (key) => {
     if (key == "1") {
         return "Super Administrateur";
     } else if (key == "2") {
