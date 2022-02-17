@@ -26,3 +26,11 @@ export const isPartner = (to, from, next) => {
     if (store.getters.currentUser && store.getters.currentUser.roleId == '3') next();
     else next({ name: 'Home' });
 }
+
+export const isAdminOrSadmin = (to, from, next) => {
+    if (
+        (store.getters.currentUser && store.getters.currentUser.roleId == '2') ||
+        (store.getters.currentUser && store.getters.currentUser.roleId == '1')
+    ) next();
+    else next({ name: 'Home' });
+}

@@ -10,7 +10,7 @@ import UserCreate from '@/views/user/UserCreate.vue';
 import authRouter from "./auth.js";
 import aboutRouter from "./about.js";
 
-import { homeRedirections, isAdmin } from '@/functions/beforeEnter.js';
+import { homeRedirections, isAdminOrSadmin } from '@/functions/beforeEnter.js';
 
 Vue.use(VueRouter);
 
@@ -23,7 +23,7 @@ const routes = [
         meta: {
             title: 'Users'
         },
-        beforeEnter: isAdmin,
+        beforeEnter: isAdminOrSadmin,
     },
     {
         path: '/user/create',
@@ -32,7 +32,7 @@ const routes = [
         meta: {
             title: 'User Create'
         },
-        beforeEnter: isAdmin,
+        beforeEnter: isAdminOrSadmin,
     },
     ...authRouter,
     ...aboutRouter,

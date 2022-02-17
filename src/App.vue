@@ -46,6 +46,9 @@ export default {
 </script>
 
 <style>
+a {
+  text-decoration: none;
+}
 .router-link-exact-active,
 .router-link-active {
   text-decoration: none;

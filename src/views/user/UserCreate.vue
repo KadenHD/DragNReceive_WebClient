@@ -1,8 +1,8 @@
 <template>
   <div class="Register">
     <v-form ref="form">
-      <v-card>
-        <v-card-title>Inscrivez-vous</v-card-title>
+      <v-card class="elevation-24">
+        <v-card-title>Ajouter un utilisateur </v-card-title>
         <v-card-text>
           <v-select
             @input="updateShop"
@@ -58,6 +58,9 @@
           ></v-text-field>
         </v-card-text>
         <v-card-actions>
+          <router-link :to="{ name: 'Users' }">
+            <v-btn color="error" dark class="mr-4"> Annuler </v-btn>
+          </router-link>
           <v-btn color="success" class="mr-4" @click="submitUserCreateForm">
             Créer
           </v-btn>

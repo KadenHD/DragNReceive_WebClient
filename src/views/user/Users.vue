@@ -3,78 +3,87 @@
     <v-data-table
       :headers="headers"
       :items="userItems"
-      :items-per-page="15"
-      class="elevation-1"
-      ><template v-slot:top>
+      :items-per-page="10"
+      class="elevation-24"
+    >
+      <template v-slot:top>
         <v-toolbar flat>
           <v-toolbar-title>Mes utilisateurs</v-toolbar-title>
+
           <v-divider class="mx-4" inset vertical></v-divider>
           <v-spacer></v-spacer>
-          <v-dialog v-model="dialog" max-width="500px">
-            <template v-slot:activator="{ on, attrs }">
-              <v-btn color="primary" dark class="mb-2" v-bind="attrs" v-on="on">
-                New Item
-              </v-btn>
-            </template>
+
+          <router-link :to="{ name: 'UserCreate' }">
+            <v-btn color="success" dark class="mb-2">
+              Ajouter un utilisateur
+            </v-btn>
+          </router-link>
+
+          <v-dialog v-model="dialogEdit" max-width="1000px">
             <v-card>
-              <v-card-text>
-                <v-container>
-                  <v-row>
-                    <v-col cols="12" sm="6" md="4">
-                      <v-text-field
-                        v-model="editedItem.name"
-                        label="Dessert name"
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="12" sm="6" md="4">
-                      <v-text-field
-                        v-model="editedItem.calories"
-                        label="Calories"
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="12" sm="6" md="4">
-                      <v-text-field
-                        v-model="editedItem.fat"
-                        label="Fat (g)"
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="12" sm="6" md="4">
-                      <v-text-field
-                        v-model="editedItem.carbs"
-                        label="Carbs (g)"
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="12" sm="6" md="4">
-                      <v-text-field
-                        v-model="editedItem.protein"
-                        label="Protein (g)"
-                      ></v-text-field>
-                    </v-col>
-                  </v-row>
-                </v-container>
-              </v-card-text>
+              <v-card-title>
+                <span class="text-h5">Modifier l'utilisateur</span>
+              </v-card-title>
+              <v-form ref="form">
+                <v-card-text>
+                  <v-container>
+                    <v-row>
+                      <v-col cols="12" sm="6" md="4">
+                        <v-text-field
+                          v-model="currentItem.lastname"
+                          :rules="lastNameRules"
+                          label="Nom"
+                          prepend-inner-icon="mdi-human-capacity-decrease"
+                          counter
+                        ></v-text-field>
+                      </v-col>
+                      <v-col cols="12" sm="6" md="4">
+                        <v-text-field
+                          v-model="currentItem.firstname"
+                          :rules="firstNameRules"
+                          label="Prénom"
+                          prepend-inner-icon="mdi-human-male"
+                          counter
+                        ></v-text-field>
+                      </v-col>
+                      <v-col cols="12" sm="6" md="4">
+                        <v-text-field
+                          v-model="currentItem.email"
+                          :rules="emailRules"
+                          label="E-mail"
+                          prepend-inner-icon="mdi-email"
+                          counter
+                        ></v-text-field>
+                      </v-col>
+                    </v-row>
+                  </v-container>
+                </v-card-text>
+              </v-form>
 
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="blue darken-1" text @click="close">
-                  Cancel
+                <v-btn color="blue darken-1" text @click="closeEdit">
+                  Annuler
                 </v-btn>
-                <v-btn color="blue darken-1" text @click="save"> Save </v-btn>
+                <v-btn color="blue darken-1" text @click="saveEdit">
+                  Enregistrer
+                </v-btn>
               </v-card-actions>
             </v-card>
           </v-dialog>
-          <v-dialog v-model="dialogDelete" max-width="500px">
+
+          <v-dialog v-model="dialogDelete" max-width="1000px">
             <v-card>
               <v-card-title class="text-h5"
-                >Are you sure you want to delete this item?</v-card-title
+                >Souhaitez-vous vraiment créer cet utilisateur ?</v-card-title
               >
               <v-card-actions>
                 <v-spacer></v-spacer>
                 <v-btn color="blue darken-1" text @click="closeDelete"
-                  >Cancel</v-btn
+                  >Annuler</v-btn
                 >
-                <v-btn color="blue darken-1" text @click="deleteItemConfirm"
-                  >OK</v-btn
+                <v-btn color="blue darken-1" text @click="deleteItemConfirm()"
+                  >Supprimer</v-btn
                 >
                 <v-spacer></v-spacer>
               </v-card-actions>
@@ -83,38 +92,50 @@
         </v-toolbar>
       </template>
       <template v-slot:item.actions="{ item }">
-        <v-icon small class="mr-2" @click="editItem(item)"> mdi-pencil </v-icon>
-        <v-icon small @click="deleteItem(item)"> mdi-delete </v-icon>
-      </template>
-      <template v-slot:no-data>
-        <v-btn color="primary" @click="initialize"> Reset </v-btn>
+        <v-icon class="mr-2" @click="editItem(item)"> mdi-pencil </v-icon>
+        <v-icon
+          v-if="currentUser.roleId == '1' && item.roleId != '1'"
+          @click="deleteItem(item)"
+        >
+          mdi-delete
+        </v-icon>
       </template>
     </v-data-table>
   </div>
 </template>
 
 <script>
+import store from "@/store";
 import { mapGetters } from "vuex";
+import {
+  firstNameRules,
+  lastNameRules,
+  emailRules,
+} from "@/functions/inputRules.js";
 
 export default {
-  created() {
-    this.$store.dispatch("setUsers");
-  },
-  data() {
-    return {
-      dialog: false,
-      dialogDelete: false,
-      editedIndex: -1,
-      editedItem: {
-        //
-      },
-      defaultItem: {
-        //
-      },
-    };
-  },
+  data: () => ({
+    firstNameRules,
+    lastNameRules,
+    emailRules,
+    dialogEdit: false,
+    dialogDelete: false,
+    currentIndex: -1,
+    currentItem: {},
+    headers: [
+      { text: "Nom", value: "lastname" },
+      { text: "Prénom", value: "firstname" },
+      { text: "E-mail", value: "email" },
+      { text: "Rôle", value: "roleName" },
+      { text: "Boutique", value: "shop.name" },
+      { text: "Date de création", value: "createdAt" },
+      { text: "Dernière modification", value: "updatedAt" },
+      { text: "Actions", value: "actions", sortable: false },
+    ],
+  }),
+
   computed: {
-    ...mapGetters(["users"]),
+    ...mapGetters(["users", "currentUser"]),
     userItems: function () {
       return this.users.filter(function (i) {
         if (i.roleId == "1") {
@@ -126,62 +147,63 @@ export default {
         } else if (i.roleId == "4") {
           i.roleName = "Client";
         }
-        return i;
+        if (i.id != store.getters.currentUser.id) {
+          return i;
+        }
       });
     },
-    formTitle() {
-      return this.editedIndex === -1 ? "New Item" : "Edit Item";
-    },
   },
+
   watch: {
-    dialog(val) {
-      val || this.close();
+    dialogEdit(val) {
+      val || this.closeEdit();
     },
     dialogDelete(val) {
       val || this.closeDelete();
     },
   },
+
+  created() {
+    this.$store.dispatch("setUsers");
+  },
+
   methods: {
     editItem(item) {
-      this.editedIndex = this.desserts.indexOf(item);
-      this.editedItem = Object.assign({}, item);
-      this.dialog = true;
+      this.currentIndex = this.userItems.indexOf(item);
+      this.currentItem = Object.assign({}, item);
+      this.dialogEdit = true;
     },
-
     deleteItem(item) {
-      this.editedIndex = this.desserts.indexOf(item);
-      this.editedItem = Object.assign({}, item);
+      this.currentIndex = this.userItems.indexOf(item);
+      this.currentItem = Object.assign({}, item);
       this.dialogDelete = true;
     },
 
-    deleteItemConfirm() {
-      this.desserts.splice(this.editedIndex, 1);
-      this.closeDelete();
-    },
-
-    close() {
-      this.dialog = false;
+    closeEdit() {
+      this.dialogEdit = false;
       this.$nextTick(() => {
-        this.editedItem = Object.assign({}, this.defaultItem);
-        this.editedIndex = -1;
+        this.currentItem = Object.assign({}, null);
+        this.currentIndex = -1;
       });
     },
-
     closeDelete() {
       this.dialogDelete = false;
       this.$nextTick(() => {
-        this.editedItem = Object.assign({}, this.defaultItem);
-        this.editedIndex = -1;
+        this.currentItem = Object.assign({}, null);
+        this.currentIndex = -1;
       });
     },
 
-    save() {
-      if (this.editedIndex > -1) {
-        Object.assign(this.desserts[this.editedIndex], this.editedItem);
-      } else {
-        this.desserts.push(this.editedItem);
+    saveEdit() {
+      if (this.$refs.form.validate()) {
+        this.$store.dispatch("editUser", this.currentItem);
+        this.closeEdit();
       }
-      this.close();
+    },
+
+    deleteItemConfirm() {
+      this.$store.dispatch("deleteUser", this.currentItem);
+      this.closeDelete();
     },
   },
 };

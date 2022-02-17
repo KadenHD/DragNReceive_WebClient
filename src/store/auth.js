@@ -43,11 +43,16 @@ export default {
         logout(context) {
             context.commit('currentUser', null);
             localStorage.removeItem("token");
+            context.commit('clearAll');
             context.dispatch("success", "Vous êtes bien déconnecté !");
             router.push({ name: "Home" });
         },
     },
     mutations: {
+        clearAll(state) {
+            state.users = null;
+            state.shops = null;
+        },
         currentUser(state, currentUser) { state.currentUser = currentUser; },
     }
 }

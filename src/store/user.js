@@ -30,6 +30,29 @@ export default {
                 .catch((error) => {
                     context.dispatch("error", error.response.data.error);
                 });
+        },
+        editUser(context, data) {
+            axios
+                .put("users/" + data.id, data)
+                .then((response) => {
+                    context.dispatch("success", response.data.success);
+                    context.dispatch("setUsers");
+                })
+                .catch((error) => {
+                    context.dispatch("error", error.response.data.error);
+                });
+        },
+        deleteUser(context, data) {
+            axios
+                .delete("users/" + data.id)
+                .then((response) => {
+                    context.dispatch("success", response.data.success);
+                    context.dispatch("setUsers");
+                })
+                .catch((error) => {
+                    console.log(error.response.data.error)
+                    context.dispatch("error", error.response.data.error);
+                });
         }
     },
     mutations: {
