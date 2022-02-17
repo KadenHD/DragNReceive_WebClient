@@ -2,40 +2,23 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 
 import Home from '@/views/Home.vue';
+import Profile from '@/views/Profile.vue';
 import NotFound from '@/views/NotFound.vue';
 
-import Users from '@/views/user/Users.vue';
-import UserCreate from '@/views/user/UserCreate.vue';
-
-import authRouter from "./auth.js";
 import aboutRouter from "./about.js";
+import authRouter from "./auth.js";
+import shopRouter from './shop.js';
+import userRouter from './user.js';
 
-import { homeRedirections, isAdminOrSadmin } from '@/functions/beforeEnter.js';
+import { homeRedirections, isLogged } from '@/functions/beforeEnter.js';
 
 Vue.use(VueRouter);
 
 const routes = [
-    // test
-    {
-        path: '/users',
-        name: 'Users',
-        component: Users,
-        meta: {
-            title: 'Users'
-        },
-        beforeEnter: isAdminOrSadmin,
-    },
-    {
-        path: '/user/create',
-        name: 'UserCreate',
-        component: UserCreate,
-        meta: {
-            title: 'User Create'
-        },
-        beforeEnter: isAdminOrSadmin,
-    },
-    ...authRouter,
     ...aboutRouter,
+    ...authRouter,
+    ...shopRouter,
+    ...userRouter,
     {
         path: '/',
         redirect: { name: 'Home' }
@@ -45,9 +28,18 @@ const routes = [
         name: 'Home',
         component: Home,
         meta: {
-            title: 'Home',
+            title: 'Accueil',
         },
         beforeEnter: homeRedirections
+    },
+    {
+        path: '/profile',
+        name: 'Profile',
+        component: Profile,
+        meta: {
+            title: 'Profil',
+        },
+        beforeEnter: isLogged
     },
     {
         path: '/404',
