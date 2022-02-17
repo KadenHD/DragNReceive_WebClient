@@ -4,12 +4,25 @@ import router from '@/router';
 export default {
     state: {
         users: null,
+        user: null,
     },
     getters: {
-        users: (state) => { return state.users; }
+        users: (state) => { return state.users; },
+        user: (state) => { return state.user; },
     },
     actions: {
         users(context, users) { context.commit('users', users); },
+        user(context, user) { context.commit('user', user); },
+        setUser(context, id) {
+            axios
+                .get("users/" + id)
+                .then((response) => {
+                    context.commit("user", response.data);
+                })
+                .catch((error) => {
+                    context.dispatch("error", error.response.data.error);
+                });
+        },
         setUsers(context) {
             axios
                 .get("users")
@@ -36,26 +49,30 @@ export default {
                 .put("users/" + data.id, data)
                 .then((response) => {
                     context.dispatch("success", response.data.success);
-                    context.dispatch("setUsers");
+                    if (data.route == "Users") {
+                        context.dispatch("setUsers");
+                    } else if (data.route == "Profile") {
+                        context.dispatch("setUser", data.id);
+                    }
                 })
                 .catch((error) => {
                     context.dispatch("error", error.response.data.error);
                 });
         },
-        deleteUser(context, data) {
+        deleteUser(context, id) {
             axios
-                .delete("users/" + data.id)
+                .delete("users/" + id)
                 .then((response) => {
                     context.dispatch("success", response.data.success);
                     context.dispatch("setUsers");
                 })
                 .catch((error) => {
-                    console.log(error.response.data.error)
                     context.dispatch("error", error.response.data.error);
                 });
         }
     },
     mutations: {
         users(state, users) { state.users = users; },
+        user(state, user) { state.user = user; },
     }
 }
