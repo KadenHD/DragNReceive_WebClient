@@ -31,26 +31,28 @@
 
 <script>
 export default {
-  data: () => ({
-    model: 0,
-    slides: [
-      {
-        title: "Télécharger",
-        text: "Effectivement nous avons réalisé la conception d'une application mobile sous android du nom de DragN'Receive, pour la réalisation de toute commande, veuillez installer cette dernière.",
-        img: "../../assets/img/unDraw/mobile_app.svg",
-      },
-      {
-        title: "Commander",
-        text: "Grâce à notre application, vous allez pouvoir commander divers produits à travers différentes boutiques, pour la pluspart, composé de produits artisanaux.",
-        img: "../../assets/img/unDraw/online_groceries.svg",
-      },
-      {
-        title: "Récupérer",
-        text: "Soyez rassuré ! Une fois la commande réalisé, vous n'avez plus qu'à aller la récupérer en magasin.",
-        img: "../../assets/img/unDraw/successful_purchase.svg",
-      },
-    ],
-  }),
+  data() {
+    return {
+      model: 0,
+      slides: [
+        {
+          title: "Télécharger",
+          text: "Effectivement nous avons réalisé la conception d'une application mobile sous android du nom de DragN'Receive, pour la réalisation de toute commande, veuillez installer cette dernière.",
+          img: "../../assets/img/unDraw/mobile_app.svg",
+        },
+        {
+          title: "Commander",
+          text: "Grâce à notre application, vous allez pouvoir commander divers produits à travers différentes boutiques, pour la pluspart, composé de produits artisanaux.",
+          img: "../../assets/img/unDraw/online_groceries.svg",
+        },
+        {
+          title: "Récupérer",
+          text: "Soyez rassuré ! Une fois la commande réalisé, vous n'avez plus qu'à aller la récupérer en magasin.",
+          img: "../../assets/img/unDraw/successful_purchase.svg",
+        },
+      ],
+    };
+  },
 };
 </script>
 
