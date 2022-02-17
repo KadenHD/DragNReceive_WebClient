@@ -112,6 +112,7 @@ import {
   lastNameRules,
   emailRules,
 } from "@/functions/inputRules.js";
+import { roleName, reformatedDates } from "@/functions/index.js";
 
 export default {
   data: () => ({
@@ -128,8 +129,8 @@ export default {
       { text: "E-mail", value: "email" },
       { text: "Rôle", value: "roleName" },
       { text: "Boutique", value: "shop.name" },
-      { text: "Date de création", value: "createdAt" },
-      { text: "Dernière modification", value: "updatedAt" },
+      { text: "Date de création", value: "createdAtReformated" },
+      { text: "Dernière modification", value: "updatedAtReformated" },
       { text: "Actions", value: "actions", sortable: false },
     ],
   }),
@@ -138,15 +139,9 @@ export default {
     ...mapGetters(["users", "currentUser"]),
     userItems: function () {
       return this.users.filter(function (i) {
-        if (i.roleId == "1") {
-          i.roleName = "Super Administrateur";
-        } else if (i.roleId == "2") {
-          i.roleName = "Administrateur";
-        } else if (i.roleId == "3") {
-          i.roleName = "Partenaire";
-        } else if (i.roleId == "4") {
-          i.roleName = "Client";
-        }
+        i.roleName = roleName(i.roleId);
+        i.createdAtReformated = reformatedDates(i.createdAt);
+        i.updatedAtReformated = reformatedDates(i.updatedAt);
         if (i.id != store.getters.currentUser.id) {
           return i;
         }
