@@ -27,13 +27,12 @@ export default {
                 .then((response) => {
                     localStorage.setItem("token", response.data.token);
                     context.dispatch("currentUser", response.data.user);
-                    context.dispatch("success", "Vous êtes connecté !");
                     if (response.data.user.roleId == "1") {
-                        router.push({ name: "Sadmin" });
+                        router.go({ name: "Sadmin" });
                     } else if (response.data.user.roleId == "2") {
-                        router.push({ name: "Admin" });
+                        router.go({ name: "Admin" });
                     } else if (response.data.user.roleId == "3") {
-                        router.push({ name: "Partner" });
+                        router.go({ name: "Partner" });
                     }
                 })
                 .catch((error) => {
@@ -44,8 +43,7 @@ export default {
             context.commit('currentUser', null);
             localStorage.removeItem("token");
             context.commit('clearAll');
-            context.dispatch("success", "Vous êtes bien déconnecté !");
-            router.push({ name: "Home" });
+            router.go({ name: "Home" });
         },
     },
     mutations: {
