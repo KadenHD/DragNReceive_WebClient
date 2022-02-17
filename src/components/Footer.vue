@@ -40,61 +40,63 @@
 
 <script>
 export default {
-  data: () => ({
-    items: [
-      {
-        title: "L'Entreprise",
-        action: "mdi-domain",
-        items: [
-          { title: "À propos de nous", path: "Us" },
-          { title: "Nos services", path: "Services" },
-          { title: "Politique de confidentialité", path: "Policy" },
-        ],
-      },
-      {
-        title: "Besoin d'aide",
-        action: "mdi-handshake-outline",
-        items: [
-          { title: "Nous contacter", path: "Contact" },
-          { title: "Comment nous rejoindre", path: "Join" },
-        ],
-      },
-      {
-        title: "Acheter dans nos boutiques",
-        action: "mdi-cart-arrow-down",
-        items: [
-          { title: "Nos partenaires", path: "Partner" },
-          { title: "Télécharger l'application mobile", path: "Download" },
-        ],
-      },
-      {
-        title: "Nous suivre",
-        action: "mdi-thumb-up-outline",
-        items: [
-          {
-            action: "mdi-facebook",
-            path: "https://www.facebook.com/",
-            color: "blue darken-1",
-          },
-          {
-            action: "mdi-twitter",
-            path: "https://www.twitter.com/",
-            color: "light-blue",
-          },
-          {
-            action: "mdi-instagram",
-            path: "https://www.instagram.com/",
-            color: "pink",
-          },
-          {
-            action: "mdi-linkedin",
-            path: "https://www.linkedin.com/",
-            color: "blue darken-3",
-          },
-        ],
-      },
-    ],
-  }),
+  data() {
+    return {
+      items: [
+        {
+          title: "L'Entreprise",
+          action: "mdi-domain",
+          items: [
+            { title: "À propos de nous", path: "Us" },
+            { title: "Nos services", path: "Services" },
+            { title: "Politique de confidentialité", path: "Policy" },
+          ],
+        },
+        {
+          title: "Besoin d'aide",
+          action: "mdi-handshake-outline",
+          items: [
+            { title: "Nous contacter", path: "Contact" },
+            { title: "Comment nous rejoindre", path: "Join" },
+          ],
+        },
+        {
+          title: "Acheter dans nos boutiques",
+          action: "mdi-cart-arrow-down",
+          items: [
+            { title: "Nos partenaires", path: "Partner" },
+            { title: "Télécharger l'application mobile", path: "Download" },
+          ],
+        },
+        {
+          title: "Nous suivre",
+          action: "mdi-thumb-up-outline",
+          items: [
+            {
+              action: "mdi-facebook",
+              path: "https://www.facebook.com/",
+              color: "blue darken-1",
+            },
+            {
+              action: "mdi-twitter",
+              path: "https://www.twitter.com/",
+              color: "light-blue",
+            },
+            {
+              action: "mdi-instagram",
+              path: "https://www.instagram.com/",
+              color: "pink",
+            },
+            {
+              action: "mdi-linkedin",
+              path: "https://www.linkedin.com/",
+              color: "blue darken-3",
+            },
+          ],
+        },
+      ],
+    };
+  },
 };
 </script>
 
