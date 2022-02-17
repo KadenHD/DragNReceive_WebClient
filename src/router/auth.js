@@ -11,7 +11,7 @@ export default [
         name: 'Login',
         component: Login,
         meta: {
-            title: 'Login',
+            title: 'Connexion',
         },
         beforeEnter: isNotLogged
     },
@@ -20,7 +20,7 @@ export default [
         name: 'Forgot',
         component: Forgot,
         meta: {
-            title: 'Forgot',
+            title: 'Mot de passe oublié',
         },
         beforeEnter: isNotLogged
     },
@@ -29,7 +29,7 @@ export default [
         name: 'Reset',
         component: Reset,
         meta: {
-            title: 'Reset',
+            title: 'Réinitialisation de mot de passe',
         },
         beforeEnter: isNotLogged
     },
@@ -38,7 +38,7 @@ export default [
         name: 'Sadmin',
         component: Dashboard,
         meta: {
-            title: 'Super-admin Dashboard',
+            title: 'Dashboard',
         },
         beforeEnter: isSadmin
     },
@@ -47,7 +47,7 @@ export default [
         name: 'Admin',
         component: Dashboard,
         meta: {
-            title: 'Admin Dashboard',
+            title: 'Dashboard',
         },
         beforeEnter: isAdmin,
     },
@@ -56,7 +56,7 @@ export default [
         name: 'Partner',
         component: Dashboard,
         meta: {
-            title: 'Partner Dashboard',
+            title: 'Dashboard',
         },
         beforeEnter: isPartner
     },
