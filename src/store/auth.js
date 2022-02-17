@@ -45,12 +45,15 @@ export default {
             context.commit('clearAll');
             router.go({ name: "Home" });
         },
+        clearAll(context) {
+            context.dispatch("error", null);
+            context.dispatch("success", null);
+            context.dispatch("users", null);
+            context.dispatch("user", null);
+            context.dispatch("shops", null);
+        },
     },
     mutations: {
-        clearAll(state) {
-            state.users = null;
-            state.shops = null;
-        },
         currentUser(state, currentUser) { state.currentUser = currentUser; },
     }
 }
