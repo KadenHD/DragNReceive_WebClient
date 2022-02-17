@@ -1,6 +1,5 @@
 <template>
   <div class="Dashboard">
-    Dashboard
     <component :is="component" />
   </div>
 </template>
@@ -32,6 +31,3 @@ export default {
   },
 };
 </script>
-
-<style>
-</style>
