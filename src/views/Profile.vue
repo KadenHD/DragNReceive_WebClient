@@ -183,10 +183,12 @@
       <p class="MainText">{{ userItems.shop.name }}</p>
       <v-img
         :src="
-          userItems.shop.path ? userItems.shop.path : 'assets/img/default.svg'
+          userItems.shop.path
+            ? path_url + userItems.shop.path
+            : 'assets/img/default.svg'
         "
-        max-height="200px"
-        max-width="200px"
+        height="200px"
+        width="400px"
       >
         <template v-slot:placeholder>
           <v-row class="fill-height ma-0" align="center" justify="center">
@@ -216,6 +218,7 @@ import { roledName, reformatedDates } from "@/functions/index.js";
 export default {
   data() {
     return {
+      path_url: process.env.VUE_APP_URL,
       firstNameRules,
       lastNameRules,
       emailRules,
