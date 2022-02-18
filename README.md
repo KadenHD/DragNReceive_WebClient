@@ -103,7 +103,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## Fonctionnel
 - page de gestion des shops
-- pour les récéptions de photos path, faire un .env qui permet de relier l'api url, port et le relier aussi à axios (comme avec le app.js de l'api)
 
 ## A la fin
 - les redirect de la navbar sortent une fois en format tel
