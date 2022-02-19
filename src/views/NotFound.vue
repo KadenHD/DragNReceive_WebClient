@@ -15,7 +15,7 @@
         text-xs-h6 text-sm-h5 text-md-h4 text-lg-h3 text-xl-h2
       "
     >
-      La route n'existe pas !
+      Vous vous êtes perdu !
     </p>
   </div>
 </template>
