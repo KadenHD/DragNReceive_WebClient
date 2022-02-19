@@ -103,7 +103,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## Fonctionnel
 admin / sadmin (variation en fonction du rôle sur les actions):
-- page de gestion des shops
+- page d'une boutique (voir et consulter les produits)'
 - page de gestion des tickets des partner et clients
 partner :
 - page de sa boutique (voir, modification, consulter les produits)
