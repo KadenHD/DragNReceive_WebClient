@@ -2,9 +2,18 @@ import Shops from '@/views/shop/Shops.vue';
 import ShopCreate from '@/views/shop/ShopCreate.vue';
 import Shop from '@/views/shop/Shop.vue';
 
-import { isAdminOrSadmin } from '@/functions/beforeEnter.js';
+import { isAdminOrSadmin, isPartner } from '@/functions/beforeEnter.js';
 
 export default [
+    {
+        path: '/shop',
+        name: 'MyShop',
+        component: Shop,
+        meta: {
+            title: 'Boutique'
+        },
+        beforeEnter: isPartner,
+    },
     {
         path: '/shops',
         name: 'Shops',
