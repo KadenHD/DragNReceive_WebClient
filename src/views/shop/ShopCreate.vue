@@ -1,10 +1,60 @@
 <template>
-  <div class="ShopCreate"></div>
+  <div class="Register">
+    <v-form ref="form">
+      <v-card class="elevation-24">
+        <v-card-title>Ajouter une boutique </v-card-title>
+        <v-card-text>
+          <v-text-field
+            v-model="name"
+            :rules="nameRules"
+            label="Nom"
+            prepend-inner-icon="mdi-store"
+            counter
+          ></v-text-field>
+
+          <v-text-field
+            v-model="email"
+            :rules="emailRules"
+            label="E-mail"
+            prepend-inner-icon="mdi-email"
+            counter
+          ></v-text-field>
+        </v-card-text>
+        <v-card-actions>
+          <router-link :to="{ name: 'Shops' }">
+            <v-btn color="error" dark class="mr-4"> Annuler </v-btn>
+          </router-link>
+          <v-btn color="success" class="mr-4" @click="submitShopCreateForm">
+            Créer
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-form>
+  </div>
 </template>
 
 <script>
-export default {};
-</script>
+import { nameRules, emailRules } from "@/functions/inputRules.js";
 
-<style>
-</style>
+export default {
+  data() {
+    return {
+      name: null,
+      email: null,
+      nameRules,
+      emailRules,
+    };
+  },
+  methods: {
+    submitShopCreateForm() {
+      if (this.$refs.form.validate()) {
+        const data = {
+          name: this.name,
+          email: this.email,
+        };
+        this.$store.dispatch("createShop", data);
+      }
+    },
+  },
+};
+</script>

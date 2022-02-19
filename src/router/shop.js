@@ -1,5 +1,6 @@
 import Shops from '@/views/shop/Shops.vue';
 import ShopCreate from '@/views/shop/ShopCreate.vue';
+import Shop from '@/views/shop/Shop.vue';
 
 import { isAdminOrSadmin } from '@/functions/beforeEnter.js';
 
@@ -19,6 +20,15 @@ export default [
         component: ShopCreate,
         meta: {
             title: 'Créer une boutique'
+        },
+        beforeEnter: isAdminOrSadmin,
+    },
+    {
+        path: '/shop/:id',
+        name: 'Shop',
+        component: Shop,
+        meta: {
+            title: 'Boutique'
         },
         beforeEnter: isAdminOrSadmin,
     },

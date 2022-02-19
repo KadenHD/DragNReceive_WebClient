@@ -100,7 +100,9 @@
           <v-dialog v-model="dialogEdit" max-width="1000px">
             <v-card>
               <v-card-title>
-                <span class="text-h5">Modifier l'utilisateur</span>
+                <span class="text-h5"
+                  >Modifier l'utilisateur n° {{ currentItem.id }}</span
+                >
               </v-card-title>
               <v-form ref="form">
                 <v-card-text>
@@ -153,7 +155,8 @@
           <v-dialog v-model="dialogDelete" max-width="1000px">
             <v-card>
               <v-card-title class="text-h5"
-                >Souhaitez-vous vraiment créer cet utilisateur ?</v-card-title
+                >Souhaitez-vous vraiment supprimer l'utilisateur n°
+                {{ currentItem.id }} ?</v-card-title
               >
               <v-card-actions>
                 <v-spacer></v-spacer>
@@ -206,6 +209,7 @@ export default {
       currentIndex: -1,
       currentItem: {},
       headers: [
+        { text: "Identifiant", value: "id" },
         { text: "Nom", value: "lastname" },
         { text: "Prénom", value: "firstname" },
         { text: "E-mail", value: "email" },
