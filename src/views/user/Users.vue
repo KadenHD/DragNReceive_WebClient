@@ -4,6 +4,7 @@
       :headers="headers"
       :items="userItems"
       :items-per-page="10"
+      sort-by="lastname"
       class="elevation-24"
     >
       <template v-slot:top>
