@@ -102,12 +102,18 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 # To-do
 
 ## Fonctionnel
+admin / sadmin (variation en fonction du rôle sur les actions):
 - page de gestion des shops
-
+- page de gestion des tickets des partner et clients
+partner :
+- page de sa boutique (voir, modification, consulter les produits)
+- page de ses produits (crud)
+- page de ses commandes
+- page de ses demandes (ses tickets)
+    
 ## A la fin
 - les redirect de la navbar sortent une fois en format tel
 - remettre au login le passRules
-- Mettre en place des templates "Skeleton Loader" avant le chargement des entities
 
 # Sources
 
