@@ -199,8 +199,9 @@
           </v-row>
         </template>
       </v-img>
-
-      <v-btn color="primary" dark class="mb-2 mt-2">Voir</v-btn>
+      <router-link :to="{ name: 'MyShop' }">
+        <v-btn color="primary" dark class="mb-2 mt-2">Voir</v-btn>
+      </router-link>
     </v-card>
   </div>
 </template>
