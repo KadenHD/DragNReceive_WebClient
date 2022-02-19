@@ -4,6 +4,7 @@
       :headers="headers"
       :items="shopItems"
       :items-per-page="10"
+      sort-by="statut"
       class="elevation-24"
     >
       <template v-slot:[`item.path`]="{ item }">
