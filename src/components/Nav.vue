@@ -28,6 +28,17 @@
               >Gestion des boutiques</router-link
             >
           </div>
+          <div
+            class="isPartner"
+            v-if="currentUser && currentUser.roleId == '3'"
+          >
+            <router-link class="mr-1 ml-1" :to="{ name: 'MyShop' }"
+              >Ma boutique</router-link
+            >
+            <router-link class="mr-1 ml-1" :to="{ name: 'Home' }"
+              >Mes produits</router-link
+            >
+          </div>
           <div class="noUser" v-if="!currentUser">
             <router-link class="mr-1 ml-1" :to="{ name: 'Login' }"
               >Connexion</router-link
