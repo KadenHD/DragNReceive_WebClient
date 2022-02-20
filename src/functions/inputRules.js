@@ -45,19 +45,19 @@ export const nameRules = [
 ]
 
 export const phoneRules = [
-    v => v.length == 10 || "Le numéro doit faire 10 caractères",
+    v => !v || (v && v.length == 10) || "Le numéro doit faire 10 caractères",
 ]
 
 export const cityRules = [
-    v => v.length <= 60 || "Le nom de ville doit faire maximum 60 caractères",
+    v => !v || (v && v.length <= 60) || "Le nom de ville doit faire maximum 60 caractères",
 ]
 
 export const streetRules = [
-    v => v.length <= 100 || "Le nom de rue doit faire maximum 100 caractères",
+    v => !v || (v && v.length <= 100) || "Le nom de rue doit faire maximum 100 caractères",
 ]
 
 export const postalRules = [
-    v => v.length == 5 || "Le code postal doit faire 10 caractères",
+    v => !v || (v && v.toString().length == 5) || "Le code postal doit faire 5 caractères",
 ]
 
 const isValidPrice = (v) => {
@@ -96,11 +96,11 @@ export const stockRules = [
 
 export const imageRules = [
     v => !!v || "L'image est requise",
-    v => v && (v.mimetype === 'image/jpeg' || v.mimetype === 'image/png') || "L'image doit être au format .jpeg ou .png",
+    v => (v && v.type === 'image/jpeg' || v && v.type === 'image/png') || "L'image doit être au format .jpeg ou .png",
 ]
 
 export const logoRules = [
-    v => (v.mimetype === 'image/jpeg' || v.mimetype === 'image/png') || "Le logo doit être au format .jpeg ou .png",
+    v => (!v || v && v.type === 'image/jpeg' || v && v.type === 'image/png') || "Le logo doit être au format .jpeg ou .png",
 ]
 
 export const roleRules = [v => !!v || "Le rôle est requis"]

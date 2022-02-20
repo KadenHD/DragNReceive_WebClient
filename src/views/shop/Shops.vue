@@ -125,7 +125,6 @@ export default {
 
   methods: {
     viewItem(item) {
-      console.log(item);
       this.$router.push({ name: "Shop", params: { id: item.id } });
     },
 

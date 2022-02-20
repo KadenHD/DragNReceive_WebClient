@@ -44,6 +44,43 @@ export default {
                     context.dispatch("error", error.response.data.error);
                 });
         },
+        editShop(context, data) {
+            axios
+                .put("shops/" + data.id, data)
+                .then((response) => {
+                    context.dispatch("success", response.data.success);
+                    context.dispatch("setShop", data.id);
+                })
+                .catch((error) => {
+                    context.dispatch("error", error.response.data.error);
+                });
+        },
+        editShopFile(context, { data, logo }) {
+            console.log("logo:" + logo)
+            const formData = new FormData();
+            formData.append("logo", logo);
+            formData.append("id", data.id);
+            formData.append("name", data.name);
+            formData.append("email", data.email);
+            formData.append("phone", data.phone);
+            formData.append("city", data.city);
+            formData.append("street", data.street);
+            formData.append("postal", data.postal);
+            console.log("formdata" + formData)
+            axios
+                .put("shops/" + data.id, formData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                })
+                .then((response) => {
+                    context.dispatch("success", response.data.success);
+                    context.dispatch("setShop", data.id);
+                })
+                .catch((error) => {
+                    context.dispatch("error", error.response.data.error);
+                });
+        },
         deleteShop(context, id) {
             axios
                 .delete("shops/" + id)
