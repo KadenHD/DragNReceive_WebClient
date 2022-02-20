@@ -110,6 +110,8 @@ partner :
 - page de ses produits (crud)
 - page de ses commandes
 - page de ses demandes (ses tickets)
+
+- Une fois l'image de profil aux users en api, faire les modifications des actions editUser et du dialogEdit de Profile.vue (comme dans Shop avec les logos)
     
 ## A la fin
 - les redirect de la navbar sortent une fois en format tel
