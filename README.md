@@ -102,15 +102,15 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 # To-do
 
 ## Fonctionnel
-admin / sadmin (variation en fonction du rôle sur les actions):
+### admin / sadmin (variation en fonction du rôle sur les actions):
 - page d'une boutique (voir et consulter les produits)'
 - page de gestion des tickets des partner et clients
-partner :
+### partner :
 - page de sa boutique (voir, modification, consulter les produits)
 - page de ses produits (crud)
 - page de ses commandes
 - page de ses demandes (ses tickets)
-
+### global :
 - Une fois l'image de profil aux users en api, faire les modifications des actions editUser et du dialogEdit de Profile.vue (comme dans Shop avec les logos)
     
 ## A la fin
