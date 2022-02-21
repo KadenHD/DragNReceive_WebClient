@@ -4,7 +4,12 @@
       <v-card-text>
         <p class="TextTitle title text-center">
           Mes informations
-          <v-icon @click="editItem"> mdi-pencil </v-icon>
+          <v-icon
+            v-if="currentUser.roleId == '1' || currentUser.roleId == '2'"
+            @click="editItem"
+          >
+            mdi-pencil
+          </v-icon>
         </p>
         <v-divider class="mr-2 ml-2" inset></v-divider>
         <v-card-text>
@@ -212,6 +217,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import store from "@/store";
 import {
   firstNameRules,
@@ -238,6 +244,7 @@ export default {
     };
   },
   computed: {
+    ...mapGetters(["currentUser"]),
     userItems: function () {
       const data = store.getters.user;
       data.roleName = roledName(data.roleId);
