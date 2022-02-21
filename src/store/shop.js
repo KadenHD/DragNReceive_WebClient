@@ -56,17 +56,14 @@ export default {
                 });
         },
         editShopFile(context, { data, logo }) {
-            console.log("logo:" + logo)
             const formData = new FormData();
             formData.append("logo", logo);
-            formData.append("id", data.id);
             formData.append("name", data.name);
             formData.append("email", data.email);
             formData.append("phone", data.phone);
             formData.append("city", data.city);
             formData.append("street", data.street);
             formData.append("postal", data.postal);
-            console.log("formdata" + formData)
             axios
                 .put("shops/" + data.id, formData, {
                     headers: {
