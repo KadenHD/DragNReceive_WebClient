@@ -1,19 +1,7 @@
 <template>
   <div class="App">
     <v-app>
-      <v-app-bar app>
-        <router-link class="mr-1 ml-1" :to="{ name: 'Home' }">
-          <v-img
-            src="../public/assets/img/Jimdo/DragNReceive/nameAndLogo/logo.svg"
-            lazy-src="../public/assets/img/Jimdo/DragNReceive/nameAndLogo/logo.svg"
-            class="mx-auto"
-            max-width="100"
-          ></v-img
-        ></router-link>
-        <v-divider class="mr-5 ml-2" vertical inset></v-divider>
-        <Nav />
-      </v-app-bar>
-
+      <Nav />
       <v-main>
         <v-container fluid>
           <Error />
@@ -58,11 +46,13 @@ export default {
 a {
   text-decoration: none;
 }
+.v-list-item--active,
 .router-link-exact-active,
 .router-link-active {
   text-decoration: none;
   color: #afb854 !important;
 }
+.v-list-item--active:hover,
 .router-link-exact-active:hover,
 .router-link-active:hover {
   color: #afb891 !important;
