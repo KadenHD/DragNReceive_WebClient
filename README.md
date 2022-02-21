@@ -111,6 +111,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - page de ses commandes
 - page de ses demandes (ses tickets)
 ### global :
+- faire la routes des img (remplacer les endroits avec juste assets/..... par ../public/assets/.....)
 - Une fois l'image de profil aux users en api, faire les modifications des actions editUser et du dialogEdit de Profile.vue (comme dans Shop avec les logos)
     
 ## A la fin
