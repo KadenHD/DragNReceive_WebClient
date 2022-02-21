@@ -112,7 +112,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - page de ses commandes
 
 ## global :
-- Une fois l'image de profil aux users en api, faire les modifications des actions editUser et du dialogEdit de Profile.vue (comme dans Shop avec les logos)
 - Nav burger icons
 - remettre au login le passRules
 
