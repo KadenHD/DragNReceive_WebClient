@@ -4,6 +4,7 @@
       :headers="headers"
       :items="shopItems"
       :items-per-page="10"
+      :search="search"
       sort-by="statut"
       class="elevation-24"
     >
@@ -57,6 +58,11 @@
             </v-card>
           </v-dialog>
         </v-toolbar>
+        <v-text-field
+          v-model="search"
+          label="Chercher une boutique"
+          class="mx-4"
+        ></v-text-field>
       </template>
       <template v-slot:[`item.actions`]="{ item }">
         <v-icon v-if="!item.deleted" class="mr-2" @click="viewItem(item)">
@@ -77,6 +83,7 @@ import { reformatedDates } from "@/functions/index.js";
 export default {
   data() {
     return {
+      search: "",
       dialogDelete: false,
       currentIndex: -1,
       currentItem: {},

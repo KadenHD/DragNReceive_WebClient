@@ -4,6 +4,7 @@
       :headers="headers"
       :items="userItems"
       :items-per-page="10"
+      :search="search"
       sort-by="lastname"
       class="elevation-24"
     >
@@ -188,6 +189,11 @@
             </v-card>
           </v-dialog>
         </v-toolbar>
+        <v-text-field
+          v-model="search"
+          label="Chercher un utilisateur"
+          class="mx-4"
+        ></v-text-field>
       </template>
       <template v-slot:[`item.actions`]="{ item }">
         <v-icon class="mr-2" @click="viewItem(item)"> mdi-eye </v-icon>
@@ -217,6 +223,7 @@ import { roledName, reformatedDates } from "@/functions/index.js";
 export default {
   data() {
     return {
+      search: "",
       path_url: process.env.VUE_APP_URL,
       firstNameRules,
       lastNameRules,
