@@ -126,9 +126,9 @@ export default {
     ...mapGetters(["shops", "currentUser"]),
     shopItems: function () {
       return this.shops.filter(function (i) {
-        i.text = i.name; // select options display text
-        i.value = i.id; // select options display value
-        return i.deleted == false; // only not deleted shops
+        i.text = i.name; /* select options display text */
+        i.value = i.id; /* select options display value */
+        return i.deleted == false; /* only not deleted shops */
       });
     },
   },

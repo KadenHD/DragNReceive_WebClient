@@ -62,12 +62,12 @@ export const postalRules = [
 
 const isValidPrice = (v) => {
     const split = v.toString().split('.')
-    if (split[1]) { // if float
+    if (split[1]) { /* if float */
         return (
             split[0].length <= 9 &&
             split[1].length <= 2
         );
-    } else { // if int
+    } else { /* if int */
         return (
             split[0].length <= 9
         );

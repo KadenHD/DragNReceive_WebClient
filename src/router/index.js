@@ -61,6 +61,6 @@ const router = new VueRouter({
     routes
 });
 
-router.afterEach((to) => document.title = to.meta.title); // dynamically change the title after changing route
+router.afterEach((to) => document.title = to.meta.title); /* dynamically change the title after changing route */
 
 export default router;
