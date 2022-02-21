@@ -106,10 +106,10 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - page d'une boutique (voir et consulter les produits)'
 - page de gestion des tickets des partner et clients
 ### partner :
-- page de sa boutique (voir, modification, consulter les produits)
+- page de sa boutique (consulter les produits)
+- page de ses demandes (ses tickets)
 - page de ses produits (crud)
 - page de ses commandes
-- page de ses demandes (ses tickets)
 ### global :
 - faire la routes des img (remplacer les endroits avec juste assets/..... par ../public/assets/.....)
 - Une fois l'image de profil aux users en api, faire les modifications des actions editUser et du dialogEdit de Profile.vue (comme dans Shop avec les logos)
