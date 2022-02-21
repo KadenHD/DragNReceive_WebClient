@@ -17,7 +17,7 @@ export default {
                         context.dispatch("currentUser", response.data.currentUser);
                     })
                     .catch(() => {
-                        localStorage.removeItem('token');
+                        context.dispatch("logout");
                     });
             }
         },
