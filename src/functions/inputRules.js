@@ -103,5 +103,9 @@ export const logoRules = [
     v => (!v || v && v.type === 'image/jpeg' || v && v.type === 'image/png') || "Le logo doit être au format .jpeg ou .png",
 ]
 
+export const photoRules = [
+    v => (!v || v && v.type === 'image/jpeg' || v && v.type === 'image/png') || "Le logo doit être au format .jpeg ou .png",
+]
+
 export const roleRules = [v => !!v || "Le rôle est requis"]
 export const shopRules = [v => !!v || "La boutique est requise"]

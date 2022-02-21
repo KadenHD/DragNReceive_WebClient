@@ -59,6 +59,23 @@ export default {
                     context.dispatch("error", error.response.data.error);
                 });
         },
+        editUserFile(context, { data, photo }) {
+            const formData = new FormData();
+            formData.append("photo", photo);
+            axios
+                .put("users/" + data.id, formData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                })
+                .then((response) => {
+                    context.dispatch("success", response.data.success);
+                    context.dispatch("setUser", data.id);
+                })
+                .catch((error) => {
+                    context.dispatch("error", error.response.data.error);
+                });
+        },
         deleteUser(context, id) {
             axios
                 .delete("users/" + id)

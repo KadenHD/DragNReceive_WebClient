@@ -15,6 +15,9 @@ export default {
                 axios.get("currentUser")
                     .then((response) => {
                         context.dispatch("currentUser", response.data.currentUser);
+                        if (!response.data.currentUser) {
+                            localStorage.removeItem("token");
+                        }
                     })
                     .catch(() => {
                         context.dispatch("logout");

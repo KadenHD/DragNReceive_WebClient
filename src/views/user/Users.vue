@@ -7,6 +7,22 @@
       sort-by="lastname"
       class="elevation-24"
     >
+      <template v-slot:[`item.path`]="{ item }">
+        <v-avatar height="50px" width="50px">
+          <v-img
+            :src="item.path ? item.path : 'assets/img/user.svg'"
+            :lazy-src="item.path ? item.path : 'assets/img/user.svg'"
+          >
+            <template v-slot:placeholder>
+              <v-row class="fill-height ma-0" align="center" justify="center">
+                <v-progress-circular
+                  indeterminate
+                  color="primary"
+                ></v-progress-circular>
+              </v-row>
+            </template> </v-img
+        ></v-avatar>
+      </template>
       <template v-slot:top>
         <v-toolbar flat>
           <v-toolbar-title>Mes utilisateurs</v-toolbar-title>
@@ -201,6 +217,7 @@ import { roledName, reformatedDates } from "@/functions/index.js";
 export default {
   data() {
     return {
+      path_url: process.env.VUE_APP_URL,
       firstNameRules,
       lastNameRules,
       emailRules,
@@ -210,6 +227,7 @@ export default {
       currentIndex: -1,
       currentItem: {},
       headers: [
+        { text: "Logo", value: "path" },
         { text: "Identifiant", value: "id" },
         { text: "Nom", value: "lastname" },
         { text: "Prénom", value: "firstname" },
@@ -230,6 +248,9 @@ export default {
         i.roleName = roledName(i.roleId);
         i.createdAtReformated = reformatedDates(i.createdAt);
         i.updatedAtReformated = reformatedDates(i.updatedAt);
+        if (i.path) {
+          i.path = process.env.VUE_APP_URL + i.path;
+        }
         if (i.id != store.getters.currentUser.id) {
           return i;
         }

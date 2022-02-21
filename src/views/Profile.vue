@@ -12,6 +12,28 @@
           </v-icon>
         </p>
         <v-divider class="mr-2 ml-2" inset></v-divider>
+        <div class="mt-4 text-center">
+          <v-avatar height="150px" width="150px">
+            <v-img
+              :src="userItems.path ? userItems.path : 'assets/img/user.svg'"
+              :lazy-src="
+                userItems.path ? userItems.path : 'assets/img/user.svg'
+              "
+            >
+              <template v-slot:placeholder>
+                <v-row class="fill-height ma-0" align="center" justify="center">
+                  <v-progress-circular
+                    indeterminate
+                    color="primary"
+                  ></v-progress-circular>
+                </v-row>
+              </template>
+            </v-img>
+          </v-avatar>
+          <v-icon v-if="currentUser.id == userItems.id" @click="editPhotoItem">
+            mdi-image
+          </v-icon>
+        </div>
         <v-card-text>
           <v-container>
             <v-row>
@@ -175,6 +197,41 @@
       </v-card>
     </v-dialog>
 
+    <v-dialog v-model="dialogEditPhoto" max-width="1000px">
+      <v-card>
+        <v-card-title>
+          <span class="text-h5">Modifier la photo</span>
+        </v-card-title>
+        <v-form ref="formEditPhoto">
+          <v-card-text>
+            <v-container>
+              <v-row>
+                <v-col cols="12" sm="6" md="4">
+                  <v-file-input
+                    v-model="currentItem.photo"
+                    :rules="photoRules"
+                    label="Ajoutez une photo"
+                    show-size
+                    counter
+                  ></v-file-input>
+                </v-col>
+              </v-row>
+            </v-container>
+          </v-card-text>
+        </v-form>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="blue darken-1" text @click="closeEditPhoto">
+            Annuler
+          </v-btn>
+          <v-btn color="blue darken-1" text @click="saveEditPhoto">
+            Enregistrer
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+
     <v-card
       v-if="userItems.shop"
       class="mx-auto mt-5 mb-5"
@@ -190,12 +247,12 @@
         :src="
           userItems.shop.path
             ? path_url + userItems.shop.path
-            : '../../public/assets/img/default.svg'
+            : 'assets/img/default.svg'
         "
         :lazy-src="
           userItems.shop.path
             ? path_url + userItems.shop.path
-            : '../../public/assets/img/default.svg'
+            : 'assets/img/default.svg'
         "
         height="300px"
         width="300px"
@@ -224,6 +281,7 @@ import {
   lastNameRules,
   emailRules,
   passwordRules,
+  photoRules,
 } from "@/functions/inputRules.js";
 import { roledName, reformatedDates } from "@/functions/index.js";
 
@@ -235,10 +293,12 @@ export default {
       lastNameRules,
       emailRules,
       passwordRules,
+      photoRules,
       showNewPassword: false,
       showActualPassword: false,
       dialogEdit: false,
       dialogEditPass: false,
+      dialogEditPhoto: false,
       currentIndex: -1,
       currentItem: {},
     };
@@ -250,6 +310,9 @@ export default {
       data.roleName = roledName(data.roleId);
       data.createdAtReformated = reformatedDates(data.createdAt);
       data.updatedAtReformated = reformatedDates(data.updatedAt);
+      if (data.path) {
+        data.path = process.env.VUE_APP_URL + data.path;
+      }
       return data;
     },
   },
@@ -259,6 +322,9 @@ export default {
     },
     dialogEditPass(val) {
       val || this.closeEditPass();
+    },
+    dialogEditPhoto(val) {
+      val || this.closeEditPhoto();
     },
   },
   created() {
@@ -311,6 +377,29 @@ export default {
         };
         this.$store.dispatch("editUser", data);
         this.closeEditPass();
+      }
+    },
+
+    editPhotoItem() {
+      this.currentIndex = this.userItems;
+      this.currentItem = Object.assign({}, this.userItems);
+      this.dialogEditPhoto = true;
+    },
+    closeEditPhoto() {
+      this.dialogEditPhoto = false;
+      this.$nextTick(() => {
+        this.currentItem = Object.assign({}, null);
+        this.currentIndex = -1;
+      });
+    },
+    saveEditPhoto() {
+      if (this.$refs.formEditPhoto.validate()) {
+        const data = { id: this.userItems.id };
+        this.$store.dispatch("editUserFile", {
+          data,
+          photo: this.currentItem.photo,
+        });
+        this.closeEditPhoto();
       }
     },
   },
