@@ -15,25 +15,28 @@
           </v-icon>
         </p>
         <v-divider class="mr-2 ml-2" inset></v-divider>
-        <v-img
-          :src="
-            shopItems.path ? shopItems.path : '../../../assets/img/default.svg'
-          "
-          :lazy-src="
-            shopItems.path ? shopItems.path : '../../../assets/img/default.svg'
-          "
-          height="50px"
-          width="50px"
-        >
-          <template v-slot:placeholder>
-            <v-row class="fill-height ma-0" align="center" justify="center">
-              <v-progress-circular
-                indeterminate
-                color="primary"
-              ></v-progress-circular>
-            </v-row>
-          </template>
-        </v-img>
+        <v-row class="mt-4" justify="center" height="150px" width="150px">
+          <div>
+            <v-img
+              :src="
+                shopItems.path ? shopItems.path : '../../assets/img/default.svg'
+              "
+              :lazy-src="
+                shopItems.path ? shopItems.path : '../../assets/img/default.svg'
+              "
+              height="150px"
+              width="150px"
+            >
+              <template v-slot:placeholder>
+                <v-row class="fill-height ma-0" align="center" justify="center">
+                  <v-progress-circular
+                    indeterminate
+                    color="primary"
+                  ></v-progress-circular>
+                </v-row>
+              </template>
+            </v-img></div
+        ></v-row>
         <v-card-text>
           <v-container>
             <v-row>
@@ -104,7 +107,7 @@
                   <v-file-input
                     v-model="currentItem.logo"
                     :rules="logoRules"
-                    label="File input"
+                    label="Ajoutez un logo"
                     show-size
                     counter
                   ></v-file-input
@@ -233,7 +236,6 @@ export default {
       if (data.path) {
         data.path = process.env.VUE_APP_URL + data.path;
       }
-      console.log(data);
       return data;
     },
   },
@@ -263,7 +265,6 @@ export default {
       });
     },
     saveEdit() {
-      console.log(this.currentItem.logo);
       if (this.$refs.formEdit.validate()) {
         const data = {
           id: this.shopItems.id,
