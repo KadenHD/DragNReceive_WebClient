@@ -111,8 +111,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - page de ses produits (crud)
 - page de ses commandes
 ### global :
-- faire la routes des img (remplacer les endroits avec juste assets/..... par ../public/assets/.....)
 - Une fois l'image de profil aux users en api, faire les modifications des actions editUser et du dialogEdit de Profile.vue (comme dans Shop avec les logos)
+- Nav burger icons
     
 ## A la fin
 - les redirect de la navbar sortent une fois en format tel

@@ -4,8 +4,8 @@
       >Retouner sur le site</v-btn
     >
     <v-img
-      src="assets/img/unDraw/page_not_found.svg"
-      lazy-src="assets/img/unDraw/page_not_found.svg"
+      src="../../public/assets/img/unDraw/page_not_found.svg"
+      lazy-src="../../public/assets/img/unDraw/page_not_found.svg"
       class="mx-auto"
       max-width="800"
     ></v-img>

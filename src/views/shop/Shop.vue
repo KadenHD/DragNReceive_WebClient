@@ -16,8 +16,12 @@
         </p>
         <v-divider class="mr-2 ml-2" inset></v-divider>
         <v-img
-          :src="shopItems.path ? shopItems.path : 'assets/img/default.svg'"
-          :lazy-src="shopItems.path ? shopItems.path : 'assets/img/default.svg'"
+          :src="
+            shopItems.path ? shopItems.path : '../../../assets/img/default.svg'
+          "
+          :lazy-src="
+            shopItems.path ? shopItems.path : '../../../assets/img/default.svg'
+          "
           height="50px"
           width="50px"
         >
@@ -229,6 +233,7 @@ export default {
       if (data.path) {
         data.path = process.env.VUE_APP_URL + data.path;
       }
+      console.log(data);
       return data;
     },
   },

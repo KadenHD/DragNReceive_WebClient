@@ -185,15 +185,15 @@
         :src="
           userItems.shop.path
             ? path_url + userItems.shop.path
-            : 'assets/img/default.svg'
+            : '../../public/assets/img/default.svg'
         "
         :lazy-src="
           userItems.shop.path
             ? path_url + userItems.shop.path
-            : 'assets/img/default.svg'
+            : '../../public/assets/img/default.svg'
         "
-        height="200px"
-        width="400px"
+        height="300px"
+        width="300px"
       >
         <template v-slot:placeholder>
           <v-row class="fill-height ma-0" align="center" justify="center">

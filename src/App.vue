@@ -2,6 +2,14 @@
   <div class="App">
     <v-app>
       <v-app-bar app>
+        <router-link class="mr-1 ml-1" :to="{ name: 'Home' }">
+          <v-img
+            src="../public/assets/img/Jimdo/DragNReceive/nameAndLogo/logo.svg"
+            lazy-src="../public/assets/img/Jimdo/DragNReceive/nameAndLogo/logo.svg"
+            class="mx-auto"
+            max-width="100"
+          ></v-img
+        ></router-link>
         <Nav />
       </v-app-bar>
 
