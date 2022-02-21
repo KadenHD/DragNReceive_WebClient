@@ -15,8 +15,8 @@
       <v-row justify="start" align="center">
         <div
           class="ml-2 mr-2 links hidden-sm-and-down"
-          v-for="item in fetchTab"
-          :key="item"
+          v-for="(item, i) in fetchTab"
+          :key="i"
         >
           <router-link :to="{ name: item.value }">{{ item.text }}</router-link>
         </div>
@@ -184,7 +184,6 @@ export default {
           j++;
         }
       }
-      console.log(tab);
       return tab;
     },
   },
