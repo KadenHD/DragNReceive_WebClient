@@ -197,7 +197,7 @@
       </v-card>
     </v-dialog>
 
-    <v-dialog v-model="dialogEditPhoto" max-width="1000px">
+    <v-dialog v-model="dialogEditPhoto" max-width="500px">
       <v-card>
         <v-card-title>
           <span class="text-h5">Modifier la photo</span>
@@ -206,15 +206,13 @@
           <v-card-text>
             <v-container>
               <v-row>
-                <v-col cols="12" sm="6" md="4">
-                  <v-file-input
-                    v-model="currentItem.photo"
-                    :rules="photoRules"
-                    label="Ajoutez une photo"
-                    show-size
-                    counter
-                  ></v-file-input>
-                </v-col>
+                <v-file-input
+                  v-model="currentItem.photo"
+                  :rules="photoRules"
+                  label="Ajoutez une photo"
+                  show-size
+                  counter
+                ></v-file-input>
               </v-row>
             </v-container>
           </v-card-text>
