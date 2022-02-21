@@ -187,6 +187,11 @@
             ? path_url + userItems.shop.path
             : 'assets/img/default.svg'
         "
+        :lazy-src="
+          userItems.shop.path
+            ? path_url + userItems.shop.path
+            : 'assets/img/default.svg'
+        "
         height="200px"
         width="400px"
       >

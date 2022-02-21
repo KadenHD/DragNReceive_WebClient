@@ -17,6 +17,7 @@
         <v-divider class="mr-2 ml-2" inset></v-divider>
         <v-img
           :src="shopItems.path ? shopItems.path : 'assets/img/default.svg'"
+          :lazy-src="shopItems.path ? shopItems.path : 'assets/img/default.svg'"
           height="50px"
           width="50px"
         >
