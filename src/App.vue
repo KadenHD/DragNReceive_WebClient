@@ -10,6 +10,7 @@
             max-width="100"
           ></v-img
         ></router-link>
+        <v-divider class="mr-5 ml-2" vertical inset></v-divider>
         <Nav />
       </v-app-bar>
 
