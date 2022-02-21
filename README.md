@@ -102,7 +102,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 # To-do
 
 ## admin / sadmin (variation en fonction du rôle sur les actions):
-- page d'une boutique (voir et consulter les produits)'
+- page d'une boutique (voir et consulter les produits)
 - page de gestion des tickets des partner et clients
 
 ## partner :
@@ -112,7 +112,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - page de ses commandes
 
 ## global :
-- Nav burger icons
 - remettre au login le passRules
 
 # Sources
