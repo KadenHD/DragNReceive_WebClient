@@ -11,23 +11,23 @@
         Compiègne !
       </p>
       <v-img
-        src="../../public/assets/img/unDraw/map.svg"
-        lazy-src="../../public/assets/img/unDraw/map.svg"
+        src="assets/img/unDraw/map.svg"
+        lazy-src="assets/img/unDraw/map.svg"
         class="mx-auto"
         max-width="500"
       ></v-img>
       <v-divider class="mr-2 mt-6 mb-6 ml-2" inset></v-divider>
       <v-row align="center" justify="center">
         <v-img
-          src="../../public/assets/img/Jimdo/DragNReceive/squareName/logo.svg"
-          lazy-src="../../public/assets/img/Jimdo/DragNReceive/squareName/logo.svg"
+          src="assets/img/Jimdo/DragNReceive/squareName/logo.svg"
+          lazy-src="assets/img/Jimdo/DragNReceive/squareName/logo.svg"
           class="mx-auto"
           max-width="250"
         ></v-img>
         <v-divider class="mr-6 ml-6" inset vertical></v-divider>
         <v-img
-          src="../../public/assets/img/Jimdo/Deviliser/logo.svg"
-          lazy-src="../../public/assets/img/Jimdo/Deviliser/logo.svg"
+          src="assets/img/Jimdo/Deviliser/logo.svg"
+          lazy-src="assets/img/Jimdo/Deviliser/logo.svg"
           class="mx-auto"
           max-width="175"
         ></v-img>

@@ -6,8 +6,8 @@
     <v-divider class="mr-2 mb-6 ml-2" inset></v-divider>
     <v-container>
       <v-img
-        src="../../../public/assets/img/unDraw/sadmin.svg"
-        lazy-src="../../../public/assets/img/unDraw/sadmin.svg"
+        src="assets/img/unDraw/sadmin.svg"
+        lazy-src="assets/img/unDraw/sadmin.svg"
         class="mx-auto"
         max-width="500"
       ></v-img>

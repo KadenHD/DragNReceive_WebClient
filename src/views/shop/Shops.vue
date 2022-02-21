@@ -9,8 +9,8 @@
     >
       <template v-slot:[`item.path`]="{ item }">
         <v-img
-          :src="item.path ? item.path : '../../../assets/img/default.svg'"
-          :lazy-src="item.path ? item.path : '../../../assets/img/default.svg'"
+          :src="item.path ? item.path : 'assets/img/default.svg'"
+          :lazy-src="item.path ? item.path : 'assets/img/default.svg'"
           height="50px"
           width="50px"
         >
