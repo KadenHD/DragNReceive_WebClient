@@ -108,9 +108,7 @@
 
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="blue darken-1" text @click="closeView">
-                  Fermer
-                </v-btn>
+                <v-btn color="error" text @click="closeView"> Fermer </v-btn>
               </v-card-actions>
             </v-card>
           </v-dialog>
@@ -160,10 +158,8 @@
 
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="blue darken-1" text @click="closeEdit">
-                  Annuler
-                </v-btn>
-                <v-btn color="blue darken-1" text @click="saveEdit">
+                <v-btn color="error" text @click="closeEdit"> Annuler </v-btn>
+                <v-btn color="primary" text @click="saveEdit">
                   Enregistrer
                 </v-btn>
               </v-card-actions>
@@ -178,10 +174,8 @@
               >
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="blue darken-1" text @click="closeDelete"
-                  >Annuler</v-btn
-                >
-                <v-btn color="blue darken-1" text @click="deleteItemConfirm()"
+                <v-btn color="error" text @click="closeDelete">Annuler</v-btn>
+                <v-btn color="primary" text @click="deleteItemConfirm()"
                   >Supprimer</v-btn
                 >
                 <v-spacer></v-spacer>
