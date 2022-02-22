@@ -112,7 +112,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - page de ses commandes
 
 ## global :
-- remettre au login le passRules
+- 
 
 # Sources
 
