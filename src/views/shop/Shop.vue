@@ -174,10 +174,8 @@
 
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="blue darken-1" text @click="closeEdit"> Annuler </v-btn>
-          <v-btn color="blue darken-1" text @click="saveEdit">
-            Enregistrer
-          </v-btn>
+          <v-btn color="error" text @click="closeEdit"> Annuler </v-btn>
+          <v-btn color="primary" text @click="saveEdit"> Enregistrer </v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
