@@ -5,10 +5,25 @@
         <p class="TextTitle title text-center">
           Mes informations
           <v-icon
+            class="ml-2"
             v-if="currentUser.roleId == '1' || currentUser.roleId == '2'"
             @click="editItem"
           >
             mdi-pencil
+          </v-icon>
+          <v-icon
+            class="ml-2"
+            v-if="currentUser.id == userItems.id"
+            @click="editPassItem"
+          >
+            mdi-lock
+          </v-icon>
+          <v-icon
+            class="ml-2"
+            v-if="currentUser.id == userItems.id"
+            @click="editPhotoItem"
+          >
+            mdi-image
           </v-icon>
         </p>
         <v-divider class="mr-2 ml-2" inset></v-divider>
@@ -30,9 +45,6 @@
               </template>
             </v-img>
           </v-avatar>
-          <v-icon v-if="currentUser.id == userItems.id" @click="editPhotoItem">
-            mdi-image
-          </v-icon>
         </div>
         <v-card-text>
           <v-container>
@@ -89,11 +101,6 @@
           </v-container>
         </v-card-text>
       </v-card-text>
-      <p class="text-center">
-        <v-btn color="warning" dark class="mb-2" @click="editPassItem"
-          >Changer de mot de passe</v-btn
-        >
-      </p>
     </v-card>
 
     <v-dialog v-model="dialogEdit" max-width="1000px">
@@ -139,10 +146,8 @@
 
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="blue darken-1" text @click="closeEdit"> Annuler </v-btn>
-          <v-btn color="blue darken-1" text @click="saveEdit">
-            Enregistrer
-          </v-btn>
+          <v-btn color="error" text @click="closeEdit"> Annuler </v-btn>
+          <v-btn color="primary" text @click="saveEdit"> Enregistrer </v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -187,10 +192,8 @@
 
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="blue darken-1" text @click="closeEditPass">
-            Annuler
-          </v-btn>
-          <v-btn color="blue darken-1" text @click="saveEditPass">
+          <v-btn color="error" text @click="closeEditPass"> Annuler </v-btn>
+          <v-btn color="primary" text @click="saveEditPass">
             Enregistrer
           </v-btn>
         </v-card-actions>
@@ -220,10 +223,8 @@
 
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="blue darken-1" text @click="closeEditPhoto">
-            Annuler
-          </v-btn>
-          <v-btn color="blue darken-1" text @click="saveEditPhoto">
+          <v-btn color="error" text @click="closeEditPhoto"> Annuler </v-btn>
+          <v-btn color="primary" text @click="saveEditPhoto">
             Enregistrer
           </v-btn>
         </v-card-actions>
