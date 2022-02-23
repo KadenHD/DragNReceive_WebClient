@@ -19,10 +19,14 @@
           <div>
             <v-img
               :src="
-                shopItems.path ? shopItems.path : '../../assets/img/default.svg'
+                shopItems.path
+                  ? path_url + shopItems.path
+                  : '../../assets/img/default.svg'
               "
               :lazy-src="
-                shopItems.path ? shopItems.path : '../../assets/img/default.svg'
+                shopItems.path
+                  ? path_url + shopItems.path
+                  : '../../assets/img/default.svg'
               "
               height="150px"
               width="150px"
@@ -181,7 +185,7 @@
     </v-dialog>
 
     <v-card
-      v-if="shopItems.products"
+      v-if="productItems"
       class="mx-auto mt-5 mb-5"
       max-width="1800"
       align="center"
@@ -189,11 +193,52 @@
       <v-card-text>
         <p class="TextTitle title text-center">Mes produits</p>
         <v-divider class="mr-2 ml-2" inset></v-divider>
-      </v-card-text>
+        <v-row class="mt-4 mb-2" align="center">
+          <v-col
+            v-for="(product, index) in productItems"
+            :key="index"
+            sm="16"
+            md="3"
+          >
+            <v-card class="mx-auto" max-width="344">
+              <router-link :to="{ name: 'Products' }">
+                <v-img
+                  :src="path_url + product.path"
+                  :lazy-src="path_url + product.path"
+                  height="200px"
+                  width="200px"
+                >
+                  <template v-slot:placeholder>
+                    <v-row
+                      class="fill-height ma-0"
+                      align="center"
+                      justify="center"
+                    >
+                      <v-progress-circular
+                        indeterminate
+                        color="primary"
+                      ></v-progress-circular>
+                    </v-row>
+                  </template>
+                </v-img>
 
-      <router-link :to="{ name: '' }">
-        <v-btn color="primary" dark class="mb-2 mt-2">Voir</v-btn>
-      </router-link>
+                <v-card-title class="TextTitle title">
+                  {{ product.name }}
+                </v-card-title>
+                <v-card-subtitle class="title TextLinks">
+                  {{ product.price }} €</v-card-subtitle
+                >
+              </router-link>
+            </v-card>
+          </v-col>
+          <v-col sm="16" md="3">
+            <router-link :to="{ name: 'Products' }">
+              <v-icon class="plusIcon" color="primary">mdi-plus-circle</v-icon>
+            </router-link>
+            <p>Voir plus de produits...</p>
+          </v-col>
+        </v-row>
+      </v-card-text>
     </v-card>
   </div>
 </template>
@@ -231,10 +276,28 @@ export default {
     ...mapGetters(["currentUser"]),
     shopItems: function () {
       const data = store.getters.shop;
-      if (data.path) {
-        data.path = process.env.VUE_APP_URL + data.path;
-      }
       return data;
+    },
+    productItems: function () {
+      if (!store.getters.shop.products) {
+        return null;
+      } else {
+        let data = store.getters.shop.products;
+        if (data.length <= 3) {
+          return data;
+        } else {
+          data = data.sort(function (a, b) {
+            var keyA = new Date(a.createdAt),
+              keyB = new Date(b.createdAt);
+            // Compare the 2 dates
+            if (keyA < keyB) return -1;
+            if (keyA > keyB) return 1;
+            return 0;
+          });
+          data = [data[0], data[1], data[2]];
+          return data;
+        }
+      }
     },
   },
   watch: {
@@ -288,3 +351,14 @@ export default {
   },
 };
 </script>
+
+<style>
+.Shop .plusIcon {
+  font-size: 100px;
+}
+.Shop .plusIcon:hover {
+  transform: rotate(180deg);
+  transition-duration: 1s;
+  color: var(--v-error-base) !important;
+}
+</style>
