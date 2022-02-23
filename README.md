@@ -102,6 +102,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 # To-do
 
 ## global :
+- mettre le logo à côté de déconnexion dans la nav et a côté / dans l'item utilisateur du drawer
 - test unitaire avec cypress
 
 ## admin / sadmin (variation en fonction du rôle sur les actions):
