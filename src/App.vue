@@ -35,6 +35,8 @@ export default {
   },
   created() {
     this.$store.dispatch("setCurrentUser");
+    this.$store.dispatch("success", null);
+    this.$store.dispatch("error", null);
   },
   computed: {
     ...mapGetters(["currentUser"]),
