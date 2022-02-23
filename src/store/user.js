@@ -20,7 +20,7 @@ export default {
                     context.commit("user", response.data);
                 })
                 .catch((error) => {
-                    context.dispatch("error", error.response.data.error);
+                    context.dispatch("alertError", error.response.data.error);
                 });
         },
         setUsers(context) {
@@ -30,25 +30,25 @@ export default {
                     context.commit("users", response.data);
                 })
                 .catch((error) => {
-                    context.dispatch("error", error.response.data.error);
+                    context.dispatch("alertError", error.response.data.error);
                 });
         },
         createUser(context, data) {
             axios
                 .post("users", data)
                 .then((response) => {
-                    context.dispatch("success", response.data.success);
+                    context.dispatch("alertSuccess", response.data.success);
                     router.push({ name: "Users" });
                 })
                 .catch((error) => {
-                    context.dispatch("error", error.response.data.error);
+                    context.dispatch("alertError", error.response.data.error);
                 });
         },
         editUser(context, data) {
             axios
                 .put("users/" + data.id, data)
                 .then((response) => {
-                    context.dispatch("success", response.data.success);
+                    context.dispatch("alertSuccess", response.data.success);
                     if (data.route == "Users") {
                         context.dispatch("setUsers");
                     } else if (data.route == "Profile") {
@@ -56,7 +56,7 @@ export default {
                     }
                 })
                 .catch((error) => {
-                    context.dispatch("error", error.response.data.error);
+                    context.dispatch("alertError", error.response.data.error);
                 });
         },
         editUserFile(context, { data, photo }) {
@@ -69,22 +69,22 @@ export default {
                     }
                 })
                 .then((response) => {
-                    context.dispatch("success", response.data.success);
+                    context.dispatch("alertSuccess", response.data.success);
                     context.dispatch("setUser", data.id);
                 })
                 .catch((error) => {
-                    context.dispatch("error", error.response.data.error);
+                    context.dispatch("alertError", error.response.data.error);
                 });
         },
         deleteUser(context, id) {
             axios
                 .delete("users/" + id)
                 .then((response) => {
-                    context.dispatch("success", response.data.success);
+                    context.dispatch("alertSuccess", response.data.success);
                     context.dispatch("setUsers");
                 })
                 .catch((error) => {
-                    context.dispatch("error", error.response.data.error);
+                    context.dispatch("alertError", error.response.data.error);
                 });
         }
     },

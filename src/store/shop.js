@@ -20,7 +20,7 @@ export default {
                     context.commit("shop", response.data);
                 })
                 .catch((error) => {
-                    context.dispatch("error", error.response.data.error);
+                    context.dispatch("alertError", error.response.data.error);
                 });
         },
         setShops(context) {
@@ -30,29 +30,29 @@ export default {
                     context.commit("shops", response.data);
                 })
                 .catch((error) => {
-                    context.dispatch("error", error.response.data.error);
+                    context.dispatch("alertError", error.response.data.error);
                 });
         },
         createShop(context, data) {
             axios
                 .post("shops", data)
                 .then((response) => {
-                    context.dispatch("success", response.data.success);
+                    context.dispatch("alertSuccess", response.data.success);
                     router.push({ name: "Shops" });
                 })
                 .catch((error) => {
-                    context.dispatch("error", error.response.data.error);
+                    context.dispatch("alertError", error.response.data.error);
                 });
         },
         editShop(context, data) {
             axios
                 .put("shops/" + data.id, data)
                 .then((response) => {
-                    context.dispatch("success", response.data.success);
+                    context.dispatch("alertSuccess", response.data.success);
                     context.dispatch("setShop", data.id);
                 })
                 .catch((error) => {
-                    context.dispatch("error", error.response.data.error);
+                    context.dispatch("alertError", error.response.data.error);
                 });
         },
         editShopFile(context, { data, logo }) {
@@ -71,22 +71,22 @@ export default {
                     }
                 })
                 .then((response) => {
-                    context.dispatch("success", response.data.success);
+                    context.dispatch("alertSuccess", response.data.success);
                     context.dispatch("setShop", data.id);
                 })
                 .catch((error) => {
-                    context.dispatch("error", error.response.data.error);
+                    context.dispatch("alertError", error.response.data.error);
                 });
         },
         deleteShop(context, id) {
             axios
                 .delete("shops/" + id)
                 .then((response) => {
-                    context.dispatch("success", response.data.success);
+                    context.dispatch("alertSuccess", response.data.success);
                     context.dispatch("setShops");
                 })
                 .catch((error) => {
-                    context.dispatch("error", error.response.data.error);
+                    context.dispatch("alertError", error.response.data.error);
                 });
         }
     },

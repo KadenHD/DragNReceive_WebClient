@@ -4,6 +4,7 @@
       <Nav />
       <v-main>
         <v-container fluid>
+          <Alert />
           <Error />
           <Success />
           <router-view></router-view>
@@ -21,22 +22,19 @@
 import { mapGetters } from "vuex";
 
 import Nav from "@/components/Nav.vue";
-import Success from "@/components/Success.vue";
-import Error from "@/components/Error.vue";
+import Alert from "@/components/Alert.vue";
 import Footer from "@/components/Footer.vue";
 
 export default {
   name: "App",
   components: {
     Nav,
-    Success,
-    Error,
+    Alert,
     Footer,
   },
   created() {
     this.$store.dispatch("setCurrentUser");
-    this.$store.dispatch("success", null);
-    this.$store.dispatch("error", null);
+    this.$store.commit("alert", {});
   },
   computed: {
     ...mapGetters(["currentUser"]),

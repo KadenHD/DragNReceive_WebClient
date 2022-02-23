@@ -39,7 +39,7 @@ export default {
                     }
                 })
                 .catch((error) => {
-                    context.dispatch("error", error.response.data.error);
+                    context.dispatch("alertError", error.response.data.error);
                 });
         },
         logout(context) {
@@ -49,7 +49,7 @@ export default {
             router.go({ name: "Home" });
         },
         clearAll(context) {
-            context.dispatch("error", null);
+            context.commit("alert", {});
             context.dispatch("success", null);
             context.dispatch("users", null);
             context.dispatch("user", null);

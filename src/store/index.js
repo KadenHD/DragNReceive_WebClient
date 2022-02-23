@@ -10,32 +10,30 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
     state: {
-        success: null,
-        error: null,
+        alert: {
+            type: null,
+            message: null,
+        },
     },
     getters: { /* return to mapGetters */
-        success: (state) => { return state.success; },
-        error: (state) => { return state.error; },
+        alert: (state) => { return state.alert; },
     },
     actions: { /* from dispatch */
-        success(context, success) {
-            context.commit('success', success);
-            context.commit('error', null);
+        alertSuccess(context, alert) {
+            context.commit('alert', { type: 'success', message: alert });
             setTimeout(() => {
-                context.commit('success', null);
+                context.commit('alert', {});
             }, 4000)
         },
-        error(context, error) {
-            context.commit('error', error);
-            context.commit('success', null);
+        alertError(context, alert) {
+            context.commit('alert', { type: 'error', message: alert });
             setTimeout(() => {
-                context.commit('error', null);
+                context.commit('alert', {});
             }, 4000)
         },
     },
     mutations: { /* from commit */
-        success(state, success) { state.success = success; },
-        error(state, error) { state.error = error; },
+        alert(state, alert) { state.alert = alert; },
     },
     modules: {
         auth,
