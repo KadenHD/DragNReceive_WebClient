@@ -101,6 +101,9 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 # To-do
 
+## global :
+- test unitaire avec cypress
+
 ## admin / sadmin (variation en fonction du rôle sur les actions):
 - page d'une boutique (voir et consulter les produits)
 - page de gestion des tickets des partner et clients
@@ -110,9 +113,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - page de ses demandes (ses tickets)
 - page de ses produits (crud)
 - page de ses commandes
-
-## global :
-- 
 
 # Sources
 
