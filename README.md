@@ -102,17 +102,23 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 # To-do
 
 ## global :
+- trier le deleted = false sur la page de Shop.vue (dans le productItems au début de la fonction pour trier et retourner que les non deleted)
 - mettre le logo à côté de déconnexion dans la nav et a côté / dans l'item utilisateur du drawer
+- afficher les partenaire sur la page de shop (histoire de voir leurs tronches)
+
 - test unitaire avec cypress
 
 ## admin / sadmin (variation en fonction du rôle sur les actions):
-- page d'une boutique (voir et consulter les produits)
+- Rajouter dans le users dialogView l'image du user actuel en haut et centré
+
+- page des produits d'une boutique (voir tout mais spécifier les deleted) la route serra : /shop/:id/products (j'ai déjà le /shop/:id/), même requête http. Faire un tableau comme avec les Shops et Users.
+
 - page de gestion des tickets des partner et clients
 
 ## partner :
-- page de sa boutique (consulter les produits)
+- page de ses produits (crud) (commencer cette page par le côté admin serra plus simple car pas de fonctionnalités) (serra également un tableau ici mais le dialog ferra apparaître une card pour le view).
+
 - page de ses demandes (ses tickets)
-- page de ses produits (crud)
 - page de ses commandes
 
 # Sources
