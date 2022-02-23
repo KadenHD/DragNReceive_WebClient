@@ -5,8 +5,6 @@
       <v-main>
         <v-container fluid>
           <Alert />
-          <Error />
-          <Success />
           <router-view></router-view>
         </v-container>
       </v-main>
@@ -58,11 +56,11 @@ a {
   color: #afb891 !important;
 }
 .TextTitle {
-  color: #014d5a;
+  color: #014d5a !important;
   font-weight: bold;
 }
 .MainText {
-  color: #4a7f88;
+  color: #4a7f88 !important;
   font-size: 16px;
 }
 .TextLinks {
