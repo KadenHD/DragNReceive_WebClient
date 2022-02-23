@@ -66,7 +66,11 @@
         <v-icon v-if="!item.deleted" class="mr-2" @click="viewItem(item)">
           mdi-eye
         </v-icon>
-        <v-icon v-if="!item.deleted" class="mr-2" @click="deleteItem(item)">
+        <v-icon
+          v-if="!item.deleted && currentUser.roleId == '1'"
+          class="mr-2"
+          @click="deleteItem(item)"
+        >
           mdi-delete
         </v-icon>
       </template>
