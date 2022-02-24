@@ -23,6 +23,29 @@
       </v-row>
       <v-row justify="end" class="ma-0">
         <div v-if="currentUser" class="links hidden-sm-and-down">
+          <v-avatar class="mr-5" height="50px" width="50px">
+            <v-img
+              :src="
+                currentUser.path
+                  ? path_url + currentUser.path
+                  : 'assets/img/user.svg'
+              "
+              :lazy-src="
+                currentUser.path
+                  ? path_url + currentUser.path
+                  : 'assets/img/user.svg'
+              "
+            >
+              <template v-slot:placeholder>
+                <v-row class="fill-height ma-0" align="center" justify="center">
+                  <v-progress-circular
+                    indeterminate
+                    color="primary"
+                  ></v-progress-circular>
+                </v-row>
+              </template>
+            </v-img>
+          </v-avatar>
           <a href="javascript:void(0)" @click="logoutClick">Déconnexion</a>
         </div>
         <v-app-bar-nav-icon
@@ -36,7 +59,7 @@
     <v-navigation-drawer v-model="drawer" temporary app>
       <v-list-item>
         <v-list-item-content>
-          <v-list-item-title>Actions</v-list-item-title>
+          <v-list-item-title> Actions </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
 
@@ -136,6 +159,7 @@ import store from "@/store";
 export default {
   data() {
     return {
+      path_url: process.env.VUE_APP_URL,
       drawer: false,
       isNotLoggedItems: [{ text: "Connexion", value: "Login" }],
       isAdminOrSadminItems: [
