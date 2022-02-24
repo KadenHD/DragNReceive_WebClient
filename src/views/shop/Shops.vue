@@ -99,6 +99,7 @@ export default {
         { text: "Rue", value: "street" },
         { text: "Code postal", value: "postal" },
         { text: "Statut", value: "statut" },
+        { text: "Membres", value: "countUsers" },
         { text: "Actions", value: "actions", sortable: false },
       ],
     };
@@ -110,6 +111,7 @@ export default {
       return this.shops.filter(function (i) {
         i.createdAtReformated = reformatedDates(i.createdAt);
         i.updatedAtReformated = reformatedDates(i.updatedAt);
+        i.countUsers = i.users.length;
         if (i.path) {
           i.path = process.env.VUE_APP_URL + i.path;
         }
