@@ -212,9 +212,11 @@
           <v-col v-for="(user, index) in userItems" :key="index" sm="16" md="2">
             <v-avatar height="50px" width="50px" class="ml-2 mr-2">
               <v-img
-                :src="user.path ? user.path : '../../../assets/img/user.svg'"
+                :src="
+                  user.path ? path_url + user.path : '../../assets/img/user.svg'
+                "
                 :lazy-src="
-                  user.path ? user.path : '../../../assets/img/user.svg'
+                  user.path ? path_url + user.path : '../../assets/img/user.svg'
                 "
               >
                 <template v-slot:placeholder>
