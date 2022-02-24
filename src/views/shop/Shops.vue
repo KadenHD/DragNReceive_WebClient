@@ -100,6 +100,8 @@ export default {
         { text: "Code postal", value: "postal" },
         { text: "Statut", value: "statut" },
         { text: "Membres", value: "countUsers" },
+        { text: "Date de création", value: "createdAtReformated" },
+        { text: "Dernière modification", value: "updatedAtReformated" },
         { text: "Actions", value: "actions", sortable: false },
       ],
     };
