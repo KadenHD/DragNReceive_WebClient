@@ -1,6 +1,6 @@
 <template>
   <div class="Shop">
-    <v-card class="mx-auto mt-5 mb-5" max-width="1800">
+    <v-card class="mx-auto mt-5 mb-5" max-width="1800" elevation="24">
       <v-card-text>
         <p class="TextTitle title text-center">
           {{ shopItems.name }}
@@ -27,8 +27,8 @@
                   ? path_url + shopItems.path
                   : '../../assets/img/default.svg'
               "
-              height="150px"
-              width="150px"
+              height="300px"
+              width="300px"
             >
               <template v-slot:placeholder>
                 <v-row class="fill-height ma-0" align="center" justify="center">
@@ -204,6 +204,7 @@
       class="mx-auto mt-5 mb-5"
       max-width="1800"
       align="center"
+      elevation="24"
     >
       <v-card-text>
         <p class="TextTitle title text-center">Mes partenaires</p>
@@ -243,6 +244,7 @@
       class="mx-auto mt-5 mb-5"
       max-width="1800"
       align="center"
+      elevation="24"
     >
       <v-card-text>
         <p class="TextTitle title text-center">Mes produits</p>
@@ -400,7 +402,7 @@ export default {
           phone: this.currentItem.phone,
           city: this.currentItem.city,
           street: this.currentItem.street,
-          postal: this.currentItem.postal,
+          postal: parseInt(this.currentItem.postal),
         };
 
         if (this.currentItem.logo) {
