@@ -6,15 +6,6 @@ import { isAdminOrSadmin, isPartner } from '@/functions/beforeEnter.js';
 
 export default [
     {
-        path: '/shop',
-        name: 'MyShop',
-        component: Shop,
-        meta: {
-            title: 'Boutique'
-        },
-        beforeEnter: isPartner,
-    },
-    {
         path: '/shops',
         name: 'Shops',
         component: Shops,
@@ -40,5 +31,14 @@ export default [
             title: 'Boutique'
         },
         beforeEnter: isAdminOrSadmin,
+    },
+    {
+        path: '/shop',
+        name: 'MyShop',
+        component: Shop,
+        meta: {
+            title: 'Boutique'
+        },
+        beforeEnter: isPartner,
     },
 ]
