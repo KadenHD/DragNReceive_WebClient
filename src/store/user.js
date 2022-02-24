@@ -71,6 +71,7 @@ export default {
                 .then((response) => {
                     context.dispatch("alertSuccess", response.data.success);
                     context.dispatch("setUser", data.id);
+                    context.dispatch("setCurrentUser");
                 })
                 .catch((error) => {
                     context.dispatch("alertError", error.response.data.error);
