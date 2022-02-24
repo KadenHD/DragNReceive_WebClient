@@ -91,6 +91,22 @@
                   disabled
                 ></v-text-field>
               </v-col>
+              <v-col cols="12" sm="6" md="4">
+                <v-text-field
+                  v-model="shopItems.createdAtReformated"
+                  label="Date de création"
+                  prepend-inner-icon="mdi-clock"
+                  disabled
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" sm="6" md="4">
+                <v-text-field
+                  v-model="shopItems.updatedAtReformated"
+                  label="Dernière modification"
+                  prepend-inner-icon="mdi-clock-outline"
+                  disabled
+                ></v-text-field>
+              </v-col>
             </v-row>
           </v-container>
         </v-card-text>
@@ -237,38 +253,36 @@
             md="3"
           >
             <v-card class="mx-auto" max-width="344">
-              <router-link :to="{ name: 'Products' }">
-                <v-img
-                  :src="path_url + product.path"
-                  :lazy-src="path_url + product.path"
-                  height="200px"
-                  width="200px"
-                >
-                  <template v-slot:placeholder>
-                    <v-row
-                      class="fill-height ma-0"
-                      align="center"
-                      justify="center"
-                    >
-                      <v-progress-circular
-                        indeterminate
-                        color="primary"
-                      ></v-progress-circular>
-                    </v-row>
-                  </template>
-                </v-img>
+              <v-img
+                :src="path_url + product.path"
+                :lazy-src="path_url + product.path"
+                height="200px"
+                width="200px"
+              >
+                <template v-slot:placeholder>
+                  <v-row
+                    class="fill-height ma-0"
+                    align="center"
+                    justify="center"
+                  >
+                    <v-progress-circular
+                      indeterminate
+                      color="primary"
+                    ></v-progress-circular>
+                  </v-row>
+                </template>
+              </v-img>
 
-                <v-card-title class="TextTitle title">
-                  {{ product.name }}
-                </v-card-title>
-                <v-card-subtitle class="title TextLinks">
-                  {{ product.price }} €</v-card-subtitle
-                >
-              </router-link>
+              <v-card-title class="TextTitle title">
+                {{ product.name }}
+              </v-card-title>
+              <v-card-subtitle class="title TextLinks">
+                {{ product.price }} €</v-card-subtitle
+              >
             </v-card>
           </v-col>
           <v-col sm="16" md="3">
-            <router-link :to="{ name: 'Products' }">
+            <router-link :to="{ name: routeName }">
               <v-icon class="plusIcon" color="primary">mdi-plus-circle</v-icon>
             </router-link>
             <p>Voir plus de produits...</p>
@@ -291,6 +305,7 @@ import {
   streetRules,
   postalRules,
 } from "@/functions/inputRules.js";
+import { reformatedDates } from "@/functions/index.js";
 
 export default {
   data() {
@@ -306,6 +321,7 @@ export default {
       dialogEdit: false,
       currentIndex: -1,
       currentItem: {},
+      routeName: null,
     };
   },
   computed: {
@@ -318,6 +334,8 @@ export default {
     shopItems: function () {
       const data = store.getters.shop;
       if (data.length == 0) return null;
+      data.createdAtReformated = reformatedDates(data.createdAt);
+      data.updatedAtReformated = reformatedDates(data.updatedAt);
       return data;
     },
     productItems: function () {
@@ -351,8 +369,10 @@ export default {
   },
   created() {
     if (this.$route.name == "MyShop") {
+      this.routeName = "MyProducts";
       this.$store.dispatch("setShop", store.getters.currentUser.shopId);
     } else if (this.$route.name == "Shop") {
+      this.routeName = "Products";
       this.$store.dispatch("setShop", this.$route.params.id);
     }
   },
@@ -403,6 +423,6 @@ export default {
 .Shop .plusIcon:hover {
   transform: rotate(180deg);
   transition-duration: 1s;
-  color: var(--v-error-base) !important;
+  color: #afb854 !important;
 }
 </style>
