@@ -91,12 +91,11 @@ export const descriptionRules = [
 
 export const stockRules = [
     v => !!v || "Le stock est requis",
-    v => v && v.length <= 11 || "Le stock doit faire 11 chiffres maximum",
+    v => v && v.toString().length <= 11 || "Le stock doit faire 11 chiffres maximum",
 ]
 
 export const imageRules = [
-    v => !!v || "L'image est requise",
-    v => (v && v.type === 'image/jpeg' || v && v.type === 'image/png') || "L'image doit être au format .jpeg ou .png",
+    v => (!v || v && v.type === 'image/jpeg' || v && v.type === 'image/png') || "L'image doit être au format .jpeg ou .png",
 ]
 
 export const logoRules = [
