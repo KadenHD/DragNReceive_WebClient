@@ -187,6 +187,7 @@
                       <v-col cols="12" sm="6" md="4">
                         <v-text-field
                           v-model="currentItem.price"
+                          type="number"
                           :rules="priceRules"
                           label="Prix"
                           prepend-inner-icon="mdi-human-capacity-decrease"
@@ -384,8 +385,8 @@ export default {
           id: this.currentItem.id,
           name: this.currentItem.name,
           description: this.currentItem.description,
-          price: this.currentItem.price,
-          stock: this.currentItem.stock,
+          price: parseFloat(this.currentItem.price),
+          stock: parseInt(this.currentItem.stock),
           shopId: this.currentUser.shopId,
         };
         if (this.currentItem.image) {
