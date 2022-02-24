@@ -102,7 +102,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 # To-do
 
 ## global :
-- trier le deleted = false sur la page de Shop.vue (dans le productItems au début de la fonction pour trier et retourner que les non deleted)
+- trier le deleted = false sur la page de Shop.vue (dans le productItems au début de la fonction pour trier et retourner que les non deleted comme nouveaux produits)
 - mettre le logo à côté de déconnexion dans la nav et a côté / dans l'item utilisateur du drawer
 - afficher les partenaire sur la page de shop (histoire de voir leurs tronches)
 
