@@ -242,7 +242,9 @@
         ></v-text-field>
       </template>
       <template v-slot:[`item.actions`]="{ item }">
-        <v-icon class="mr-2" @click="viewItem(item)"> mdi-eye </v-icon>
+        <v-icon class="mr-2" v-if="!item.deleted" @click="viewItem(item)">
+          mdi-eye
+        </v-icon>
         <v-icon class="mr-2" v-if="currentUser.shopId" @click="editItem(item)">
           mdi-pencil
         </v-icon>
@@ -384,6 +386,7 @@ export default {
           description: this.currentItem.description,
           price: this.currentItem.price,
           stock: this.currentItem.stock,
+          shopId: this.currentUser.shopId,
         };
         if (this.currentItem.image) {
           this.$store.dispatch("editProductFile", {
@@ -398,7 +401,11 @@ export default {
     },
 
     deleteItemConfirm() {
-      this.$store.dispatch("deleteProduct", this.currentItem.id);
+      const data = {
+        id: this.currentItem.id,
+        shopId: this.currentItem.shopId,
+      };
+      this.$store.dispatch("deleteProduct", data);
       this.closeDelete();
     },
   },
