@@ -3,6 +3,7 @@ import Vuex from 'vuex';
 import createPersistedState from "vuex-persistedstate";
 
 import auth from './auth.js';
+import product from './product.js';
 import shop from './shop.js';
 import user from './user.js';
 
@@ -37,6 +38,7 @@ const store = new Vuex.Store({
     },
     modules: {
         auth,
+        product,
         shop,
         user,
     },
