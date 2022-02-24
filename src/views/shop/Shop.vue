@@ -4,7 +4,6 @@
       <v-card-text>
         <p class="TextTitle title text-center">
           {{ shopItems.name }}
-          <b v-if="shopItems.deleted">(Supprimée)</b>
           <v-icon
             v-if="
               currentUser.roleId == '3' && shopItems.id == currentUser.shopId
