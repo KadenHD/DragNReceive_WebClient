@@ -289,6 +289,9 @@ export default {
   },
 
   watch: {
+    dialogView(val) {
+      val || this.closeView();
+    },
     dialogEdit(val) {
       val || this.closeEdit();
     },
