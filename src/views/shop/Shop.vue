@@ -184,6 +184,43 @@
     </v-dialog>
 
     <v-card
+      v-if="userItems"
+      class="mx-auto mt-5 mb-5"
+      max-width="1800"
+      align="center"
+    >
+      <v-card-text>
+        <p class="TextTitle title text-center">Mes partenaires</p>
+        <v-divider class="mr-2 ml-2" inset></v-divider>
+        <v-row class="mt-4 mb-2" align="center">
+          <v-col v-for="(user, index) in userItems" :key="index" sm="16" md="2">
+            <v-avatar height="50px" width="50px" class="ml-2 mr-2">
+              <v-img
+                :src="user.path ? user.path : '../../../assets/img/user.svg'"
+                :lazy-src="
+                  user.path ? user.path : '../../../assets/img/user.svg'
+                "
+              >
+                <template v-slot:placeholder>
+                  <v-row
+                    class="fill-height ma-0"
+                    align="center"
+                    justify="center"
+                  >
+                    <v-progress-circular
+                      indeterminate
+                      color="primary"
+                    ></v-progress-circular>
+                  </v-row>
+                </template> </v-img
+            ></v-avatar>
+            <p>{{ user.lastname }} {{ user.firstname }}</p>
+          </v-col>
+        </v-row>
+      </v-card-text>
+    </v-card>
+
+    <v-card
       v-if="productItems"
       class="mx-auto mt-5 mb-5"
       max-width="1800"
@@ -273,15 +310,23 @@ export default {
   },
   computed: {
     ...mapGetters(["currentUser"]),
+    userItems: function () {
+      const data = store.getters.shop.users;
+      if (data.length == 0) return null;
+      return data;
+    },
     shopItems: function () {
       const data = store.getters.shop;
+      if (data.length == 0) return null;
       return data;
     },
     productItems: function () {
       if (!store.getters.shop.products) {
         return null;
       } else {
-        let data = store.getters.shop.products;
+        let data = store.getters.shop.products.filter(
+          (product) => product.deleted === false
+        );
         if (data.length <= 3) {
           return data;
         } else {
