@@ -45,6 +45,35 @@
 
               <v-card-text>
                 <v-container>
+                  <div class="mt-4 mb-4 text-center">
+                    <v-avatar height="150px" width="150px">
+                      <v-img
+                        :src="
+                          currentItem.path
+                            ? currentItem.path
+                            : 'assets/img/user.svg'
+                        "
+                        :lazy-src="
+                          currentItem.path
+                            ? currentItem.path
+                            : 'assets/img/user.svg'
+                        "
+                      >
+                        <template v-slot:placeholder>
+                          <v-row
+                            class="fill-height ma-0"
+                            align="center"
+                            justify="center"
+                          >
+                            <v-progress-circular
+                              indeterminate
+                              color="primary"
+                            ></v-progress-circular>
+                          </v-row>
+                        </template>
+                      </v-img>
+                    </v-avatar>
+                  </div>
                   <v-row>
                     <v-col cols="12" sm="6" md="4">
                       <v-text-field
