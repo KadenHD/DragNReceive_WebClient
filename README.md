@@ -102,15 +102,15 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 # To-do
 
 ## global :
+- faire pour la description produit un input field plus grand (vuetify ?)
+
 - test unitaire avec cypress
 
 ## admin / sadmin (variation en fonction du rôle sur les actions):
-- page des produits d'une boutique (voir tout mais spécifier les deleted) la route serra : /shop/:id/products (j'ai déjà le /shop/:id/), même requête http. Faire un tableau comme avec les Shops et Users.
-
 - page de gestion des tickets des partner et clients
 
 ## partner :
-- page de ses produits (crud) (commencer cette page par le côté admin serra plus simple car pas de fonctionnalités) (serra également un tableau ici mais le dialog ferra apparaître une card pour le view).
+- page de création de produits
 
 - page de ses demandes (ses tickets)
 - page de ses commandes
