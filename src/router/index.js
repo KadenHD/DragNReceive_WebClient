@@ -7,6 +7,7 @@ import NotFound from '@/views/NotFound.vue';
 
 import aboutRouter from "./about.js";
 import authRouter from "./auth.js";
+import productRouter from './product.js';
 import shopRouter from './shop.js';
 import userRouter from './user.js';
 
@@ -19,6 +20,7 @@ const routes = [
     ...authRouter,
     ...shopRouter,
     ...userRouter,
+    ...productRouter,
     {
         path: '/',
         redirect: { name: 'Home' }
