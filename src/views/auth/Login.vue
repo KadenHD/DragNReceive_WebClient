@@ -1,7 +1,7 @@
 <template>
   <div class="Login">
     <v-form ref="form">
-      <v-card>
+      <v-card elevation="24">
         <v-card-title>Connectez-vous</v-card-title>
         <v-card-text>
           <v-text-field

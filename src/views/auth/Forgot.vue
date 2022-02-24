@@ -1,7 +1,7 @@
 <template>
   <div class="Forgot">
     <v-form ref="form">
-      <v-card>
+      <v-card elevation="24">
         <v-card-title>Mot de passe oublié ?</v-card-title>
         <v-card-text>
           <v-text-field

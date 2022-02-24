@@ -1,7 +1,7 @@
 <template>
   <div class="Reset">
     <form ref="form">
-      <v-card>
+      <v-card elevation="24">
         <v-card-title>Réinitialisez votre mot de passe</v-card-title>
         <v-card-text>
           <v-text-field
