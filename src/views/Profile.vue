@@ -1,6 +1,6 @@
 <template>
   <div class="Profile">
-    <v-card class="mx-auto mt-5 mb-5" max-width="800">
+    <v-card class="mx-auto mt-5 mb-5" max-width="800" elevation="24">
       <v-card-text>
         <p class="TextTitle title text-center">
           Mes informations
@@ -232,6 +232,7 @@
     </v-dialog>
 
     <v-card
+      elevation="24"
       v-if="userItems.shop"
       class="mx-auto mt-5 mb-5"
       max-width="800"
@@ -253,8 +254,8 @@
             ? path_url + userItems.shop.path
             : 'assets/img/default.svg'
         "
-        height="300px"
-        width="300px"
+        height="200px"
+        width="200px"
       >
         <template v-slot:placeholder>
           <v-row class="fill-height ma-0" align="center" justify="center">
