@@ -102,9 +102,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 # To-do
 
 ## global :
-- faire apparaître l'alerte sur une position fixe de l'écran en haut (pas besoin de scroll en haut pour voir le msg)
 - faire pour la description produit un input field plus grand (vuetify ?)
-- faire les vrais mdi icon sur les pages boutiques et création de boutique
+- faire apparaître l'alerte sur une position fixe de l'écran en haut (pas besoin de scroll en haut pour voir le msg)
 
 - test unitaire avec cypress
 

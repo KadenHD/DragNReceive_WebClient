@@ -75,7 +75,7 @@
                       <v-text-field
                         v-model="currentItem.name"
                         label="Nom"
-                        prepend-inner-icon="mdi-human-capacity-decrease"
+                        prepend-inner-icon="mdi-cube-outline"
                         disabled
                       ></v-text-field>
                     </v-col>
@@ -83,7 +83,7 @@
                       <v-text-field
                         v-model="currentItem.description"
                         label="Description"
-                        prepend-inner-icon="mdi-human-capacity-decrease"
+                        prepend-inner-icon="mdi-feather"
                         disabled
                       ></v-text-field>
                     </v-col>
@@ -91,7 +91,7 @@
                       <v-text-field
                         v-model="currentItem.price"
                         label="Prix"
-                        prepend-inner-icon="mdi-human-capacity-decrease"
+                        prepend-inner-icon="mdi-currency-eur"
                         disabled
                       ></v-text-field>
                     </v-col>
@@ -99,15 +99,7 @@
                       <v-text-field
                         v-model="currentItem.stock"
                         label="Stock"
-                        prepend-inner-icon="mdi-human-capacity-decrease"
-                        disabled
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="12" sm="6" md="4">
-                      <v-text-field
-                        v-model="currentItem.statut"
-                        label="Statut"
-                        prepend-inner-icon="mdi-human-capacity-decrease"
+                        prepend-inner-icon="mdi-dropbox"
                         disabled
                       ></v-text-field>
                     </v-col>
@@ -163,7 +155,7 @@
                           v-model="currentItem.name"
                           :rules="nameRules"
                           label="Nom"
-                          prepend-inner-icon="mdi-human-capacity-decrease"
+                          prepend-inner-icon="mdi-cube-outline"
                           counter
                         ></v-text-field>
                       </v-col>
@@ -172,7 +164,7 @@
                           v-model="currentItem.description"
                           :rules="descriptionRules"
                           label="Description"
-                          prepend-inner-icon="mdi-human-capacity-decrease"
+                          prepend-inner-icon="mdi-feather"
                           counter
                         ></v-text-field>
                       </v-col>
@@ -182,7 +174,7 @@
                           type="number"
                           :rules="priceRules"
                           label="Prix"
-                          prepend-inner-icon="mdi-human-capacity-decrease"
+                          prepend-inner-icon="mdi-currency-eur"
                           counter
                         ></v-text-field>
                       </v-col>
@@ -192,7 +184,7 @@
                           type="number"
                           :rules="stockRules"
                           label="Stock"
-                          prepend-inner-icon="mdi-human-capacity-decrease"
+                          prepend-inner-icon="mdi-dropbox"
                           counter
                         ></v-text-field>
                       </v-col>

@@ -2,7 +2,7 @@
   <div class="ProductCreate">
     <v-form ref="form">
       <v-card class="elevation-24">
-        <v-card-title>Ajouter une boutique </v-card-title>
+        <v-card-title>Ajouter un produit </v-card-title>
         <v-card-text>
           <v-file-input
             v-model="image"
@@ -16,7 +16,7 @@
             v-model="name"
             :rules="nameRules"
             label="Nom"
-            prepend-inner-icon="mdi-human-capacity-decrease"
+            prepend-inner-icon="mdi-cube-outline"
             counter
           ></v-text-field>
 
@@ -24,7 +24,7 @@
             v-model="description"
             :rules="descriptionRules"
             label="Description"
-            prepend-inner-icon="mdi-human-capacity-decrease"
+            prepend-inner-icon="mdi-feather"
             counter
           ></v-text-field>
 
@@ -33,7 +33,7 @@
             type="number"
             :rules="priceRules"
             label="Prix"
-            prepend-inner-icon="mdi-human-capacity-decrease"
+            prepend-inner-icon="mdi-currency-eur"
             counter
           ></v-text-field>
 
@@ -42,7 +42,7 @@
             type="number"
             :rules="stockRules"
             label="Stock"
-            prepend-inner-icon="mdi-human-capacity-decrease"
+            prepend-inner-icon="mdi-dropbox"
             counter
           ></v-text-field>
         </v-card-text>
