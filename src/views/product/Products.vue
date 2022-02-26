@@ -10,8 +10,8 @@
     >
       <template v-slot:[`item.path`]="{ item }">
         <v-img
-          :src="item.path ? item.path : '../../assets/img/default.svg'"
-          :lazy-src="item.path ? item.path : '../../assets/img/default.svg'"
+          :src="item.path"
+          :lazy-src="item.path"
           height="50px"
           width="50px"
         >
@@ -51,16 +51,8 @@
                 <v-container>
                   <v-img
                     class="mx-auto"
-                    :src="
-                      currentItem.path
-                        ? currentItem.path
-                        : 'assets/img/default.svg'
-                    "
-                    :lazy-src="
-                      currentItem.path
-                        ? currentItem.path
-                        : 'assets/img/default.svg'
-                    "
+                    :src="currentItem.path"
+                    :lazy-src="currentItem.path"
                     height="150px"
                     width="150px"
                   >
@@ -238,7 +230,7 @@
         </v-toolbar>
         <v-text-field
           v-model="search"
-          label="Chercher un utilisateur"
+          label="Chercher un produit"
           class="mx-4"
         ></v-text-field>
       </template>
@@ -385,8 +377,8 @@ export default {
           id: this.currentItem.id,
           name: this.currentItem.name,
           description: this.currentItem.description,
-          price: parseFloat(this.currentItem.price),
-          stock: parseInt(this.currentItem.stock),
+          price: this.currentItem.price,
+          stock: this.currentItem.stock,
           shopId: this.currentUser.shopId,
         };
         if (this.currentItem.image) {
