@@ -1,5 +1,5 @@
 <template>
-  <div class="Register">
+  <div class="ShopCreate">
     <v-form ref="form">
       <v-card class="elevation-24">
         <v-card-title>Ajouter une boutique </v-card-title>
