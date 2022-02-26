@@ -98,6 +98,11 @@ export const imageRules = [
     v => (!v || v && v.type === 'image/jpeg' || v && v.type === 'image/png') || "L'image doit être au format .jpeg ou .png",
 ]
 
+export const imageCreateRules = [
+    v => !!v || "L'image est requise",
+    v => (v && v.type === 'image/jpeg' || v && v.type === 'image/png') || "L'image doit être au format .jpeg ou .png",
+]
+
 export const logoRules = [
     v => (!v || v && v.type === 'image/jpeg' || v && v.type === 'image/png') || "Le logo doit être au format .jpeg ou .png",
 ]
