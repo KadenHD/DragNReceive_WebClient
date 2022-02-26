@@ -5,9 +5,19 @@ export default {
     state: {},
     getters: {},
     actions: {
-        createProduct(context, data) {
+        createProduct(context, { data, image }) {
+            const formData = new FormData();
+            formData.append("image", image);
+            formData.append("name", data.name);
+            formData.append("description", data.description);
+            formData.append("price", data.price);
+            formData.append("stock", data.stock);
             axios
-                .post("products", data)
+                .post("products", formData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                })
                 .then((response) => {
                     context.dispatch("alertSuccess", response.data.success);
                     router.push({ name: "MyProducts" });
