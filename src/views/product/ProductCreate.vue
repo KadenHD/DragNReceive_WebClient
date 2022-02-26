@@ -20,13 +20,13 @@
             counter
           ></v-text-field>
 
-          <v-text-field
+          <v-textarea
             v-model="description"
             :rules="descriptionRules"
             label="Description"
             prepend-inner-icon="mdi-feather"
             counter
-          ></v-text-field>
+          ></v-textarea>
 
           <v-text-field
             v-model="price"

@@ -81,14 +81,6 @@
                     </v-col>
                     <v-col cols="12" sm="6" md="4">
                       <v-text-field
-                        v-model="currentItem.description"
-                        label="Description"
-                        prepend-inner-icon="mdi-feather"
-                        disabled
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="12" sm="6" md="4">
-                      <v-text-field
                         v-model="currentItem.price"
                         label="Prix"
                         prepend-inner-icon="mdi-currency-eur"
@@ -102,6 +94,14 @@
                         prepend-inner-icon="mdi-dropbox"
                         disabled
                       ></v-text-field>
+                    </v-col>
+                    <v-col cols="12" sm="6" md="4">
+                      <v-textarea
+                        v-model="currentItem.description"
+                        label="Description"
+                        prepend-inner-icon="mdi-feather"
+                        disabled
+                      ></v-textarea>
                     </v-col>
                     <v-col cols="12" sm="6" md="4">
                       <v-text-field
@@ -161,15 +161,6 @@
                       </v-col>
                       <v-col cols="12" sm="6" md="4">
                         <v-text-field
-                          v-model="currentItem.description"
-                          :rules="descriptionRules"
-                          label="Description"
-                          prepend-inner-icon="mdi-feather"
-                          counter
-                        ></v-text-field>
-                      </v-col>
-                      <v-col cols="12" sm="6" md="4">
-                        <v-text-field
                           v-model="currentItem.price"
                           type="number"
                           :rules="priceRules"
@@ -187,6 +178,15 @@
                           prepend-inner-icon="mdi-dropbox"
                           counter
                         ></v-text-field>
+                      </v-col>
+                      <v-col cols="12" sm="6" md="4">
+                        <v-textarea
+                          v-model="currentItem.description"
+                          :rules="descriptionRules"
+                          label="Description"
+                          prepend-inner-icon="mdi-feather"
+                          counter
+                        ></v-textarea>
                       </v-col>
                     </v-row>
                   </v-container>
