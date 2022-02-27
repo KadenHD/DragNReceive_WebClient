@@ -102,18 +102,17 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 # To-do
 
 ## global :
-- faire apparaître l'alerte sur une position fixe de l'écran en haut (pas besoin de scroll en haut pour voir le msg)
-
 - test unitaire avec cypress
 
 ## admin / sadmin (variation en fonction du rôle sur les actions):
-- page de gestion des tickets des partner et clients
+- page de gestion des tickets (des partner et clients)
+- page d'un ticket
 
 ## partner :
-- page de création de produits
-
-- page de ses demandes (ses tickets)
-- page de ses commandes
+- page de ses tickets
+- page d'un ticket
+- page de création d'un ticket
+- page des commandes de sa boutique
 
 # Sources
 
