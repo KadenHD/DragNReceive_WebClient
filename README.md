@@ -102,7 +102,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 # To-do
 
 ## global :
-- test unitaire avec cypress
+- 
 
 ## admin / sadmin (variation en fonction du rôle sur les actions):
 - page de gestion des tickets (des partner et clients)
