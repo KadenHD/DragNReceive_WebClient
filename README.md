@@ -103,6 +103,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## global :
 - trier dans le bon ordre les messages de la page ticket
+- modifier le formatage de date
 
 ## admin / sadmin (variation en fonction du rôle sur les actions):
 - 
