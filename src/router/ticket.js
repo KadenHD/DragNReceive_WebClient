@@ -1,6 +1,8 @@
 import Tickets from '@/views/ticket/Tickets.vue';
+import Ticket from '@/views/ticket/Ticket.vue';
+import TicketCreate from '@/views/ticket/TicketCreate.vue';
 
-import { isLogged } from '@/functions/beforeEnter.js';
+import { isLogged, isPartner } from '@/functions/beforeEnter.js';
 
 export default [
     {
@@ -11,5 +13,23 @@ export default [
             title: 'Mes tickets'
         },
         beforeEnter: isLogged,
-    }
+    },
+    {
+        path: '/ticket/:id',
+        name: 'Ticket',
+        component: Ticket,
+        meta: {
+            title: 'Ticket'
+        },
+        beforeEnter: isLogged,
+    },
+    {
+        path: '/ticket/create',
+        name: 'TicketCreate',
+        component: TicketCreate,
+        meta: {
+            title: 'Mes tickets'
+        },
+        beforeEnter: isPartner,
+    },
 ]

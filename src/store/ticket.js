@@ -21,6 +21,7 @@ export default {
                 })
                 .catch((error) => {
                     context.dispatch("alertError", error.response.data.error);
+                    router.push({ name: "Home" });
                 });
         },
         setTickets(context) {
@@ -51,6 +52,17 @@ export default {
                     context.dispatch("alertSuccess", response.data.success);
                     router.push({ name: "Tickets" });
                     context.dispatch("setTickets");
+                })
+                .catch((error) => {
+                    context.dispatch("alertError", error.response.data.error);
+                });
+        },
+        createMessage(context, data) {
+            axios
+                .post("messages", data)
+                .then((response) => {
+                    context.dispatch("alertSuccess", response.data.success);
+                    context.dispatch("setTicket", data.ticketId);
                 })
                 .catch((error) => {
                     context.dispatch("alertError", error.response.data.error);

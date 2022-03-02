@@ -33,7 +33,7 @@
           <v-spacer></v-spacer>
 
           <router-link v-if="currentUser.shopId" :to="{ name: 'TicketCreate' }">
-            <v-btn color="success" dark class="mb-2"> Ajouter un ticket </v-btn>
+            <v-btn color="success" dark class="mb-2"> Créer un ticket </v-btn>
           </router-link>
 
           <v-dialog v-model="dialogDelete" max-width="1000px">
