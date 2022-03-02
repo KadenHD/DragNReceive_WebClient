@@ -102,17 +102,12 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 # To-do
 
 ## global :
-- 
+- trier dans le bon ordre les messages de la page ticket
 
 ## admin / sadmin (variation en fonction du rôle sur les actions):
-- page de gestion des tickets (des partner et clients)
-- page d'un ticket
+- 
 
 ## partner :
-- page de ses tickets
-- page d'un ticket
-- page de création d'un ticket
-
 - page des commandes de sa boutique
 
 # Sources
