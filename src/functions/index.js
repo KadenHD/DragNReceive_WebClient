@@ -24,3 +24,11 @@ export const roledName = (key) => {
         return "Client";
     }
 }
+
+export const statusName = (key) => {
+    if (key == "1") {
+        return "Ouvert";
+    } else if (key == "2") {
+        return "Clos";
+    }
+}
