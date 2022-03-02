@@ -10,13 +10,27 @@
             elevation="24"
           >
             <v-card-text>
-              <p class="TextTitle title text-center">
-                {{ ticketItems.title }}
-              </p>
+              <div>
+                <p class="TextTitle title text-center">
+                  {{ ticketItems.title }}
+                </p>
+                <p
+                  class="TextTitle title text-center"
+                  v-if="ticketItems.ticketStatusId == 2"
+                >
+                  <i>Le ticket est clos</i>
+                </p>
+              </div>
+
               <v-divider class="mr-2 ml-2" inset></v-divider>
+
+              <p class="MainText">{{ ticketItems.content }}</p>
             </v-card-text>
             <div v-for="(message, index) in ticketItems.messages" :key="index">
-              <v-card>
+              <v-card
+                v-if="message.user.id != ticketItems.userId"
+                class="ma-3 Sender"
+              >
                 <v-card-title>
                   <v-avatar class="mr-5" height="50px" width="50px">
                     <v-img
@@ -45,17 +59,66 @@
                       </template>
                     </v-img>
                   </v-avatar>
-                  {{ message.user.lastname }} {{ message.user.firstname }}
+                  <b
+                    >{{ message.user.lastname }} {{ message.user.firstname }}</b
+                  >
                 </v-card-title>
-                <v-card-text> {{ message.content }}</v-card-text>
-                <v-card-subtitle>{{
-                  message.createdAtReformated
-                }}</v-card-subtitle>
+                <v-card-text>
+                  <b>{{ message.content }}</b></v-card-text
+                >
+                <v-card-subtitle
+                  ><b>{{ message.createdAtReformated }}</b></v-card-subtitle
+                >
+              </v-card>
+
+              <v-card
+                v-if="message.user.id == ticketItems.userId"
+                class="ma-3 text-right Receiver"
+              >
+                <v-card-title>
+                  <v-spacer />
+                  <b>
+                    {{ message.user.lastname }} {{ message.user.firstname }}</b
+                  >
+                  <v-avatar class="ml-5" height="50px" width="50px">
+                    <v-img
+                      :src="
+                        message.user.path
+                          ? path_url + message.user.path
+                          : '../../assets/img/user.svg'
+                      "
+                      :lazy-src="
+                        message.user.path
+                          ? path_url + message.user.path
+                          : '../../assets/img/user.svg'
+                      "
+                    >
+                      <template v-slot:placeholder>
+                        <v-row
+                          class="fill-height ma-0"
+                          align="center"
+                          justify="center"
+                        >
+                          <v-progress-circular
+                            indeterminate
+                            color="primary"
+                          ></v-progress-circular>
+                        </v-row>
+                      </template>
+                    </v-img>
+                  </v-avatar>
+                </v-card-title>
+                <v-card-text
+                  ><b> {{ message.content }}</b></v-card-text
+                >
+                <v-card-subtitle
+                  ><b>{{ message.createdAtReformated }}</b></v-card-subtitle
+                >
               </v-card>
             </div>
           </v-card></v-col
         >
-        <v-col cols="6" md="4">
+        <v-col v-if="ticketItems.ticketStatusId == 1" cols="6" md="4">
           <v-card
             class="mr-5 pa-2"
             max-height="300"
@@ -75,8 +138,26 @@
               </v-btn>
             </v-form>
           </v-card></v-col
-        ></v-row
-      >
+        >
+        <v-col v-if="ticketItems.ticketStatusId == 2" cols="6" md="4">
+          <v-card
+            class="mr-5 pa-2"
+            max-height="300"
+            max-width="800"
+            elevation="24"
+          >
+            <v-textarea
+              v-model="content"
+              label="Contenu"
+              prepend-inner-icon="mdi-feather"
+              disabled
+            ></v-textarea>
+            <v-btn disabled color="success" class="mr-4" @click="submit">
+              Envoyer
+            </v-btn>
+          </v-card></v-col
+        >
+      </v-row>
     </v-card>
   </div>
 </template>
@@ -109,6 +190,9 @@ export default {
           data.messages[i].createdAt
         );
       }
+      data.messages = data.messages.sort(
+        (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+      );
       return data;
     },
   },
@@ -135,5 +219,15 @@ export default {
 <style>
 .Ticket .scroll {
   overflow-y: scroll;
+}
+.Ticket .Receiver {
+  background-color: #4a7f88bb;
+}
+.Ticket .Sender {
+  background-color: #b0b854c0;
+}
+.Ticket b {
+  color: rgb(22, 21, 21);
+  text-shadow: 1px 1px 2px white;
 }
 </style>
