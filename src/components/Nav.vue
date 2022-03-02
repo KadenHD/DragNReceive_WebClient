@@ -28,12 +28,12 @@
               :src="
                 currentUser.path
                   ? path_url + currentUser.path
-                  : 'assets/img/user.svg'
+                  : '../../assets/img/user.svg'
               "
               :lazy-src="
                 currentUser.path
                   ? path_url + currentUser.path
-                  : 'assets/img/user.svg'
+                  : '../../assets/img/user.svg'
               "
             >
               <template v-slot:placeholder>
