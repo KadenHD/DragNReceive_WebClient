@@ -5,7 +5,7 @@
       :items="productItems"
       :items-per-page="10"
       :search="search"
-      sort-by="statut"
+      sort-by="createdAtReformated"
       class="elevation-24"
     >
       <template v-slot:[`item.path`]="{ item }">
