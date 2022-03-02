@@ -121,6 +121,7 @@ export default {
       this.headers = [
         { text: "Statut", value: "statusName" },
         { text: "Titre", value: "title" },
+        { text: "Contenu", value: "content" },
         { text: "Date de création", value: "createdAtReformated" },
         { text: "Dernière modification", value: "updatedAtReformated" },
         { text: "Actions", value: "actions", sortable: false },
