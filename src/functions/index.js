@@ -1,16 +1,6 @@
 export const reformatedDates = (key) => {
-    const day = key[8] + key[9];
-    const month = key[5] + key[6];
-    const year = key[0] + key[1] + key[2] + key[3];
-    var hour = '';
-    if (parseInt(key[12]) === 9) {
-        hour = `${parseInt(key[11]) + 1}0`;
-    } else {
-        hour = `${key[11]}${parseInt(key[12]) + 1}`;
-    }
-    const minute = key[14] + key[15];
-    const second = key[17] + key[18];
-    return (`${day}/${month}/${year} - ${hour}:${minute}:${second}`)
+    const date = new Date(key);
+    return `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
 }
 
 export const roledName = (key) => {
