@@ -5,6 +5,7 @@ import createPersistedState from "vuex-persistedstate";
 import auth from './auth.js';
 import product from './product.js';
 import shop from './shop.js';
+import ticket from './ticket.js';
 import user from './user.js';
 
 Vue.use(Vuex)
@@ -40,6 +41,7 @@ const store = new Vuex.Store({
         auth,
         product,
         shop,
+        ticket,
         user,
     },
     plugins: [createPersistedState()]

@@ -165,10 +165,12 @@ export default {
       isAdminOrSadminItems: [
         { text: "Gestion des utilisateurs", value: "Users" },
         { text: "Gestion des boutiques", value: "Shops" },
+        { text: "Gestion des tickets", value: "Tickets" },
       ],
       isPartnerItems: [
         { text: "Ma boutique", value: "MyShop" },
         { text: "Mes produits", value: "MyProducts" },
+        { text: "Mes tickets", value: "Tickets" },
       ],
       isLoggedItems: [{ text: "Profil", value: "Profile" }],
     };

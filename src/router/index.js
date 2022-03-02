@@ -9,6 +9,7 @@ import aboutRouter from "./about.js";
 import authRouter from "./auth.js";
 import productRouter from './product.js';
 import shopRouter from './shop.js';
+import ticketRouter from './ticket.js';
 import userRouter from './user.js';
 
 import { homeRedirections, isLogged } from '@/functions/beforeEnter.js';
@@ -19,6 +20,7 @@ const routes = [
     ...aboutRouter,
     ...authRouter,
     ...shopRouter,
+    ...ticketRouter,
     ...userRouter,
     ...productRouter,
     {
