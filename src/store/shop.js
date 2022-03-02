@@ -21,6 +21,7 @@ export default {
                 })
                 .catch((error) => {
                     context.dispatch("alertError", error.response.data.error);
+                    router.push({ name: "Home" });
                 });
         },
         setShops(context) {
