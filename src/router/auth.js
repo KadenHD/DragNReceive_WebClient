@@ -25,7 +25,7 @@ export default [
         beforeEnter: isNotLogged
     },
     {
-        path: '/reset/:token',
+        path: '/reset/:userId/:token',
         name: 'Reset',
         component: Reset,
         meta: {
