@@ -50,7 +50,6 @@ export default {
                 .put("tickets/" + id)
                 .then((response) => {
                     context.dispatch("alertSuccess", response.data.success);
-                    router.push({ name: "Tickets" });
                     context.dispatch("setTickets");
                 })
                 .catch((error) => {
