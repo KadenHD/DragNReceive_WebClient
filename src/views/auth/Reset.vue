@@ -1,14 +1,14 @@
 <template>
-  <div class="Reset">
-    <form ref="form">
+  <div class="Forgot">
+    <v-form ref="form">
       <v-card elevation="24">
-        <v-card-title>Réinitialisez votre mot de passe</v-card-title>
+        <v-card-title>Mot de passe oublié ?</v-card-title>
         <v-card-text>
           <v-text-field
             v-model="password"
             :rules="passwordRules"
             label="Mot de passe"
-            prepend-inner-icon="mdi-lock"
+            prepend-inner-icon="mdi-lock-check"
             :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
             :type="showPassword ? 'text' : 'password'"
             @click:append="showPassword = !showPassword"
@@ -28,32 +28,46 @@
         </v-card-text>
         <v-card-actions>
           <v-btn color="success" class="mr-4" @click="submitResetForm">
-            Réinitialiser
+            Envoyer
           </v-btn>
+          <div class="mr-1">Retourner à la</div>
+          <router-link class="TextLinks" :to="{ name: 'Login' }">
+            connexion </router-link
+          >.
         </v-card-actions>
       </v-card>
-    </form>
+    </v-form>
   </div>
 </template>
 
 <script>
-import { passwordRules, passwordConfirmRules } from "@/functions/inputRules.js";
+import { passwordRules } from "@/functions/inputRules.js";
 
 export default {
   data() {
     return {
       password: null,
       passwordConfirm: null,
-      showPassword: false,
-      showPasswordConfirm: false,
+      showPassword: null,
+      showPasswordConfirm: null,
+      passwordConfirmRules: [
+        (v) => !!v || "Le mot de passe est requis",
+        (v) =>
+          (v && v == this.password) ||
+          "Les deux mots de passe doivent être similaire",
+      ],
       passwordRules,
-      passwordConfirmRules,
     };
   },
   methods: {
     submitResetForm() {
       if (this.$refs.form.validate()) {
-        return;
+        const data = {
+          userId: this.$route.params.userId,
+          token: this.$route.params.token,
+          password: this.password,
+        };
+        this.$store.dispatch("reset", data);
       }
     },
   },
