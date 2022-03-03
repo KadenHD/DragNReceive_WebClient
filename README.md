@@ -102,7 +102,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 # To-do
 
 ## global :
-- 
+- fonctionnalités de password reset
 
 ## admin / sadmin (variation en fonction du rôle sur les actions):
 - 
