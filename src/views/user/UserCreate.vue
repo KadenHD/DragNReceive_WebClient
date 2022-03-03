@@ -45,17 +45,6 @@
             prepend-inner-icon="mdi-email"
             counter
           ></v-text-field>
-
-          <v-text-field
-            v-model="password"
-            :rules="passwordRules"
-            label="Mot de passe"
-            prepend-inner-icon="mdi-lock"
-            :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
-            :type="showPassword ? 'text' : 'password'"
-            @click:append="showPassword = !showPassword"
-            counter
-          ></v-text-field>
         </v-card-text>
         <v-card-actions>
           <router-link :to="{ name: 'Users' }">
@@ -78,7 +67,6 @@ import {
   firstNameRules,
   lastNameRules,
   emailRules,
-  passwordRules,
 } from "@/functions/inputRules.js";
 
 export default {
@@ -92,14 +80,12 @@ export default {
       firstname: null,
       lastname: null,
       email: null,
-      password: null,
-      showPassword: false,
       roleRules,
       shopRules,
       firstNameRules,
       lastNameRules,
       emailRules,
-      passwordRules,
+
       roleItems: [
         {
           text: "Super-Admin",
@@ -142,7 +128,6 @@ export default {
           lastname: this.lastname,
           firstname: this.firstname,
           email: this.email,
-          password: this.password,
           roleId: this.roleId,
           shopId: this.shopId,
         };
