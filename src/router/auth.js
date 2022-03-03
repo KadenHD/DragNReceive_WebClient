@@ -1,5 +1,6 @@
 import Login from '@/views/auth/Login.vue';
 import Forgot from '@/views/auth/Forgot.vue';
+import ForgotSuccess from '@/views/auth/ForgotSuccess.vue';
 import Reset from '@/views/auth/Reset.vue';
 import Dashboard from '@/views/Dashboard.vue';
 
@@ -21,6 +22,15 @@ export default [
         component: Forgot,
         meta: {
             title: 'Mot de passe oublié',
+        },
+        beforeEnter: isNotLogged
+    },
+    {
+        path: '/forgotsuccess',
+        name: 'ForgotSuccess',
+        component: ForgotSuccess,
+        meta: {
+            title: 'Email envoyé',
         },
         beforeEnter: isNotLogged
     },

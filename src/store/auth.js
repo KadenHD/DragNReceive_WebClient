@@ -48,6 +48,17 @@ export default {
             context.commit('clearAll');
             router.go({ name: "Home" });
         },
+        forgot(context, data) {
+            axios
+                .post("forgotUser", data)
+                .then((response) => {
+                    context.dispatch("alertSuccess", response.data.success);
+                    router.push({ name: "ForgotSuccess" });
+                })
+                .catch((error) => {
+                    context.dispatch("alertError", error.response.data.error);
+                });
+        },
         clearAll(context) {
             context.commit("alert", {});
             context.dispatch("success", null);

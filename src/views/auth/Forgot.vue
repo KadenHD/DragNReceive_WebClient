@@ -38,7 +38,10 @@ export default {
   methods: {
     submitForgotForm() {
       if (this.$refs.form.validate()) {
-        return;
+        const data = {
+          email: this.email,
+        };
+        this.$store.dispatch("forgot", data);
       }
     },
   },
