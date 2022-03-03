@@ -59,6 +59,18 @@ export default {
                     context.dispatch("alertError", error.response.data.error);
                 });
         },
+        reset(context, data) {
+            axios
+                .post("resetUser/" + data.userId + "/" + data.token, data)
+                .then((response) => {
+                    context.dispatch("alertSuccess", response.data.success);
+                    router.push({ name: "Login" });
+                })
+                .catch((error) => {
+                    context.dispatch("alertError", error.response.data.error);
+                    router.push({ name: "Forgot" });
+                });
+        },
         clearAll(context) {
             context.commit("alert", {});
             context.dispatch("success", null);
