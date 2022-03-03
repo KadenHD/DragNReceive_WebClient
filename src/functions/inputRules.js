@@ -12,11 +12,6 @@ export const passwordRules = [
     v => v && v.length <= 60 || "Le mot de passe doit faire maximum 60 caractères",
 ]
 
-export const passwordConfirmRules = [
-    v => !!v || "Le mot de passe est requis",
-    v => v && v == this.password || "Les deux mots de passe doivent être similaire",
-]
-
 export const lastNameRules = [
     v => !!v || "Le nom est requis",
     v => v && v.charAt(0) == v.charAt(0).toUpperCase() || "Le nom doit commencer par une majuscule",
