@@ -76,7 +76,11 @@ export default {
             context.dispatch("success", null);
             context.dispatch("users", null);
             context.dispatch("user", null);
+            context.dispatch("shop", null);
             context.dispatch("shops", null);
+            context.dispatch("ticket", null);
+            context.dispatch("tickets", null);
+            context.dispatch("orders", null);
         },
     },
     mutations: {

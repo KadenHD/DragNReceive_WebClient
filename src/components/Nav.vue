@@ -170,6 +170,7 @@ export default {
       isPartnerItems: [
         { text: "Ma boutique", value: "MyShop" },
         { text: "Mes produits", value: "MyProducts" },
+        { text: "Mes commandes", value: "Orders" },
         { text: "Mes tickets", value: "Tickets" },
       ],
       isLoggedItems: [{ text: "Profil", value: "Profile" }],
