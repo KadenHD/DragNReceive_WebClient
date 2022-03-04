@@ -109,6 +109,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## partner :
 - page des commandes de sa boutique
+- page d'une commande de sa boutique
 
 # Sources
 
