@@ -275,7 +275,7 @@ export default {
       headers: [
         { text: "Image", value: "path" },
         { text: "Nom", value: "name" },
-        { text: "Prix", value: "price" },
+        { text: "Prix", value: "priceEuro" },
         { text: "Stock", value: "stock" },
         { text: "Statut", value: "statut" },
         { text: "Date de création", value: "createdAtReformated" },
@@ -289,6 +289,7 @@ export default {
     ...mapGetters(["shop", "currentUser"]),
     productItems: function () {
       return this.shop.products.filter(function (i) {
+        i.priceEuro = i.price + " €";
         i.createdAtReformated = reformatedDates(i.createdAt);
         i.updatedAtReformated = reformatedDates(i.updatedAt);
         if (i.path) {
