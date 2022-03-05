@@ -108,7 +108,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - 
 
 ## partner :
-- page des commandes de sa boutique
+- page des commandes de sa boutique (mettre dans contenu les images des 3 produits max et action redirect sur l'url order/:id)
 - page d'une commande de sa boutique
 
 # Sources
