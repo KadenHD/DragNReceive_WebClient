@@ -55,7 +55,7 @@
         </v-toolbar>
         <v-text-field
           v-model="search"
-          label="Chercher un utilisateur"
+          label="Chercher un ticket"
           class="mx-4"
         ></v-text-field>
       </template>
