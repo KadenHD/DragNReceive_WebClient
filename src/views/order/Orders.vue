@@ -38,6 +38,88 @@
           class="mx-4"
         ></v-text-field>
       </template>
+      <template v-slot:[`item.content`]="{ item }">
+        <div v-if="(item.length = 1)">
+          <v-img
+            :src="item.orders[0].product.path"
+            :lazy-src="item.orders[0].product.path"
+            height="50px"
+            width="50px"
+          >
+            <template v-slot:placeholder>
+              <v-row class="fill-height ma-0" align="center" justify="center">
+                <v-progress-circular
+                  indeterminate
+                  color="primary"
+                ></v-progress-circular>
+              </v-row>
+            </template>
+          </v-img>
+        </div>
+        <div v-if="(item.length = 2)">
+          <v-img
+            :src="item.orders[0].product.path"
+            :lazy-src="item.orders[0].product.path"
+            height="50px"
+            width="50px"
+          >
+            <template v-slot:placeholder>
+              <v-row class="fill-height ma-0" align="center" justify="center">
+                <v-progress-circular
+                  indeterminate
+                  color="primary"
+                ></v-progress-circular>
+              </v-row>
+            </template> </v-img
+          ><v-img
+            :src="item.orders[1].product.path"
+            :lazy-src="item.orders[1].product.path"
+            height="50px"
+            width="50px"
+          >
+            <template v-slot:placeholder>
+              <v-row class="fill-height ma-0" align="center" justify="center">
+                <v-progress-circular
+                  indeterminate
+                  color="primary"
+                ></v-progress-circular>
+              </v-row>
+            </template>
+          </v-img>
+        </div>
+        <div v-if="item.length > 3">
+          <v-img
+            :src="item.orders[0].product.path"
+            :lazy-src="item.orders[0].product.path"
+            height="50px"
+            width="50px"
+          >
+            <template v-slot:placeholder>
+              <v-row class="fill-height ma-0" align="center" justify="center">
+                <v-progress-circular
+                  indeterminate
+                  color="primary"
+                ></v-progress-circular>
+              </v-row>
+            </template>
+          </v-img>
+          <v-img
+            :src="item.orders[1].product.path"
+            :lazy-src="item.orders[1].product.path"
+            height="50px"
+            width="50px"
+          >
+            <template v-slot:placeholder>
+              <v-row class="fill-height ma-0" align="center" justify="center">
+                <v-progress-circular
+                  indeterminate
+                  color="primary"
+                ></v-progress-circular>
+              </v-row>
+            </template> </v-img
+          >...
+        </div>
+      </template>
       <template v-slot:[`item.userInfo`]="{ item }">
         {{ item.user.firstname }} {{ item.user.lastname }} |
         {{ item.user.email }}
@@ -58,9 +140,6 @@ export default {
     return {
       search: "",
       path_url: process.env.VUE_APP_URL,
-      dialogView: false,
-      dialogEdit: false,
-      dialogDelete: false,
       currentIndex: -1,
       currentItem: {},
       headers: [],
@@ -87,6 +166,8 @@ export default {
       return this.orders.filter(function (i) {
         for (let j = 0; j < i.orders.length; j++) {
           i.priceEuro = i.price + " €";
+          i.orders[j].product.path =
+            process.env.VUE_APP_URL + i.orders[j].product.path;
           i.orders[j].orderStatusName = orderStatusName(
             i.orders[j].orderStatusId
           );
