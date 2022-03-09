@@ -39,10 +39,10 @@
         ></v-text-field>
       </template>
       <template v-slot:[`item.content`]="{ item }">
-        <div v-if="(item.length = 1)">
+        <div v-for="(order, index) in item.orders" :key="index">
           <v-img
-            :src="item.orders[0].product.path"
-            :lazy-src="item.orders[0].product.path"
+            :src="order.product.path"
+            :lazy-src="order.product.path"
             height="50px"
             width="50px"
           >
@@ -55,69 +55,6 @@
               </v-row>
             </template>
           </v-img>
-        </div>
-        <div v-if="(item.length = 2)">
-          <v-img
-            :src="item.orders[0].product.path"
-            :lazy-src="item.orders[0].product.path"
-            height="50px"
-            width="50px"
-          >
-            <template v-slot:placeholder>
-              <v-row class="fill-height ma-0" align="center" justify="center">
-                <v-progress-circular
-                  indeterminate
-                  color="primary"
-                ></v-progress-circular>
-              </v-row>
-            </template> </v-img
-          ><v-img
-            :src="item.orders[1].product.path"
-            :lazy-src="item.orders[1].product.path"
-            height="50px"
-            width="50px"
-          >
-            <template v-slot:placeholder>
-              <v-row class="fill-height ma-0" align="center" justify="center">
-                <v-progress-circular
-                  indeterminate
-                  color="primary"
-                ></v-progress-circular>
-              </v-row>
-            </template>
-          </v-img>
-        </div>
-        <div v-if="item.length > 3">
-          <v-img
-            :src="item.orders[0].product.path"
-            :lazy-src="item.orders[0].product.path"
-            height="50px"
-            width="50px"
-          >
-            <template v-slot:placeholder>
-              <v-row class="fill-height ma-0" align="center" justify="center">
-                <v-progress-circular
-                  indeterminate
-                  color="primary"
-                ></v-progress-circular>
-              </v-row>
-            </template>
-          </v-img>
-          <v-img
-            :src="item.orders[1].product.path"
-            :lazy-src="item.orders[1].product.path"
-            height="50px"
-            width="50px"
-          >
-            <template v-slot:placeholder>
-              <v-row class="fill-height ma-0" align="center" justify="center">
-                <v-progress-circular
-                  indeterminate
-                  color="primary"
-                ></v-progress-circular>
-              </v-row>
-            </template> </v-img
-          >...
         </div>
       </template>
       <template v-slot:[`item.userInfo`]="{ item }">
