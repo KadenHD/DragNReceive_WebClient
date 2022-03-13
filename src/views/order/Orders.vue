@@ -146,6 +146,10 @@ export default {
   },
 
   methods: {
+    viewItem(item) {
+      this.$router.push({ name: "Order", params: { number: item.number } });
+    },
+
     searchOrders(i) {
       switch (i) {
         case 1:
