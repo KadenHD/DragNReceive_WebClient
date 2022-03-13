@@ -5,7 +5,7 @@
       :items="orderItems"
       :items-per-page="10"
       :search="search"
-      sort-by="orderStatusName"
+      sort-by="orders[0].createdAtReformated"
       :sort-desc="true"
       class="elevation-24"
     >
@@ -28,10 +28,13 @@
       <template v-slot:top>
         <v-toolbar flat>
           <v-toolbar-title>Mes commandes</v-toolbar-title>
-
           <v-divider class="mx-4" inset vertical></v-divider>
-          <v-spacer></v-spacer>
         </v-toolbar>
+        <v-btn plain @click="searchOrders(1)">Validée</v-btn>
+        <v-btn plain @click="searchOrders(2)">En cours</v-btn>
+        <v-btn plain @click="searchOrders(3)">Disponible</v-btn>
+        <v-btn plain @click="searchOrders(4)">Récupérée</v-btn>
+        <v-btn plain @click="searchOrders(5)">Annulée</v-btn>
         <v-text-field
           v-model="search"
           label="Chercher une commande"
@@ -39,23 +42,37 @@
         ></v-text-field>
       </template>
       <template v-slot:[`item.content`]="{ item }">
-        <div v-for="(order, index) in item.orders" :key="index">
-          <v-img
-            :src="order.product.path"
-            :lazy-src="order.product.path"
-            height="50px"
-            width="50px"
+        <v-row align="center" justify="center">
+          <div v-for="(order, index) in item.orders" :key="index">
+            <v-col>
+              <v-img
+                v-if="index < 2"
+                :src="order.product.path"
+                :lazy-src="order.product.path"
+                height="50px"
+                width="50px"
+              >
+                <template v-slot:placeholder>
+                  <v-row
+                    class="fill-height ma-0"
+                    align="center"
+                    justify="center"
+                  >
+                    <v-progress-circular
+                      indeterminate
+                      color="primary"
+                    ></v-progress-circular>
+                  </v-row>
+                </template>
+              </v-img>
+            </v-col>
+          </div>
+          <v-col>
+            <div class="font-weight-black" v-if="item.orders.length >= 2">
+              + {{ item.orders.length - 2 }}
+            </div></v-col
           >
-            <template v-slot:placeholder>
-              <v-row class="fill-height ma-0" align="center" justify="center">
-                <v-progress-circular
-                  indeterminate
-                  color="primary"
-                ></v-progress-circular>
-              </v-row>
-            </template>
-          </v-img>
-        </div>
+        </v-row>
       </template>
       <template v-slot:[`item.userInfo`]="{ item }">
         {{ item.user.firstname }} {{ item.user.lastname }} |
@@ -85,7 +102,6 @@ export default {
 
   created() {
     this.$store.dispatch("setOrders");
-    console.log(this.orderItems);
     this.headers = [
       { text: "Statut", value: "orderStatusName" },
       { text: "Numéro de commande", value: "number" },
@@ -126,6 +142,28 @@ export default {
         }
         return i;
       });
+    },
+  },
+
+  methods: {
+    searchOrders(i) {
+      switch (i) {
+        case 1:
+          this.search = "Validée";
+          break;
+        case 2:
+          this.search = "En cours";
+          break;
+        case 3:
+          this.search = "Disponible";
+          break;
+        case 4:
+          this.search = "Récupérée";
+          break;
+        case 5:
+          this.search = "Annulée";
+          break;
+      }
     },
   },
 };
