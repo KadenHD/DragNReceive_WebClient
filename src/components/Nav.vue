@@ -49,6 +49,7 @@
           <a href="javascript:void(0)" @click="logoutClick">Déconnexion</a>
         </div>
         <v-app-bar-nav-icon
+          id="drawer"
           class="hidden-md-and-up"
           @click.stop="drawer = !drawer"
         />
@@ -78,6 +79,7 @@
           <v-list-item
             v-for="subLink in isNotLoggedItems"
             :to="{ name: subLink.value }"
+            :id="subLink.text"
             :key="subLink.text"
             active-class="accent_font--text"
           >
@@ -97,6 +99,7 @@
           <v-list-item
             v-for="subLink in isLoggedItems"
             :to="{ name: subLink.value }"
+            :id="subLink.text"
             :key="subLink.text"
             active-class="accent_font--text"
           >
@@ -122,6 +125,7 @@
           <v-list-item
             v-for="subLink in isAdminOrSadminItems"
             :to="{ name: subLink.value }"
+            :id="subLink.text"
             :key="subLink.text"
             active-class="accent_font--text"
           >
@@ -141,6 +145,7 @@
           <v-list-item
             v-for="subLink in isPartnerItems"
             :to="{ name: subLink.value }"
+            :id="subLink.text"
             :key="subLink.text"
             active-class="accent_font--text"
           >
