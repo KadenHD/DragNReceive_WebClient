@@ -18,6 +18,9 @@ export default {
                 .get("orders/" + number)
                 .then((response) => {
                     context.commit("order", response.data);
+                    if (response.data[0].orderStatusId == "1") {
+                        context.dispatch("updateStatus", number);
+                    }
                 })
                 .catch((error) => {
                     context.dispatch("alertError", error.response.data.error);
@@ -29,6 +32,16 @@ export default {
                 .get("orders")
                 .then((response) => {
                     context.commit("orders", response.data);
+                })
+                .catch((error) => {
+                    context.dispatch("alertError", error.response.data.error);
+                });
+        },
+        updateStatus(context, number) {
+            axios
+                .put("orders/" + number)
+                .then(() => {
+                    router.go("")
                 })
                 .catch((error) => {
                     context.dispatch("alertError", error.response.data.error);
