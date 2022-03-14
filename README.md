@@ -106,7 +106,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 - Material Design Icons (MDI), open-source icons : [Link](https://materialdesignicons.com/)
 - unDraw, open-source illustrations : [Link](https://undraw.co/illustrations)
-- Vuetify doc : [Link](https://https://vuetifyjs.com/en/)
+- Vuetify docs : [Link](https://https://vuetifyjs.com/en/)
 - Routing with Vue-Router : [Link](https://www.vuemastery.com/blog/vue-router-a-tutorial-for-vue-3/)
 - Video tutorial to restrict routes access : [Link](https://youtu.be/30XtkPC8nHI)
 - Video tutorial to begin Vuex with Authentication : [Link](https://youtu.be/1YGWP-mj6nQ)
