@@ -100,15 +100,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 > It's a "Full JavaScript" project, using Vue templates.
 
 # To-do
-
-## global :
 - 
-
-## admin / sadmin :
-- 
-
-## partner :
-- dialog d'une commande de sa boutique, permettant d'update le status
 
 # Sources
 
