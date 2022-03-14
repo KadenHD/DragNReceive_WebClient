@@ -43,7 +43,7 @@
       <a href="#To-do">To-do</a>
     </li>
     <li>
-      <a href="#Sources">Sources</a>
+      <a href="#Documentations">Documentations</a>
     </li>
 </details> 
     
@@ -102,7 +102,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 # To-do
 - 
 
-# Sources
+# Documentations
 
 - Material Design Icons (MDI), open-source icons : [Link](https://materialdesignicons.com/)
 - unDraw, open-source illustrations : [Link](https://undraw.co/illustrations)
