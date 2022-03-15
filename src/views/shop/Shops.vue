@@ -110,20 +110,24 @@ export default {
   computed: {
     ...mapGetters(["shops", "currentUser"]),
     shopItems: function () {
-      return this.shops.filter(function (i) {
-        i.createdAtReformated = reformatedDates(i.createdAt);
-        i.updatedAtReformated = reformatedDates(i.updatedAt);
-        i.countUsers = i.users.length;
-        if (i.path) {
-          i.path = process.env.VUE_APP_URL + i.path;
-        }
-        if (i.deleted) {
-          i.statut = "Supprimée";
-        } else {
-          i.statut = "Ouverte";
-        }
-        return i;
-      });
+      if (!this.shops) {
+        return [];
+      } else {
+        return this.shops.filter(function (i) {
+          i.createdAtReformated = reformatedDates(i.createdAt);
+          i.updatedAtReformated = reformatedDates(i.updatedAt);
+          i.countUsers = i.users.length;
+          if (i.path) {
+            i.path = process.env.VUE_APP_URL + i.path;
+          }
+          if (i.deleted) {
+            i.statut = "Supprimée";
+          } else {
+            i.statut = "Ouverte";
+          }
+          return i;
+        });
+      }
     },
   },
 
