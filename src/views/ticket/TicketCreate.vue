@@ -23,7 +23,12 @@
           <router-link :to="{ name: 'Tickets' }">
             <v-btn color="error" dark class="mr-4"> Annuler </v-btn>
           </router-link>
-          <v-btn color="success" class="mr-4" @click="submitTicketCreateForm">
+          <v-btn
+            id="submit"
+            color="success"
+            class="mr-4"
+            @click="submitTicketCreateForm"
+          >
             Créer
           </v-btn>
         </v-card-actions>
