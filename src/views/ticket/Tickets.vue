@@ -1,8 +1,8 @@
 <template>
-  <div class="Users">
+  <div class="Tickets">
     <v-data-table
       :headers="headers"
-      :items="userItems"
+      :items="ticketItems"
       :items-per-page="10"
       :search="search"
       sort-by="statusName"
@@ -33,7 +33,9 @@
           <v-spacer></v-spacer>
 
           <router-link v-if="currentUser.shopId" :to="{ name: 'TicketCreate' }">
-            <v-btn color="success" dark class="mb-2"> Créer un ticket </v-btn>
+            <v-btn id="ticket-create" color="success" dark class="mb-2">
+              Créer un ticket
+            </v-btn>
           </router-link>
 
           <v-dialog v-model="dialogDelete" max-width="1000px">
@@ -94,19 +96,23 @@ export default {
 
   computed: {
     ...mapGetters(["tickets", "currentUser"]),
-    userItems: function () {
-      return this.tickets.filter(function (i) {
-        i.statusName = statusName(i.ticketStatusId);
-        i.roleName = roledName(i.user.roleId);
-        i.createdAtReformated = reformatedDates(i.createdAt);
-        i.updatedAtReformated = reformatedDates(i.updatedAt);
-        if (i.path) {
-          i.path = process.env.VUE_APP_URL + i.path;
-        }
-        if (i.id != store.getters.currentUser.id) {
-          return i;
-        }
-      });
+    ticketItems: function () {
+      if (!this.tickets) {
+        return [];
+      } else {
+        return this.tickets.filter(function (i) {
+          i.statusName = statusName(i.ticketStatusId);
+          i.roleName = roledName(i.user.roleId);
+          i.createdAtReformated = reformatedDates(i.createdAt);
+          i.updatedAtReformated = reformatedDates(i.updatedAt);
+          if (i.path) {
+            i.path = process.env.VUE_APP_URL + i.path;
+          }
+          if (i.id != store.getters.currentUser.id) {
+            return i;
+          }
+        });
+      }
     },
   },
   watch: {
