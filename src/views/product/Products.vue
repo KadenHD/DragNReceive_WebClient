@@ -288,20 +288,24 @@ export default {
   computed: {
     ...mapGetters(["shop", "currentUser"]),
     productItems: function () {
-      return this.shop.products.filter(function (i) {
-        i.priceEuro = i.price + " €";
-        i.createdAtReformated = reformatedDates(i.createdAt);
-        i.updatedAtReformated = reformatedDates(i.updatedAt);
-        if (i.path) {
-          i.path = process.env.VUE_APP_URL + i.path;
-        }
-        if (i.deleted) {
-          i.statut = "Supprimé";
-        } else {
-          i.statut = "Disponible";
-        }
-        return i;
-      });
+      if (!this.products) {
+        return [];
+      } else {
+        return this.shop.products.filter(function (i) {
+          i.priceEuro = i.price + " €";
+          i.createdAtReformated = reformatedDates(i.createdAt);
+          i.updatedAtReformated = reformatedDates(i.updatedAt);
+          if (i.path) {
+            i.path = process.env.VUE_APP_URL + i.path;
+          }
+          if (i.deleted) {
+            i.statut = "Supprimé";
+          } else {
+            i.statut = "Disponible";
+          }
+          return i;
+        });
+      }
     },
   },
 
