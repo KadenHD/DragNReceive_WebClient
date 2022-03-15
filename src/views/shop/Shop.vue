@@ -5,6 +5,7 @@
         <p class="TextTitle title text-center">
           {{ shopItems.name }}
           <v-icon
+            id="editItem"
             v-if="
               currentUser.roleId == '3' && shopItems.id == currentUser.shopId
             "
@@ -133,6 +134,7 @@
                 ></v-col>
                 <v-col cols="12" sm="6" md="4">
                   <v-text-field
+                    id="name"
                     v-model="currentItem.name"
                     :rules="nameRules"
                     label="Nom"
@@ -142,6 +144,7 @@
                 </v-col>
                 <v-col cols="12" sm="6" md="4"
                   ><v-text-field
+                    id="email"
                     v-model="currentItem.email"
                     :rules="emailRules"
                     label="E-mail"
@@ -151,6 +154,7 @@
                 </v-col>
                 <v-col cols="12" sm="6" md="4"
                   ><v-text-field
+                    id="phone"
                     v-model="currentItem.phone"
                     :rules="phoneRules"
                     label="Téléphone"
@@ -160,6 +164,7 @@
                 </v-col>
                 <v-col cols="12" sm="6" md="4"
                   ><v-text-field
+                    id="city"
                     v-model="currentItem.city"
                     :rules="cityRules"
                     label="Ville"
@@ -169,6 +174,7 @@
                 </v-col>
                 <v-col cols="12" sm="6" md="4"
                   ><v-text-field
+                    id="street"
                     v-model="currentItem.street"
                     :rules="streetRules"
                     label="Rue"
@@ -178,6 +184,7 @@
                 </v-col>
                 <v-col cols="12" sm="6" md="4"
                   ><v-text-field
+                    id="postal"
                     v-model="currentItem.postal"
                     :rules="postalRules"
                     type="number"
@@ -193,8 +200,12 @@
 
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="error" text @click="closeEdit"> Annuler </v-btn>
-          <v-btn color="primary" text @click="saveEdit"> Enregistrer </v-btn>
+          <v-btn id="closeEdit" color="error" text @click="closeEdit">
+            Annuler
+          </v-btn>
+          <v-btn id="saveEdit" color="primary" text @click="saveEdit">
+            Enregistrer
+          </v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -299,7 +310,6 @@
 
 <script>
 import { mapGetters } from "vuex";
-import store from "@/store";
 import {
   logoRules,
   nameRules,
@@ -310,7 +320,6 @@ import {
   postalRules,
 } from "@/functions/inputRules.js";
 import { reformatedDates } from "@/functions/index.js";
-
 export default {
   data() {
     return {
@@ -329,24 +338,36 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["currentUser"]),
+    ...mapGetters(["currentUser", "shop"]),
     userItems: function () {
-      const data = store.getters.shop.users;
-      if (data.length == 0) return null;
-      return data;
-    },
-    shopItems: function () {
-      const data = store.getters.shop;
-      if (data.length == 0) return null;
-      data.createdAtReformated = reformatedDates(data.createdAt);
-      data.updatedAtReformated = reformatedDates(data.updatedAt);
-      return data;
-    },
-    productItems: function () {
-      if (!store.getters.shop.products) {
+      const data = this.shop.users;
+      if (!data) {
         return [];
       } else {
-        let data = store.getters.shop.products.filter(
+        if (data.length == 0) {
+          return [];
+        }
+        return data;
+      }
+    },
+    shopItems: function () {
+      const data = this.shop;
+      if (!data) {
+        return [];
+      } else {
+        if (data.length == 0) {
+          return null;
+        }
+        data.createdAtReformated = reformatedDates(data.createdAt);
+        data.updatedAtReformated = reformatedDates(data.updatedAt);
+        return data;
+      }
+    },
+    productItems: function () {
+      if (!this.shop.products) {
+        return [];
+      } else {
+        let data = this.shop.products.filter(
           (product) => product.deleted === false
         );
         if (data.length <= 3) {
@@ -374,7 +395,7 @@ export default {
   created() {
     if (this.$route.name == "MyShop") {
       this.routeName = "MyProducts";
-      this.$store.dispatch("setShop", store.getters.currentUser.shopId);
+      this.$store.dispatch("setShop", this.currentUser.shopId);
     } else if (this.$route.name == "Shop") {
       this.routeName = "Products";
       this.$store.dispatch("setShop", this.$route.params.id);
@@ -395,6 +416,7 @@ export default {
     },
     saveEdit() {
       if (this.$refs.formEdit.validate()) {
+        console.log(parseInt(this.currentItem.postal));
         const data = {
           id: this.shopItems.id,
           name: this.currentItem.name,
