@@ -274,17 +274,21 @@ export default {
   computed: {
     ...mapGetters(["users", "currentUser"]),
     userItems: function () {
-      return this.users.filter(function (i) {
-        i.roleName = roledName(i.roleId);
-        i.createdAtReformated = reformatedDates(i.createdAt);
-        i.updatedAtReformated = reformatedDates(i.updatedAt);
-        if (i.path) {
-          i.path = process.env.VUE_APP_URL + i.path;
-        }
-        if (i.id != store.getters.currentUser.id) {
-          return i;
-        }
-      });
+      if (!this.users) {
+        return [];
+      } else {
+        return this.users.filter(function (i) {
+          i.roleName = roledName(i.roleId);
+          i.createdAtReformated = reformatedDates(i.createdAt);
+          i.updatedAtReformated = reformatedDates(i.updatedAt);
+          if (i.path) {
+            i.path = process.env.VUE_APP_URL + i.path;
+          }
+          if (i.id != store.getters.currentUser.id) {
+            return i;
+          }
+        });
+      }
     },
   },
 
