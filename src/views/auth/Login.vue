@@ -22,7 +22,12 @@
           ></v-text-field>
         </v-card-text>
         <v-card-actions>
-          <v-btn color="success" class="mr-4" @click="submitLoginForm">
+          <v-btn
+            id="submit"
+            color="success"
+            class="mr-4"
+            @click="submitLoginForm"
+          >
             Se connecter
           </v-btn>
           <div class="mr-1">Mot de passe oublié ?</div>
