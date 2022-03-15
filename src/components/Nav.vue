@@ -72,6 +72,7 @@
           :value="false"
           active-class="selection--text"
           v-if="!currentUser"
+          id="notlogged"
         >
           <template v-slot:activator>
             <v-list-item-title>Non connecté</v-list-item-title>
@@ -79,11 +80,12 @@
           <v-list-item
             v-for="subLink in isNotLoggedItems"
             :to="{ name: subLink.value }"
-            :id="subLink.text"
             :key="subLink.text"
             active-class="accent_font--text"
           >
-            <v-list-item-title>{{ subLink.text }}</v-list-item-title>
+            <v-list-item-title :id="subLink.value">{{
+              subLink.text
+            }}</v-list-item-title>
           </v-list-item>
         </v-list-group>
 
@@ -92,6 +94,7 @@
           :value="false"
           active-class="selection--text"
           v-if="currentUser"
+          id="logged"
         >
           <template v-slot:activator>
             <v-list-item-title>Utilisateur</v-list-item-title>
@@ -99,14 +102,15 @@
           <v-list-item
             v-for="subLink in isLoggedItems"
             :to="{ name: subLink.value }"
-            :id="subLink.text"
             :key="subLink.text"
             active-class="accent_font--text"
           >
-            <v-list-item-title>{{ subLink.text }}</v-list-item-title>
+            <v-list-item-title :id="subLink.value">{{
+              subLink.text
+            }}</v-list-item-title>
           </v-list-item>
           <v-list-item @click="logoutClick" active-class="accent_font--text">
-            <v-list-item-title>Déconnexion</v-list-item-title>
+            <v-list-item-title id="logout">Déconnexion</v-list-item-title>
           </v-list-item>
         </v-list-group>
 
@@ -114,6 +118,7 @@
           no-action
           :value="false"
           active-class="selection--text"
+          id="admin"
           v-if="
             currentUser &&
             (currentUser.roleId == '1' || currentUser.roleId == '2')
@@ -125,11 +130,12 @@
           <v-list-item
             v-for="subLink in isAdminOrSadminItems"
             :to="{ name: subLink.value }"
-            :id="subLink.text"
             :key="subLink.text"
             active-class="accent_font--text"
           >
-            <v-list-item-title>{{ subLink.text }}</v-list-item-title>
+            <v-list-item-title :id="subLink.value">{{
+              subLink.text
+            }}</v-list-item-title>
           </v-list-item>
         </v-list-group>
 
@@ -137,6 +143,7 @@
           no-action
           :value="false"
           active-class="selection--text"
+          id="shop"
           v-if="currentUser && currentUser.roleId == '3'"
         >
           <template v-slot:activator>
@@ -145,11 +152,12 @@
           <v-list-item
             v-for="subLink in isPartnerItems"
             :to="{ name: subLink.value }"
-            :id="subLink.text"
             :key="subLink.text"
             active-class="accent_font--text"
           >
-            <v-list-item-title>{{ subLink.text }}</v-list-item-title>
+            <v-list-item-title :id="subLink.value">{{
+              subLink.text
+            }}</v-list-item-title>
           </v-list-item>
         </v-list-group>
       </v-list>
