@@ -116,32 +116,36 @@ export default {
   computed: {
     ...mapGetters(["orders", "currentUser"]),
     orderItems: function () {
-      return this.orders.filter(function (i) {
-        for (let j = 0; j < i.orders.length; j++) {
-          i.priceEuro = i.price + " €";
-          i.orders[j].product.path =
-            process.env.VUE_APP_URL + i.orders[j].product.path;
-          i.orders[j].orderStatusName = orderStatusName(
-            i.orders[j].orderStatusId
-          );
-          i.orders[j].createdAtReformated = reformatedDates(
-            i.orders[j].createdAt
-          );
-          i.orders[j].updatedAtReformated = reformatedDates(
-            i.orders[j].updatedAt
-          );
-          i.orders[j].product.createdAtReformated = reformatedDates(
-            i.orders[j].product.createdAt
-          );
-          i.orders[j].product.updatedAtReformated = reformatedDates(
-            i.orders[j].product.updatedAt
-          );
-          i.orderStatusName = orderStatusName(i.status);
-          i.user.createdAtReformated = reformatedDates(i.user.createdAt);
-          i.user.updatedAtReformated = reformatedDates(i.user.updatedAt);
-        }
-        return i;
-      });
+      if (!this.orders) {
+        return [];
+      } else {
+        return this.orders.filter(function (i) {
+          for (let j = 0; j < i.orders.length; j++) {
+            i.priceEuro = i.price + " €";
+            i.orders[j].product.path =
+              process.env.VUE_APP_URL + i.orders[j].product.path;
+            i.orders[j].orderStatusName = orderStatusName(
+              i.orders[j].orderStatusId
+            );
+            i.orders[j].createdAtReformated = reformatedDates(
+              i.orders[j].createdAt
+            );
+            i.orders[j].updatedAtReformated = reformatedDates(
+              i.orders[j].updatedAt
+            );
+            i.orders[j].product.createdAtReformated = reformatedDates(
+              i.orders[j].product.createdAt
+            );
+            i.orders[j].product.updatedAtReformated = reformatedDates(
+              i.orders[j].product.updatedAt
+            );
+            i.orderStatusName = orderStatusName(i.status);
+            i.user.createdAtReformated = reformatedDates(i.user.createdAt);
+            i.user.updatedAtReformated = reformatedDates(i.user.updatedAt);
+          }
+          return i;
+        });
+      }
     },
   },
 
