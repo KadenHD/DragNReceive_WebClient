@@ -344,7 +344,7 @@ export default {
     },
     productItems: function () {
       if (!store.getters.shop.products) {
-        return null;
+        return [];
       } else {
         let data = store.getters.shop.products.filter(
           (product) => product.deleted === false
