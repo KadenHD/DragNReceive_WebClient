@@ -5,6 +5,7 @@
         <p class="TextTitle title text-center">
           Mes informations
           <v-icon
+            id="changeInfo"
             class="ml-2"
             v-if="currentUser.roleId == '1' || currentUser.roleId == '2'"
             @click="editItem"
@@ -12,6 +13,7 @@
             mdi-pencil
           </v-icon>
           <v-icon
+            id="changePass"
             class="ml-2"
             v-if="currentUser.id == userItems.id"
             @click="editPassItem"
@@ -19,6 +21,7 @@
             mdi-lock
           </v-icon>
           <v-icon
+            id="changeImage"
             class="ml-2"
             v-if="currentUser.id == userItems.id"
             @click="editPhotoItem"
@@ -146,8 +149,12 @@
 
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="error" text @click="closeEdit"> Annuler </v-btn>
-          <v-btn color="primary" text @click="saveEdit"> Enregistrer </v-btn>
+          <v-btn id="closeEdit" color="error" text @click="closeEdit">
+            Annuler
+          </v-btn>
+          <v-btn id="saveEdit" color="primary" text @click="saveEdit">
+            Enregistrer
+          </v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -163,6 +170,7 @@
               <v-row>
                 <v-col cols="12" sm="6" md="4">
                   <v-text-field
+                    id="actualPassword"
                     v-model="currentItem.actualPassword"
                     :rules="passwordRules"
                     label="Mot de passe actuel"
@@ -176,6 +184,7 @@
                 </v-col>
                 <v-col cols="12" sm="6" md="4">
                   <v-text-field
+                    id="newPassword"
                     v-model="currentItem.newPassword"
                     :rules="passwordRules"
                     label="Nouveau mot de passe"
@@ -192,8 +201,10 @@
 
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="error" text @click="closeEditPass"> Annuler </v-btn>
-          <v-btn color="primary" text @click="saveEditPass">
+          <v-btn id="closeEditPass" color="error" text @click="closeEditPass">
+            Annuler
+          </v-btn>
+          <v-btn id="saveEditPass" color="primary" text @click="saveEditPass">
             Enregistrer
           </v-btn>
         </v-card-actions>
@@ -223,8 +234,10 @@
 
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="error" text @click="closeEditPhoto"> Annuler </v-btn>
-          <v-btn color="primary" text @click="saveEditPhoto">
+          <v-btn id="closeEditPhoto" color="error" text @click="closeEditPhoto">
+            Annuler
+          </v-btn>
+          <v-btn id="saveEditPhoto" color="primary" text @click="saveEditPhoto">
             Enregistrer
           </v-btn>
         </v-card-actions>
@@ -267,7 +280,7 @@
         </template>
       </v-img>
       <router-link :to="{ name: 'MyShop' }">
-        <v-btn color="primary" dark class="mb-2 mt-2">Voir</v-btn>
+        <v-btn id="view" color="primary" dark class="mb-2 mt-2">Voir</v-btn>
       </router-link>
     </v-card>
   </div>
@@ -275,7 +288,6 @@
 
 <script>
 import { mapGetters } from "vuex";
-import store from "@/store";
 import {
   firstNameRules,
   lastNameRules,
@@ -304,16 +316,20 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["currentUser"]),
+    ...mapGetters(["currentUser", "user"]),
     userItems: function () {
-      const data = store.getters.user;
-      data.roleName = roledName(data.roleId);
-      data.createdAtReformated = reformatedDates(data.createdAt);
-      data.updatedAtReformated = reformatedDates(data.updatedAt);
-      if (data.path) {
-        data.path = process.env.VUE_APP_URL + data.path;
+      const data = this.user;
+      if (!data) {
+        return null;
+      } else {
+        data.roleName = roledName(data.roleId);
+        data.createdAtReformated = reformatedDates(data.createdAt);
+        data.updatedAtReformated = reformatedDates(data.updatedAt);
+        if (data.path) {
+          data.path = process.env.VUE_APP_URL + data.path;
+        }
+        return data;
       }
-      return data;
     },
   },
   watch: {
@@ -328,7 +344,7 @@ export default {
     },
   },
   created() {
-    this.$store.dispatch("setUser", store.getters.currentUser.id);
+    this.$store.dispatch("setUser", this.currentUser.id);
   },
   methods: {
     editItem() {
