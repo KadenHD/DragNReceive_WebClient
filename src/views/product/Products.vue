@@ -288,7 +288,7 @@ export default {
   computed: {
     ...mapGetters(["shop", "currentUser"]),
     productItems: function () {
-      if (!this.products) {
+      if (!this.shop || !this.shop.products) {
         return [];
       } else {
         return this.shop.products.filter(function (i) {
