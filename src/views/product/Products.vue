@@ -6,6 +6,7 @@
       :items-per-page="10"
       :search="search"
       sort-by="createdAtReformated"
+      :sort-desc="true"
       class="elevation-24"
     >
       <template v-slot:[`item.path`]="{ item }">
@@ -36,7 +37,7 @@
             v-if="currentUser.shopId"
             :to="{ name: 'ProductCreate' }"
           >
-            <v-btn color="success" dark class="mb-2">
+            <v-btn id="product-create" color="success" dark class="mb-2">
               Ajouter un produit
             </v-btn>
           </router-link>
@@ -125,7 +126,9 @@
 
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="error" text @click="closeView"> Fermer </v-btn>
+                <v-btn id="closeView" color="error" text @click="closeView">
+                  Fermer
+                </v-btn>
               </v-card-actions>
             </v-card>
           </v-dialog>
@@ -152,6 +155,7 @@
                       ></v-col>
                       <v-col cols="12" sm="6" md="4">
                         <v-text-field
+                          id="name"
                           v-model="currentItem.name"
                           :rules="nameRules"
                           label="Nom"
@@ -161,6 +165,7 @@
                       </v-col>
                       <v-col cols="12" sm="6" md="4">
                         <v-text-field
+                          id="price"
                           v-model="currentItem.price"
                           type="number"
                           :rules="priceRules"
@@ -171,6 +176,7 @@
                       </v-col>
                       <v-col cols="12" sm="6" md="4">
                         <v-text-field
+                          id="stock"
                           v-model="currentItem.stock"
                           type="number"
                           :rules="stockRules"
@@ -181,6 +187,7 @@
                       </v-col>
                       <v-col cols="12" sm="6" md="4">
                         <v-textarea
+                          id="description"
                           v-model="currentItem.description"
                           :rules="descriptionRules"
                           label="Description"
@@ -195,8 +202,10 @@
 
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="error" text @click="closeEdit"> Annuler </v-btn>
-                <v-btn color="primary" text @click="saveEdit">
+                <v-btn id="closeEdit" color="error" text @click="closeEdit">
+                  Annuler
+                </v-btn>
+                <v-btn id="saveEdit" color="primary" text @click="saveEdit">
                   Enregistrer
                 </v-btn>
               </v-card-actions>
@@ -211,8 +220,14 @@
               >
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="error" text @click="closeDelete">Annuler</v-btn>
-                <v-btn color="primary" text @click="deleteItemConfirm()"
+                <v-btn id="closeDelete" color="error" text @click="closeDelete"
+                  >Annuler</v-btn
+                >
+                <v-btn
+                  id="deleteItemConfirm"
+                  color="primary"
+                  text
+                  @click="deleteItemConfirm()"
                   >Supprimer</v-btn
                 >
                 <v-spacer></v-spacer>
@@ -227,13 +242,24 @@
         ></v-text-field>
       </template>
       <template v-slot:[`item.actions`]="{ item }">
-        <v-icon class="mr-2" v-if="!item.deleted" @click="viewItem(item)">
+        <v-icon
+          id="view"
+          class="mr-2"
+          v-if="!item.deleted"
+          @click="viewItem(item)"
+        >
           mdi-eye
         </v-icon>
-        <v-icon class="mr-2" v-if="currentUser.shopId" @click="editItem(item)">
+        <v-icon
+          id="edit"
+          class="mr-2"
+          v-if="currentUser.shopId"
+          @click="editItem(item)"
+        >
           mdi-pencil
         </v-icon>
         <v-icon
+          id="delete"
           class="mr-2"
           v-if="currentUser.shopId"
           @click="deleteItem(item)"
