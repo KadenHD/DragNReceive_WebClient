@@ -13,6 +13,7 @@
           ></v-file-input>
 
           <v-text-field
+            id="name"
             v-model="name"
             :rules="nameRules"
             label="Nom"
@@ -21,6 +22,7 @@
           ></v-text-field>
 
           <v-textarea
+            id="description"
             v-model="description"
             :rules="descriptionRules"
             label="Description"
@@ -29,6 +31,7 @@
           ></v-textarea>
 
           <v-text-field
+            id="price"
             v-model="price"
             type="number"
             :rules="priceRules"
@@ -38,6 +41,7 @@
           ></v-text-field>
 
           <v-text-field
+            id="stock"
             v-model="stock"
             type="number"
             :rules="stockRules"
@@ -48,9 +52,14 @@
         </v-card-text>
         <v-card-actions>
           <router-link :to="{ name: 'MyProducts' }">
-            <v-btn color="error" dark class="mr-4"> Annuler </v-btn>
+            <v-btn id="close" color="error" dark class="mr-4"> Annuler </v-btn>
           </router-link>
-          <v-btn color="success" class="mr-4" @click="submitProductCreateForm">
+          <v-btn
+            id="create"
+            color="success"
+            class="mr-4"
+            @click="submitProductCreateForm"
+          >
             Créer
           </v-btn>
         </v-card-actions>
