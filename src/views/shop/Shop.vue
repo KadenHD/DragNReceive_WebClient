@@ -416,7 +416,6 @@ export default {
     },
     saveEdit() {
       if (this.$refs.formEdit.validate()) {
-        console.log(parseInt(this.currentItem.postal));
         const data = {
           id: this.shopItems.id,
           name: this.currentItem.name,
