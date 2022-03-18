@@ -32,7 +32,11 @@
           <v-divider class="mx-4" inset vertical></v-divider>
           <v-spacer></v-spacer>
 
-          <router-link v-if="currentUser.shopId" :to="{ name: 'TicketCreate' }">
+          <router-link
+            id="ticket-create"
+            v-if="currentUser.shopId"
+            :to="{ name: 'TicketCreate' }"
+          >
             <v-btn id="ticket-create" color="success" dark class="mb-2">
               Créer un ticket
             </v-btn>
@@ -46,8 +50,14 @@
               >
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="error" text @click="closeDelete">Annuler</v-btn>
-                <v-btn color="primary" text @click="deleteItemConfirm()"
+                <v-btn id="closeDelete" color="error" text @click="closeDelete"
+                  >Annuler</v-btn
+                >
+                <v-btn
+                  id="deleteItemConfirm"
+                  color="primary"
+                  text
+                  @click="deleteItemConfirm()"
                   >Supprimer</v-btn
                 >
                 <v-spacer></v-spacer>
@@ -62,8 +72,11 @@
         ></v-text-field>
       </template>
       <template v-slot:[`item.actions`]="{ item }">
-        <v-icon class="mr-2" @click="viewItem(item)"> mdi-eye </v-icon>
+        <v-icon id="viewItem" class="mr-2" @click="viewItem(item)">
+          mdi-eye
+        </v-icon>
         <v-icon
+          id="deleteItem"
           v-if="item.ticketStatusId == 1"
           class="mr-2"
           @click="deleteItem(item)"
@@ -151,7 +164,7 @@ export default {
     },
 
     deleteItem(item) {
-      this.currentIndex = this.userItems.indexOf(item);
+      this.currentIndex = this.ticketItems.indexOf(item);
       this.currentItem = Object.assign({}, item);
       this.dialogDelete = true;
     },
