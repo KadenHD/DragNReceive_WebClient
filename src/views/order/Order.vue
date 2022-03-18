@@ -25,7 +25,10 @@
               cols="12"
               md="4"
             >
-              <v-item v-slot="{ active, toggle }">
+              <v-item
+                v-if="orderItems[0].orderStatusId === '2'"
+                v-slot="{ active, toggle }"
+              >
                 <v-card
                   :color="active ? 'primary' : 'white'"
                   class="d-flex align-center"
@@ -75,13 +78,59 @@
                   </v-scroll-y-transition>
                 </v-card>
               </v-item>
+              <v-card
+                v-else
+                color="white"
+                class="d-flex align-center"
+                dark
+                elevation="24"
+              >
+                <v-row
+                  ><v-col>
+                    <v-img
+                      class="ml-5 mt-5 mb-5"
+                      :src="order.product.path"
+                      :lazy-src="order.product.path"
+                      height="150px"
+                      width="150px"
+                    >
+                      <template v-slot:placeholder>
+                        <v-row
+                          class="fill-height ma-0"
+                          align="center"
+                          justify="center"
+                        >
+                          <v-progress-circular
+                            indeterminate
+                            color="primary"
+                          ></v-progress-circular>
+                        </v-row>
+                      </template> </v-img></v-col
+                  ><v-col>
+                    <p class="TextTitle">
+                      {{ order.product.name }}
+                    </p>
+                    <p class="MainText">
+                      Préparez en {{ order.quantities }} exemplaire(s)
+                    </p>
+                    <p class="title TextLinks">
+                      {{ order.priceEuro }}
+                    </p></v-col
+                  >
+                </v-row>
+              </v-card>
             </v-col>
             <v-col cols="12" md="4">
+              <router-link :to="{ name: 'Orders' }">
+                <v-btn id="goBack" color="error" dark class="mr-5">
+                  Retour
+                </v-btn>
+              </router-link>
               <v-btn
                 v-if="orderItems[0].orderStatusId == '2'"
                 :disabled="disabledButton"
                 :loading="disabledButton"
-                color="error"
+                color="success"
                 @click="status()"
                 >Commande prête</v-btn
               >
@@ -89,7 +138,7 @@
                 v-else-if="orderItems[0].orderStatusId == '3'"
                 :disabled="disabledButton"
                 :loading="disabledButton"
-                color="error"
+                color="success"
                 @click="status()"
                 >Commande récupérée</v-btn
               >
@@ -119,18 +168,22 @@ export default {
   computed: {
     ...mapGetters(["order", "currentUser"]),
     orderItems: function () {
-      return this.order.filter(function (i) {
-        i.priceEuro = i.price + " €";
-        i.product.path = process.env.VUE_APP_URL + i.product.path;
-        i.orderStatusName = orderStatusName(i.orderStatusId);
-        i.createdAtReformated = reformatedDates(i.createdAt);
-        i.updatedAtReformated = reformatedDates(i.updatedAt);
-        i.product.createdAtReformated = reformatedDates(i.product.createdAt);
-        i.product.updatedAtReformated = reformatedDates(i.product.updatedAt);
-        i.user.createdAtReformated = reformatedDates(i.user.createdAt);
-        i.user.updatedAtReformated = reformatedDates(i.user.updatedAt);
-        return i;
-      });
+      if (!this.order) {
+        return null;
+      } else {
+        return this.order.filter(function (i) {
+          i.priceEuro = i.price + " €";
+          i.product.path = process.env.VUE_APP_URL + i.product.path;
+          i.orderStatusName = orderStatusName(i.orderStatusId);
+          i.createdAtReformated = reformatedDates(i.createdAt);
+          i.updatedAtReformated = reformatedDates(i.updatedAt);
+          i.product.createdAtReformated = reformatedDates(i.product.createdAt);
+          i.product.updatedAtReformated = reformatedDates(i.product.updatedAt);
+          i.user.createdAtReformated = reformatedDates(i.user.createdAt);
+          i.user.updatedAtReformated = reformatedDates(i.user.updatedAt);
+          return i;
+        });
+      }
     },
     totalPrice: function () {
       let stock = 0.0;
