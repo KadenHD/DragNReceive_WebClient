@@ -3,6 +3,9 @@
     <v-card class="mx-auto mt-5 mb-5" elevation="24">
       <v-row align="center" justify="center">
         <v-col cols="12" sm="6" md="8">
+          <router-link :to="{ name: 'Tickets' }">
+            <v-btn id="goBack" color="error" dark class="ml-5"> Retour </v-btn>
+          </router-link>
           <v-card
             class="ml-5 mt-5 mb-5 scroll pa-2"
             max-height="800"
@@ -133,7 +136,7 @@
                 prepend-inner-icon="mdi-feather"
                 counter
               ></v-textarea>
-              <v-btn color="success" class="mr-4" @click="submit">
+              <v-btn id="send" color="success" class="mr-4" @click="submit">
                 Envoyer
               </v-btn>
             </v-form>
@@ -152,7 +155,13 @@
               prepend-inner-icon="mdi-feather"
               disabled
             ></v-textarea>
-            <v-btn disabled color="success" class="mr-4" @click="submit">
+            <v-btn
+              id="send"
+              disabled
+              color="success"
+              class="mr-4"
+              @click="submit"
+            >
               Envoyer
             </v-btn>
           </v-card></v-col
@@ -180,20 +189,23 @@ export default {
   },
   computed: {
     ...mapGetters(["currentUser"]),
-
     ticketItems: function () {
       const data = store.getters.ticket;
-      data.createdAtReformated = reformatedDates(data.createdAt);
-      data.updatedAtReformated = reformatedDates(data.updatedAt);
-      for (let i = 0; i < data.messages.length; i++) {
-        data.messages[i].createdAtReformated = reformatedDates(
-          data.messages[i].createdAt
+      if (!data) {
+        return null;
+      } else {
+        data.createdAtReformated = reformatedDates(data.createdAt);
+        data.updatedAtReformated = reformatedDates(data.updatedAt);
+        for (let i = 0; i < data.messages.length; i++) {
+          data.messages[i].createdAtReformated = reformatedDates(
+            data.messages[i].createdAt
+          );
+        }
+        data.messages = data.messages.sort(
+          (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
         );
+        return data;
       }
-      data.messages = data.messages.sort(
-        (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-      );
-      return data;
     },
   },
 
