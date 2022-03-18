@@ -267,8 +267,8 @@
             ? path_url + userItems.shop.path
             : 'assets/img/default.svg'
         "
-        height="200px"
-        width="200px"
+        max-height="200px"
+        max-width="200px"
       >
         <template v-slot:placeholder>
           <v-row class="fill-height ma-0" align="center" justify="center">
