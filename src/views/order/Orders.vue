@@ -30,11 +30,11 @@
           <v-toolbar-title>Mes commandes</v-toolbar-title>
           <v-divider class="mx-4" inset vertical></v-divider>
         </v-toolbar>
-        <v-btn plain @click="searchOrders(1)">Validée</v-btn>
-        <v-btn plain @click="searchOrders(2)">En cours</v-btn>
-        <v-btn plain @click="searchOrders(3)">Disponible</v-btn>
-        <v-btn plain @click="searchOrders(4)">Récupérée</v-btn>
-        <v-btn plain @click="searchOrders(5)">Annulée</v-btn>
+        <v-btn id="Validate" plain @click="searchOrders(1)">Validée</v-btn>
+        <v-btn id="InProgress" plain @click="searchOrders(2)">En cours</v-btn>
+        <v-btn id="Available" plain @click="searchOrders(3)">Disponible</v-btn>
+        <v-btn id="Collected" plain @click="searchOrders(4)">Récupérée</v-btn>
+        <v-btn id="Canceled" plain @click="searchOrders(5)">Annulée</v-btn>
         <v-text-field
           v-model="search"
           label="Chercher une commande"
