@@ -117,6 +117,7 @@
               <v-row>
                 <v-col cols="12" sm="6" md="4">
                   <v-text-field
+                    id="lastname"
                     v-model="currentItem.lastname"
                     :rules="lastNameRules"
                     label="Nom"
@@ -126,6 +127,7 @@
                 </v-col>
                 <v-col cols="12" sm="6" md="4">
                   <v-text-field
+                    id="firstname"
                     v-model="currentItem.firstname"
                     :rules="firstNameRules"
                     label="Prénom"
@@ -135,6 +137,7 @@
                 </v-col>
                 <v-col cols="12" sm="6" md="4">
                   <v-text-field
+                    id="email"
                     v-model="currentItem.email"
                     :rules="emailRules"
                     label="E-mail"
