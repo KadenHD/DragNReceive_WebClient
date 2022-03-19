@@ -122,7 +122,7 @@
               </v-card>
             </v-col>
             <v-col cols="12" md="4">
-              <router-link :to="{ name: 'Orders' }">
+              <router-link id="goBack" :to="{ name: 'Orders' }">
                 <v-btn id="goBack" color="error" dark class="mr-5">
                   Retour
                 </v-btn>
