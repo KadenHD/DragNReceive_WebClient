@@ -5,14 +5,15 @@
         <v-card-title>Ajouter une boutique </v-card-title>
         <v-card-text>
           <v-text-field
+            id="name"
             v-model="name"
             :rules="nameRules"
             label="Nom"
             prepend-inner-icon="mdi-store"
             counter
           ></v-text-field>
-
           <v-text-field
+            id="email"
             v-model="email"
             :rules="emailRules"
             label="E-mail"
@@ -21,10 +22,15 @@
           ></v-text-field>
         </v-card-text>
         <v-card-actions>
-          <router-link :to="{ name: 'Shops' }">
-            <v-btn color="error" dark class="mr-4"> Annuler </v-btn>
+          <router-link id="close" :to="{ name: 'Shops' }">
+            <v-btn id="close" color="error" dark class="mr-4"> Annuler </v-btn>
           </router-link>
-          <v-btn color="success" class="mr-4" @click="submitShopCreateForm">
+          <v-btn
+            id="save"
+            color="success"
+            class="mr-4"
+            @click="submitShopCreateForm"
+          >
             Créer
           </v-btn>
         </v-card-actions>
