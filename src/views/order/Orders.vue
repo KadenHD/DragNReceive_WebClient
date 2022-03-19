@@ -79,7 +79,9 @@
         {{ item.user.email }}
       </template>
       <template v-slot:[`item.actions`]="{ item }">
-        <v-icon class="mr-2" @click="viewItem(item)"> mdi-eye </v-icon>
+        <v-icon id="viewItem" class="mr-2" @click="viewItem(item)">
+          mdi-eye
+        </v-icon>
       </template>
     </v-data-table>
   </div>
