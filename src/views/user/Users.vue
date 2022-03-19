@@ -31,8 +31,8 @@
           <v-divider class="mx-4" inset vertical></v-divider>
           <v-spacer></v-spacer>
 
-          <router-link :to="{ name: 'UserCreate' }">
-            <v-btn color="success" dark class="mb-2">
+          <router-link id="user-create" :to="{ name: 'UserCreate' }">
+            <v-btn id="user-create" color="success" dark class="mb-2">
               Ajouter un utilisateur
             </v-btn>
           </router-link>
@@ -137,7 +137,9 @@
 
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="error" text @click="closeView"> Fermer </v-btn>
+                <v-btn id="closeView" color="error" text @click="closeView">
+                  Fermer
+                </v-btn>
               </v-card-actions>
             </v-card>
           </v-dialog>
@@ -155,6 +157,7 @@
                     <v-row>
                       <v-col cols="12" sm="6" md="4">
                         <v-text-field
+                          id="lastname"
                           v-model="currentItem.lastname"
                           :rules="lastNameRules"
                           label="Nom"
@@ -164,6 +167,7 @@
                       </v-col>
                       <v-col cols="12" sm="6" md="4">
                         <v-text-field
+                          id="firstname"
                           v-model="currentItem.firstname"
                           :rules="firstNameRules"
                           label="Prénom"
@@ -173,6 +177,7 @@
                       </v-col>
                       <v-col cols="12" sm="6" md="4">
                         <v-text-field
+                          id="email"
                           v-model="currentItem.email"
                           :rules="emailRules"
                           label="E-mail"
@@ -187,8 +192,10 @@
 
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="error" text @click="closeEdit"> Annuler </v-btn>
-                <v-btn color="primary" text @click="saveEdit">
+                <v-btn id="closeEdit" color="error" text @click="closeEdit">
+                  Annuler
+                </v-btn>
+                <v-btn id="saveEdit" color="primary" text @click="saveEdit">
                   Enregistrer
                 </v-btn>
               </v-card-actions>
@@ -203,8 +210,14 @@
               >
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="error" text @click="closeDelete">Annuler</v-btn>
-                <v-btn color="primary" text @click="deleteItemConfirm()"
+                <v-btn id="closeDelete" color="error" text @click="closeDelete"
+                  >Annuler</v-btn
+                >
+                <v-btn
+                  id="deleteItemConfirm"
+                  color="primary"
+                  text
+                  @click="deleteItemConfirm()"
                   >Supprimer</v-btn
                 >
                 <v-spacer></v-spacer>
@@ -219,9 +232,14 @@
         ></v-text-field>
       </template>
       <template v-slot:[`item.actions`]="{ item }">
-        <v-icon class="mr-2" @click="viewItem(item)"> mdi-eye </v-icon>
-        <v-icon class="mr-2" @click="editItem(item)"> mdi-pencil </v-icon>
+        <v-icon id="viewItem" class="mr-2" @click="viewItem(item)">
+          mdi-eye
+        </v-icon>
+        <v-icon id="editItem" class="mr-2" @click="editItem(item)">
+          mdi-pencil
+        </v-icon>
         <v-icon
+          id="deleteItem"
           class="mr-2"
           v-if="currentUser.roleId == '1' && item.roleId != '1'"
           @click="deleteItem(item)"
