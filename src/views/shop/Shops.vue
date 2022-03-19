@@ -33,8 +33,8 @@
           <v-divider class="mx-4" inset vertical></v-divider>
           <v-spacer></v-spacer>
 
-          <router-link :to="{ name: 'ShopCreate' }">
-            <v-btn color="success" dark class="mb-2">
+          <router-link id="shop-create" :to="{ name: 'ShopCreate' }">
+            <v-btn id="shop-create" color="success" dark class="mb-2">
               Ajouter une boutique
             </v-btn>
           </router-link>
@@ -47,8 +47,14 @@
               >
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="error" text @click="closeDelete">Annuler</v-btn>
-                <v-btn color="primary" text @click="deleteItemConfirm()"
+                <v-btn id="closeDelete" color="error" text @click="closeDelete"
+                  >Annuler</v-btn
+                >
+                <v-btn
+                  id="deleteItemConfirm"
+                  color="primary"
+                  text
+                  @click="deleteItemConfirm()"
                   >Supprimer</v-btn
                 >
                 <v-spacer></v-spacer>
@@ -63,10 +69,16 @@
         ></v-text-field>
       </template>
       <template v-slot:[`item.actions`]="{ item }">
-        <v-icon v-if="!item.deleted" class="mr-2" @click="viewItem(item)">
+        <v-icon
+          id="viewItem"
+          v-if="!item.deleted"
+          class="mr-2"
+          @click="viewItem(item)"
+        >
           mdi-eye
         </v-icon>
         <v-icon
+          id="deleteItem"
           v-if="!item.deleted && currentUser.roleId == '1'"
           class="mr-2"
           @click="deleteItem(item)"
