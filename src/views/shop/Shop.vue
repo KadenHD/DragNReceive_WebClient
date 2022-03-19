@@ -2,6 +2,12 @@
   <div class="Shop">
     <v-card class="mx-auto mt-5 mb-5" max-width="1800" elevation="24">
       <v-card-text>
+        <router-link
+          v-if="currentUser.roleId == '1' || currentUser.roleId == '2'"
+          :to="{ name: 'Shops' }"
+        >
+          <v-btn id="goBack" color="error" dark class="mr-5"> Retour </v-btn>
+        </router-link>
         <p class="TextTitle title text-center">
           {{ shopItems.name }}
           <v-icon
