@@ -12,7 +12,7 @@
             no-action
           >
             <template v-slot:activator>
-              <v-list-item-content>
+              <v-list-item-content :id="item.id">
                 <v-list-item-title v-text="item.title"></v-list-item-title>
               </v-list-item-content>
             </template>
@@ -26,7 +26,10 @@
                 >
               </v-list-item-icon>
               <v-list-item-content v-if="child.title">
-                <router-link :to="{ name: 'About' + child.path }">
+                <router-link
+                  :id="child.path"
+                  :to="{ name: 'About' + child.path }"
+                >
                   {{ child.title }}
                 </router-link>
               </v-list-item-content>
@@ -44,6 +47,7 @@ export default {
     return {
       items: [
         {
+          id: "Company",
           title: "L'Entreprise",
           action: "mdi-domain",
           items: [
@@ -53,6 +57,7 @@ export default {
           ],
         },
         {
+          id: "Help",
           title: "Besoin d'aide",
           action: "mdi-handshake-outline",
           items: [
@@ -61,6 +66,7 @@ export default {
           ],
         },
         {
+          id: "Buy",
           title: "Acheter dans nos boutiques",
           action: "mdi-cart-arrow-down",
           items: [
@@ -69,6 +75,7 @@ export default {
           ],
         },
         {
+          id: "Social",
           title: "Nous suivre",
           action: "mdi-thumb-up-outline",
           items: [
