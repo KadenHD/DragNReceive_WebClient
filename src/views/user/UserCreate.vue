@@ -5,6 +5,7 @@
         <v-card-title>Ajouter un utilisateur </v-card-title>
         <v-card-text>
           <v-select
+            id="role"
             @input="updateShop"
             v-model="roleId"
             :rules="roleRules"
@@ -12,8 +13,8 @@
             label="Rôle"
             prepend-inner-icon="mdi-shield-crown"
           />
-
           <v-select
+            id="shop"
             v-if="roleId == '3'"
             v-model="shopId"
             :rules="shopRules"
@@ -21,24 +22,24 @@
             label="Boutique"
             prepend-inner-icon="mdi-store"
           />
-
           <v-text-field
+            id="lastname"
             v-model="lastname"
             :rules="lastNameRules"
             label="Nom"
             prepend-inner-icon="mdi-human-capacity-decrease"
             counter
           ></v-text-field>
-
           <v-text-field
+            id="firstname"
             v-model="firstname"
             :rules="firstNameRules"
             label="Prénom"
             prepend-inner-icon="mdi-human-male"
             counter
           ></v-text-field>
-
           <v-text-field
+            id="email"
             v-model="email"
             :rules="emailRules"
             label="E-mail"
@@ -47,10 +48,15 @@
           ></v-text-field>
         </v-card-text>
         <v-card-actions>
-          <router-link :to="{ name: 'Users' }">
-            <v-btn color="error" dark class="mr-4"> Annuler </v-btn>
+          <router-link id="cancel" :to="{ name: 'Users' }">
+            <v-btn id="cancel" color="error" dark class="mr-4"> Annuler </v-btn>
           </router-link>
-          <v-btn color="success" class="mr-4" @click="submitUserCreateForm">
+          <v-btn
+            id="save"
+            color="success"
+            class="mr-4"
+            @click="submitUserCreateForm"
+          >
             Créer
           </v-btn>
         </v-card-actions>
