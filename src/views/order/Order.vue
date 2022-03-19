@@ -26,6 +26,7 @@
               md="4"
             >
               <v-item
+                id="card"
                 v-if="orderItems[0].orderStatusId === '2'"
                 v-slot="{ active, toggle }"
               >
@@ -127,6 +128,7 @@
                 </v-btn>
               </router-link>
               <v-btn
+                id="update"
                 v-if="orderItems[0].orderStatusId == '2'"
                 :disabled="disabledButton"
                 :loading="disabledButton"
@@ -135,6 +137,7 @@
                 >Commande prête</v-btn
               >
               <v-btn
+                id="update"
                 v-else-if="orderItems[0].orderStatusId == '3'"
                 :disabled="disabledButton"
                 :loading="disabledButton"
