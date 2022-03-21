@@ -2,7 +2,7 @@ import Tickets from '@/views/ticket/Tickets.vue';
 import Ticket from '@/views/ticket/Ticket.vue';
 import TicketCreate from '@/views/ticket/TicketCreate.vue';
 
-import { isLogged, isPartner } from '@/functions/beforeEnter.js';
+import { isLogged, isPartner } from '@/utils/beforeEnter.js';
 
 export default [
     {

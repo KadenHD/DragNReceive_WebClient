@@ -75,7 +75,7 @@ import {
   descriptionRules,
   priceRules,
   stockRules,
-} from "@/functions/inputRules.js";
+} from "@/utils/inputRules.js";
 
 export default {
   data() {

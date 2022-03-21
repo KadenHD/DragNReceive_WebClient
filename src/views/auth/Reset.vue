@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import { passwordRules } from "@/functions/inputRules.js";
+import { passwordRules } from "@/utils/inputRules.js";
 
 export default {
   data() {

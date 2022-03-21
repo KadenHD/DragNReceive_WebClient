@@ -324,8 +324,8 @@ import {
   cityRules,
   streetRules,
   postalRules,
-} from "@/functions/inputRules.js";
-import { reformatedDates } from "@/functions/index.js";
+} from "@/utils/inputRules.js";
+import { reformatedDates } from "@/utils/index.js";
 export default {
   data() {
     return {

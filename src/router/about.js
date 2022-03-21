@@ -8,7 +8,7 @@ import Join from '@/views/about/help/Join.vue';
 import Partner from '@/views/about/buy/Partner.vue';
 import Download from '@/views/about/buy/Download.vue';
 
-import { isNotLogged } from '@/functions/beforeEnter.js';
+import { isNotLogged } from '@/utils/beforeEnter.js';
 
 export default [
     {

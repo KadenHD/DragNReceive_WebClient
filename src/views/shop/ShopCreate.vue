@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import { nameRules, emailRules } from "@/functions/inputRules.js";
+import { nameRules, emailRules } from "@/utils/inputRules.js";
 
 export default {
   data() {

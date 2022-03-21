@@ -2,7 +2,7 @@ import Shops from '@/views/shop/Shops.vue';
 import ShopCreate from '@/views/shop/ShopCreate.vue';
 import Shop from '@/views/shop/Shop.vue';
 
-import { isAdminOrSadmin, isPartner } from '@/functions/beforeEnter.js';
+import { isAdminOrSadmin, isPartner } from '@/utils/beforeEnter.js';
 
 export default [
     {

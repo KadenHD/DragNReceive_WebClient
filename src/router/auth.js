@@ -4,7 +4,7 @@ import ForgotSuccess from '@/views/auth/ForgotSuccess.vue';
 import Reset from '@/views/auth/Reset.vue';
 import Dashboard from '@/views/Dashboard.vue';
 
-import { isNotLogged, isSadmin, isAdmin, isPartner } from '@/functions/beforeEnter.js';
+import { isNotLogged, isSadmin, isAdmin, isPartner } from '@/utils/beforeEnter.js';
 
 export default [
     {

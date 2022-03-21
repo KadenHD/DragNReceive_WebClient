@@ -174,8 +174,8 @@
 <script>
 import { mapGetters } from "vuex";
 import store from "@/store";
-import { contentRules } from "@/functions/inputRules.js";
-import { reformatedDates } from "@/functions/index.js";
+import { contentRules } from "@/utils/inputRules.js";
+import { reformatedDates } from "@/utils/index.js";
 
 export default {
   data() {

@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import { titleRules, contentRules } from "@/functions/inputRules.js";
+import { titleRules, contentRules } from "@/utils/inputRules.js";
 
 export default {
   data() {

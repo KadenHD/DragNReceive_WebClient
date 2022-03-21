@@ -297,8 +297,8 @@ import {
   emailRules,
   passwordRules,
   photoRules,
-} from "@/functions/inputRules.js";
-import { roledName, reformatedDates } from "@/functions/index.js";
+} from "@/utils/inputRules.js";
+import { roledName, reformatedDates } from "@/utils/index.js";
 
 export default {
   data() {

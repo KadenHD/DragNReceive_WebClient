@@ -13,7 +13,7 @@ import shopRouter from './shop.js';
 import ticketRouter from './ticket.js';
 import userRouter from './user.js';
 
-import { homeRedirections, isLogged } from '@/functions/beforeEnter.js';
+import { homeRedirections, isLogged } from '@/utils/beforeEnter.js';
 
 Vue.use(VueRouter);
 

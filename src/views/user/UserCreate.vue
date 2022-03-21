@@ -73,7 +73,7 @@ import {
   firstNameRules,
   lastNameRules,
   emailRules,
-} from "@/functions/inputRules.js";
+} from "@/utils/inputRules.js";
 
 export default {
   created() {

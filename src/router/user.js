@@ -1,7 +1,7 @@
 import Users from '@/views/user/Users.vue';
 import UserCreate from '@/views/user/UserCreate.vue';
 
-import { isAdminOrSadmin } from '@/functions/beforeEnter.js';
+import { isAdminOrSadmin } from '@/utils/beforeEnter.js';
 
 export default [
     {

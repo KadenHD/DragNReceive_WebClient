@@ -92,7 +92,7 @@
 
 <script>
 import { mapGetters } from "vuex";
-import { reformatedDates } from "@/functions/index.js";
+import { reformatedDates } from "@/utils/index.js";
 
 export default {
   data() {

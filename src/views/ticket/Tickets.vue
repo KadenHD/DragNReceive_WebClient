@@ -91,7 +91,7 @@
 <script>
 import store from "@/store";
 import { mapGetters } from "vuex";
-import { statusName, roledName, reformatedDates } from "@/functions/index.js";
+import { statusName, roledName, reformatedDates } from "@/utils/index.js";
 
 export default {
   data() {

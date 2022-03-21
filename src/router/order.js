@@ -1,7 +1,7 @@
 import Orders from '@/views/order/Orders.vue';
 import Order from '@/views/order/Order.vue';
 
-import { isPartner } from '@/functions/beforeEnter.js';
+import { isPartner } from '@/utils/beforeEnter.js';
 
 export default [
     {

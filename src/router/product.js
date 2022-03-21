@@ -1,7 +1,7 @@
 import Products from '@/views/product/Products.vue';
 import ProductCreate from '@/views/product/ProductCreate.vue';
 
-import { isAdminOrSadmin, isPartner } from '@/functions/beforeEnter.js';
+import { isAdminOrSadmin, isPartner } from '@/utils/beforeEnter.js';
 
 export default [
     {
