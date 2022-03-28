@@ -7,7 +7,7 @@
         Nous rectrutons activement des partenaire et avec le développement de
         notre société nous nécessitons de plus en plus de personnel. Pour nous
         rejoindre, que ce soit en tant que partenaire ou bien au sein de la
-        société DragN'Receive, nous vous laissons nous addresser par mail votre
+        société DragN'Receive, nous vous laissons nous adresser par mail votre
         motivation. Nous vous recontacterons par la suite et vous donnerons les
         directives à suivre. Pour obtenir nos coordonnées nous vous laissons
         vous rendre dans l'onglet
