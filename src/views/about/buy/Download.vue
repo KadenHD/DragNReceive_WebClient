@@ -6,7 +6,7 @@
     <v-divider class="mr-2 ml-2" inset></v-divider>
     <v-container>
       <v-carousel v-model="model" cycle show-arrows-on-hover>
-        <v-carousel-item v-for="slide in slides" :key="slide">
+        <v-carousel-item v-for="slide in slides" :key="slide.title">
           <v-sheet height="100%" tile>
             <v-container>
               <v-row class="slideContent">
