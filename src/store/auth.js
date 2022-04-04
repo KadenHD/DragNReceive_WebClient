@@ -73,7 +73,6 @@ export default {
         },
         clearAll(context) {
             context.commit("alert", {});
-            context.dispatch("success", null);
             context.dispatch("users", null);
             context.dispatch("user", null);
             context.dispatch("shop", null);
