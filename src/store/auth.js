@@ -11,12 +11,12 @@ export default {
     actions: {
         currentUser(context, currentUser) { context.commit('currentUser', currentUser); },
         setCurrentUser(context) {
-            if (localStorage.getItem('token')) {
+            if (localStorage.getItem('dragnreceive-web-token')) {
                 axios.get("currentUser")
                     .then((response) => {
                         context.dispatch("currentUser", response.data.currentUser);
                         if (!response.data.currentUser) {
-                            localStorage.removeItem("token");
+                            localStorage.removeItem("dragnreceive-web-token");
                         }
                     })
                     .catch(() => {
@@ -28,7 +28,7 @@ export default {
             axios
                 .post("loginUser", data)
                 .then((response) => {
-                    localStorage.setItem("token", response.data.token);
+                    localStorage.setItem("dragnreceive-web-token", response.data.token);
                     context.dispatch("currentUser", response.data.user);
                     if (response.data.user.roleId == "1") {
                         router.go({ name: "Sadmin" });
@@ -44,7 +44,7 @@ export default {
         },
         logout(context) {
             context.commit('currentUser', null);
-            localStorage.removeItem("token");
+            localStorage.removeItem("dragnreceive-web-token");
             context.commit('clearAll');
             router.go({ name: "Home" });
         },
