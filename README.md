@@ -49,7 +49,7 @@
     
 # Introduction
     
-The DragN'Receive company wishes to create a click & collect system across the entire Compiègne conurbation, having as partners markets and businesses mainly focused on the sale of foodstuffs and consumer products. They are therefore considering the creation of a mobile application allowing customers to orders products.
+The DragN'Receive company wishes to create a click & collect system across the entire Compiègne conurbation, having as partners markets and businesses mainly focused on the sale of foodstuffs and consumer products. Using a single page web application to manage the partners and products. They are therefore considering the creation of a mobile application allowing customers to orders products.
     
 # Installation
 
