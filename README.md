@@ -102,6 +102,11 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 # To-do
 - 
 
+# Améliorations potentielles
+
+- Ajout dans les options du profile le changement de mode light / dark (thèmes)
+- Ajout de skeletton loaders
+
 # Documentations
 
 - Material Design Icons (MDI), open-source icons : [Link](https://materialdesignicons.com/)
